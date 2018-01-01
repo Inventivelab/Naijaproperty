@@ -18,7 +18,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -34,8 +34,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :test do
+  gem 'capybara', '~> 2.15', '>= 2.15.4'
 end
 
 group :development do
@@ -45,7 +50,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard', '~> 2.14', '>= 2.14.1'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'guard-cucumber', '~> 2.1', '>= 2.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+gem 'devise', '~> 4.4'
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
