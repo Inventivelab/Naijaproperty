@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102153620) do
+ActiveRecord::Schema.define(version: 20180103041742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,35 @@ ActiveRecord::Schema.define(version: 20180102153620) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "listing_title"
+    t.string "listing_type"
+    t.string "property_type"
+    t.text "description"
+    t.integer "bedroom"
+    t.integer "bathroom"
+    t.string "year_built"
+    t.string "rent_price"
+    t.string "price"
+    t.string "short_stay_price"
+    t.string "garage_size"
+    t.string "number_of_floors"
+    t.string "square_feet"
+    t.string "location"
+    t.string "property_features"
+    t.string "lot_features"
+    t.string "community_features"
+    t.string "parking_type"
+    t.string "video_url"
+    t.boolean "active"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_listings_on_slug", unique: true
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +90,5 @@ ActiveRecord::Schema.define(version: 20180102153620) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "listings", "users"
 end

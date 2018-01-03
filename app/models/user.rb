@@ -5,8 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
 
-   validates :first_name, presence: true, length:{maximum: 20}
-   validates :last_name, presence: true,  length:{maximum: 20}
+  has_many :listings
+  
+  validates :first_name, presence: true, length:{maximum: 20}
+  validates :last_name, presence: true,  length:{maximum: 20}
 
    extend FriendlyId
    friendly_id :slug_users, use: :slugged
