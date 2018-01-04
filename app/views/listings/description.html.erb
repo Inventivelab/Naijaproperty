@@ -1,2 +1,43 @@
-<h1>Listings#description</h1>
-<p>Find me in app/views/listings/description.html.erb</p>
+<div class="container">
+  <div class="row justify-content-md-center listing-new">
+    <div class="col-md-11">
+      <div class=" card card-default">
+        <div class="card-header text-center">
+          <span class="listing-title">Add Your Listing</span>
+        </div>
+        <div class="card-body">
+          <div class="container-flow">
+            <div class="listing-nav-menu">
+              <%= render 'listing_nav' %>
+            </div>
+            <%= form_for @listing do |f| %>
+              <div class="row">
+                <!-- <div class="col-md-12 form-group">
+                  <label>Listing Title</label>
+                  <%= f.text_field :listing_title, placeholder: "Give your Listing a title", class: "form-control", required: true %>
+                </div> -->
+                <div class="col-md-12 form-group input-text ">
+                  <label>Price</label>
+                  <%= f.text_field :price, placeholder: "$200", class: "form-control", required: true %>
+                </div>
+                <div class="col-md-12 form-group input-text">
+                  <label>Address</label>
+                  <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
+                </div>
+                <div class="col-md-12 form-group input-text">
+                  <label>Listing Description</label>
+                  <%= f.text_area :description, placeholder: "Brief description of your listing", rows: 10, cols: 45, class: "form-control", required: true %>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Save", class: "btn btn-form" %>
+                </div>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>

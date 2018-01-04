@@ -335,7 +335,30 @@ form-group .input-text {
   height: 200px;
 }
 
-// ROOM SHOW
+// Listing
+.listing-new{
+  margin-top: 30px;
+}
+
+.listing-title{
+  font-size: 1.6rem;
+}
+
+.listing-sub-heading{
+  width: 100%;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  background: #e4efee;
+  color: black;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.required-aesterik{
+  font-size: 1.1rem;
+  color: red;
+  padding: 5px 2px;
+}
 .amenities li {
   margin-bottom: 10px;
   font-size: 16px;

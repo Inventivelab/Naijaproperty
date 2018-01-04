@@ -1,0 +1,46 @@
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <%= link_to "Property Information", listing_listing_path, class: "sidebar-link nav-link text-flister active" %>
+    <!-- <span class="float-right text-flister"><i class="fa fa-check"></i></span> -->
+  </li>
+  <!-- <li class="nav-item">
+    <% price_ready = !@listing.price.blank? %>
+    <% if @listing.price.blank? %>
+
+      <%= link_to "Pricing", pricing_listing_path, class: "sidebar-link nav-link disabled", disabled: !price_ready %>
+    <% else %>
+      <%= link_to "Pricing", pricing_listing_path, class: "sidebar-link nav-link text-flister active" %>
+      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if @listing.location.blank? %>
+      <%= link_to "Location", location_listing_path, class: "sidebar-link nav-link disabled" %>
+    <% else %>
+      <%= link_to "Location", location_listing_path, class: "sidebar-link nav-link active" %>
+      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li> -->
+  <li class="nav-item">
+    <% if @listing.description.blank? %>
+      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link disabled" %>
+    <% else %>
+      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link active" %>
+      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if @listing.price.blank? %>
+      <%= link_to "Photos & Video", photo_upload_listing_path, class: "sidebar-link nav-link disabled" %>
+    <% else %>
+      <%= link_to "Photos & Video", photo_upload_listing_path, class: "sidebar-link nav-link active" %>
+      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Features", features_listing_path, class: "sidebar-link nav-link text-flister active" %>
+    <!-- <span class="float-right text-flister"><i class="fa fa-check"></i></span> -->
+
+  </li>
+
+</ul>

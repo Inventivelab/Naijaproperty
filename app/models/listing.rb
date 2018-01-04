@@ -1,6 +1,8 @@
 class Listing < ApplicationRecord
   belongs_to :user
 
+  validates :listing_type, presence: true
+
   extend FriendlyId
   friendly_id :slug_listings, use: :slugged
 
@@ -12,7 +14,7 @@ class Listing < ApplicationRecord
        [:listing_title, :property_type, :listing_type, :bedroom],
        [:listing_title, :property_type, :listing_type, :bedroom, :bathroom],
        [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built],
-       [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built, :address]
+       [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built, :location]
      ]
    end
 end
