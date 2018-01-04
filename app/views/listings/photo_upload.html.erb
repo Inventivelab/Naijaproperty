@@ -1,2 +1,44 @@
-<h1>Listings#photo_upload</h1>
-<p>Find me in app/views/listings/photo_upload.html.erb</p>
+<div class="container">
+  <div class="row justify-content-md-center listing-new">
+    <div class="col-md-11">
+      <div class=" card card-default">
+        <div class="card-header text-center">
+          <span class="listing-title">Add Your Listing</span>
+        </div>
+        <div class="card-body">
+          <div class="container-flow">
+            <div class="listing-nav-menu">
+              <%= render 'listing_nav' %>
+            </div>
+            <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true} do |f| %>
+                <div class="form-group upload-btn">
+                  <span class="btn btn-secondary btn-file text-flister">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Select Photos
+                    <%= file_field_tag "images[]", class: "dropzone", type: :file, multiple: true %>
+                  </span>
+                </div>
+                <div class="text-center">
+                  <%= f.submit "Upload", class: "btn btn-form" %>
+                </div>
+              </div>
+            <% end %>
+            <div id="photos"><%= render 'photos/uploaded_photos' %></div><br>
+
+            <div class="row justify-content-md-center">
+              <div class="col-md-5">
+                <% if !@listing.active && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
+
+                  <%= form_for @listing do |f| %>
+                    <%= f.hidden_field :active, value: true %>
+                    <%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-publish btn-block" %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

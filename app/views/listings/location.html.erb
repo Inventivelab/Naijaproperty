@@ -12,15 +12,23 @@
             </div>
             <%= form_for @listing do |f| %>
               <div class="row">
-                <div class="col-md-12 form-group input-text">
+                <div class="col-md-12 form-group">
                   <label>Address</label>
-                  <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
+                  <%= f.text_field :location, placeholder: "What is your address?", class: "form-control", id: "auto_address", required: true %>
                 </div>
               </div>
               <div class="text-center">
                 <%= f.submit "Save", class: "btn btn-form" %>
               </div>
             <% end %>
+            <% if !@listing.active && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
+
+              <%= form_for @listing do |f| %>
+                <%= f.hidden_field :active, value: true %>
+                <%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-normal btn-block" %>
+              <% end %>
+            <% end %>
+
         </div>
       </div>
     </div>

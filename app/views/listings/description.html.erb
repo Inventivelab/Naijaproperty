@@ -11,14 +11,20 @@
               <%= render 'listing_nav' %>
             </div>
             <%= form_for @listing do |f| %>
-              <div class="row">
-                <!-- <div class="col-md-12 form-group">
-                  <label>Listing Title</label>
-                  <%= f.text_field :listing_title, placeholder: "Give your Listing a title", class: "form-control", required: true %>
-                </div> -->
+              <div class="row ">
                 <div class="col-md-12 form-group input-text ">
-                  <label>Price</label>
-                  <%= f.text_field :price, placeholder: "$200", class: "form-control", required: true %>
+                  <% if @listing.listing_type == "For Sale"%>
+                    <label>Price</label>
+                    <%= f.text_field :price, placeholder: "$200", class: "form-control", required: true %>
+                  <% end %>
+                  <% if @listing.listing_type == "For Rent"%>
+                    <label>Rent Price Per Year</label>
+                    <%= f.text_field :rent_price, placeholder: "$200", class: "form-control", required: true %>
+                  <% end %>
+                  <% if @listing.listing_type == "Short Stay"%>
+                    <label>Rent Price Per Day</label>
+                    <%= f.text_field :short_stay_price, placeholder: "$200", class: "form-control", required: true %>
+                  <% end %>
                 </div>
                 <div class="col-md-12 form-group input-text">
                   <label>Address</label>
@@ -28,16 +34,14 @@
                   <label>Listing Description</label>
                   <%= f.text_area :description, placeholder: "Brief description of your listing", rows: 10, cols: 45, class: "form-control", required: true %>
                 </div>
-                <div class="text-center">
-                  <%= f.submit "Save", class: "btn btn-form" %>
-                </div>
+              </div>
+              <div class="text-center">
+                <%= f.submit "Save", class: "btn btn-form" %>
               </div>
             <% end %>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-</div>
-
 </div>

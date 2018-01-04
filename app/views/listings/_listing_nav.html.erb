@@ -1,46 +1,31 @@
 <ul class="nav justify-content-center">
   <li class="nav-item">
-    <%= link_to "Property Information", listing_listing_path, class: "sidebar-link nav-link text-flister active" %>
-    <!-- <span class="float-right text-flister"><i class="fa fa-check"></i></span> -->
-  </li>
-  <!-- <li class="nav-item">
-    <% price_ready = !@listing.price.blank? %>
-    <% if @listing.price.blank? %>
-
-      <%= link_to "Pricing", pricing_listing_path, class: "sidebar-link nav-link disabled", disabled: !price_ready %>
-    <% else %>
-      <%= link_to "Pricing", pricing_listing_path, class: "sidebar-link nav-link text-flister active" %>
-      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
-    <% end %>
+    <%= link_to "Property Information", listing_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
   </li>
   <li class="nav-item">
-    <% if @listing.location.blank? %>
-      <%= link_to "Location", location_listing_path, class: "sidebar-link nav-link disabled" %>
-    <% else %>
-      <%= link_to "Location", location_listing_path, class: "sidebar-link nav-link active" %>
-      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
-    <% end %>
-  </li> -->
+    <%= link_to "Features", features_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
+  </li>
   <li class="nav-item">
     <% if @listing.description.blank? %>
       <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link disabled" %>
     <% else %>
-      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link active" %>
-      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
     <% end %>
   </li>
   <li class="nav-item">
-    <% if @listing.price.blank? %>
+    <% if @listing.photos.blank? %>
       <%= link_to "Photos & Video", photo_upload_listing_path, class: "sidebar-link nav-link disabled" %>
     <% else %>
-      <%= link_to "Photos & Video", photo_upload_listing_path, class: "sidebar-link nav-link active" %>
-      <span class="float-right text-flister"><i class="fa fa-check"></i></span>
+      <%= link_to "Photos & Video", photo_upload_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
     <% end %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Features", features_listing_path, class: "sidebar-link nav-link text-flister active" %>
-    <!-- <span class="float-right text-flister"><i class="fa fa-check"></i></span> -->
 
-  </li>
+  <% if !@listing.active && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
 
-</ul>
+    <%= form_for @listing do |f| %>
+      <%= f.hidden_field :active, value: true %>
+      <li><%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-publish btn-block" %></li>
+    <% end %>
+  <% end %>
+
+</ul><br>

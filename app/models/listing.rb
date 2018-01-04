@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
+  has_many :photos
 
   validates :listing_type, presence: true
 
@@ -17,4 +18,12 @@ class Listing < ApplicationRecord
        [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built, :location]
      ]
    end
+
+   def backgroud_image(size)
+      if self.photos.length > 0
+        self.photos[0].image.url(size)
+      else
+        "listings-blank.jpg"
+      end
+    end
 end
