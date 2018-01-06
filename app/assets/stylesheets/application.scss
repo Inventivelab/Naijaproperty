@@ -1,7 +1,8 @@
  @import "bootstrap";
  @import "font-awesome";
  @import "toastr";
-
+ @import 'slick';
+ @import 'slick-theme';
 
  body {
   color: #565a5c;
@@ -362,6 +363,9 @@ form-group .input-text {
   color: black;
   font-size: 1.1rem;
   margin-bottom: 20px;
+}
+.listing_tab{
+  margin-bottom: 10px;
 }
 .required-aesterik{
   font-size: 1.1rem;

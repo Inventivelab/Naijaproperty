@@ -10,29 +10,40 @@
             <div class="listing-nav-menu">
               <%= render 'listing_nav' %>
             </div>
+            <div class="listing-sub-heading">
+              Fields marked with an asterisk (*) are mandatory
+            </div>
             <%= form_for @listing do |f| %>
               <div class="row ">
-                <div class="col-md-12 form-group input-text ">
+                <div class="col-md-7 col-sm-6 form-group input-text ">
                   <% if @listing.listing_type == "For Sale"%>
-                    <label>Price</label>
+                    <label>Price</label><span class='required-aesterik'>*</span>
                     <%= f.text_field :price, placeholder: "$200", class: "form-control", required: true %>
                   <% end %>
                   <% if @listing.listing_type == "For Rent"%>
-                    <label>Rent Price Per Year</label>
+                    <label>Rent Price Per Year</label><span class='required-aesterik'>*</span>
                     <%= f.text_field :rent_price, placeholder: "$200", class: "form-control", required: true %>
                   <% end %>
                   <% if @listing.listing_type == "Short Stay"%>
-                    <label>Rent Price Per Day</label>
+                    <label>Rent Price Per Day</label><span class='required-aesterik'>*</span>
                     <%= f.text_field :short_stay_price, placeholder: "$200", class: "form-control", required: true %>
                   <% end %>
                 </div>
+
+                <div class="col-md-5 col-sm-6 select">
+                  <div class="form-group">
+                    <label>Swimming Pool</label>
+                    <%= f.select :swimming_pool, [["Private", "Private"], ["Shared", "Shared"]],
+                                  id: "swimming_pool", prompt: "None", class: "form-control" %>
+                  </div>
+                </div>
                 <div class="col-md-12 form-group input-text">
-                  <label>Address</label>
+                  <label>Address</label><span class='required-aesterik'>*</span>
                   <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
                 </div>
                 <div class="col-md-12 form-group input-text">
-                  <label>Listing Description</label>
-                  <%= f.text_area :description, placeholder: "Brief description of your listing", rows: 10, cols: 45, class: "form-control", required: true %>
+                  <label>Listing Description</label><span class='required-aesterik'>*</span>
+                  <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control", required: true %>
                 </div>
               </div>
               <div class="text-center">

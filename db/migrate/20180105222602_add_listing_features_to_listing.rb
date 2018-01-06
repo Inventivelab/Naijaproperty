@@ -1,0 +1,43 @@
+class AddListingFeaturesToListing < ActiveRecord::Migration[5.1]
+  def change
+    add_column :listings, :basement, :boolean
+    add_column :listings, :centralair, :boolean
+    add_column :listings, :dinning_room, :boolean
+    add_column :listings, :walldrobe, :boolean
+    add_column :listings, :familyroom, :boolean
+    add_column :listings, :guest_toilet, :boolean
+    add_column :listings, :laundry_room, :boolean
+    add_column :listings, :disability, :boolean
+    add_column :listings, :fireplace, :boolean
+    add_column :listings, :main_floor, :boolean
+    add_column :listings, :pantry, :boolean
+    add_column :listings, :access_gate, :boolean
+    add_column :listings, :balcony, :boolean
+    add_column :listings, :fence, :boolean
+    add_column :listings, :pool, :boolean
+    add_column :listings, :staff_quarters, :boolean
+    add_column :listings, :water_front, :boolean
+    add_column :listings, :city_light, :boolean
+    add_column :listings, :mountain_view, :boolean
+    add_column :listings, :river_view, :boolean
+    add_column :listings, :water_view, :boolean
+    add_column :listings, :ocean_view, :boolean
+    add_column :listings, :fitness_center, :boolean
+    add_column :listings, :security_post, :boolean
+    add_column :listings, :tennis_court, :boolean
+    add_column :listings, :basketball_court, :boolean
+    add_column :listings, :pet_allowed, :boolean
+    add_column :listings, :recreation_facilities, :boolean
+    add_column :listings, :electric_fencing, :boolean
+    add_column :listings, :cable_tv, :boolean
+    add_column :listings, :borehole, :boolean
+    add_column :listings, :alarm, :boolean
+    add_column :listings, :senior_community, :boolean
+    add_column :listings, :surface_lot, :boolean
+    add_column :listings, :covered, :boolean
+    add_column :listings, :street_parking, :boolean
+    add_column :listings, :garage, :boolean
+    add_column :listings, :other_parking, :boolean
+    add_column :listings, :swimming_pool, :string
+  end
+end

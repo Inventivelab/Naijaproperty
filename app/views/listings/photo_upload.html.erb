@@ -10,6 +10,9 @@
             <div class="listing-nav-menu">
               <%= render 'listing_nav' %>
             </div>
+            <div class="listing-sub-heading">
+              Fields marked with an asterisk (*) are mandatory
+            </div>
             <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true} do |f| %>
                 <div class="form-group upload-btn">
                   <span class="btn btn-secondary btn-file text-flister">

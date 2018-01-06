@@ -27,17 +27,39 @@
                 </div>
               </div>
 
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-4 col-sm-6 select">
                 <div class="form-group">
-                  <label>Year Built</label>
-                  <%= f.text_field :year_built, placeholder: "Year Built", class: "form-control" %>
+                  <label>Property Type</label><span class='required-aesterik'>*</span>
+                  <%= f.select :property_type, [["Apartments/Flats", "Apartments/Flats"], ["Blocks Of Flats", "Blocks Of Flats"], ["Luxury Serviced Apartments", "Luxury Serviced Apartments"],
+                                ["Bungalow", "Bungalow"], ["Duplexes", "Duplexes"], ["Self Contained/Studio", "Self Contained/Studio"],["Townhouses", "Townhouses"],
+                                ["Penthouse", "Penthouse"], ["Terraces", "Terraces"], ["Commercial Property", "Commercial Property"], ["Industrial/Warehouse", "Industrial/Warehouse"],
+                                ["Single Family House", "Single Family House"], ["Multi-Family-Home", "Multi-Family-Home"],["Hotels", "Hotels"], ["Land", "Land"],  ["Farms", "Farms"]
+                                ],
+                                id: "property_type", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+
+
+              <div class="col-md-4 col-sm-6 select">
+                <div class="form-group">
+                  <label>Bedrooms</label><span class='required-aesterik'>*</span>
+                  <%= f.select :bedroom, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3  Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6 Bedrooms", 6], ["7+ Bedrooms", 7]],
+                                id: "bedroom", prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 select">
+                <div class="form-group">
+                  <label>Bathrooms</label><span class='required-aesterik'>*</span>
+                  <%= f.select :bathroom, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6 Bathrooms", 6], ["7+ Bathrooms", 7]],
+                                id: "bathrooms", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
 
               <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                  <label>Square Feet</label>
-                  <%= f.text_field :square_feet, placeholder: "Size in Square Feet", class: "form-control" %>
+                  <label>Year Built</label>
+                  <%= f.text_field :year_built, placeholder: "Year Built", class: "form-control" %>
                 </div>
               </div>
 
@@ -48,28 +70,10 @@
                 </div>
               </div>
 
-              <div class="col-md-4 col-sm-6 select">
+              <div class="col-md-4 col-sm-6">
                 <div class="form-group">
-                  <label>Property Type</label><span class='required-aesterik'>*</span>
-                  <%= f.select :property_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
-                                id: "property_type", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-
-              <div class="col-md-4 col-sm-6 select">
-                <div class="form-group">
-                  <label>Bedrooms</label><span class='required-aesterik'>*</span>
-                  <%= f.select :bedroom, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7+", 7]],
-                                id: "bedroom", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-6 select">
-                <div class="form-group">
-                  <label>Bathrooms</label><span class='required-aesterik'>*</span>
-                  <%= f.select :bathroom, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6", 6], ["7+", 7]],
-                                id: "bathrooms", prompt: "Select...", class: "form-control" %>
+                  <label>Square Feet</label>
+                  <%= f.text_field :square_feet, placeholder: "Size in Square Feet", class: "form-control" %>
                 </div>
               </div>
 

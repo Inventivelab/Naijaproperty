@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104033740) do
+ActiveRecord::Schema.define(version: 20180105222602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,47 @@ ActiveRecord::Schema.define(version: 20180104033740) do
     t.string "for_sale"
     t.string "for_rent"
     t.string "short_stay"
+    t.float "latitude"
+    t.float "longitude"
+    t.boolean "basement"
+    t.boolean "centralair"
+    t.boolean "dinning_room"
+    t.boolean "walldrobe"
+    t.boolean "familyroom"
+    t.boolean "guest_toilet"
+    t.boolean "laundry_room"
+    t.boolean "disability"
+    t.boolean "fireplace"
+    t.boolean "main_floor"
+    t.boolean "pantry"
+    t.boolean "access_gate"
+    t.boolean "balcony"
+    t.boolean "fence"
+    t.boolean "pool"
+    t.boolean "staff_quarters"
+    t.boolean "water_front"
+    t.boolean "city_light"
+    t.boolean "mountain_view"
+    t.boolean "river_view"
+    t.boolean "water_view"
+    t.boolean "ocean_view"
+    t.boolean "fitness_center"
+    t.boolean "security_post"
+    t.boolean "tennis_court"
+    t.boolean "basketball_court"
+    t.boolean "pet_allowed"
+    t.boolean "recreation_facilities"
+    t.boolean "electric_fencing"
+    t.boolean "cable_tv"
+    t.boolean "borehole"
+    t.boolean "alarm"
+    t.boolean "senior_community"
+    t.boolean "surface_lot"
+    t.boolean "covered"
+    t.boolean "street_parking"
+    t.boolean "garage"
+    t.boolean "other_parking"
+    t.string "swimming_pool"
     t.index ["slug"], name: "index_listings_on_slug", unique: true
     t.index ["user_id"], name: "index_listings_on_user_id"
   end

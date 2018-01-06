@@ -68,3 +68,5 @@ gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.8'
+gem 'geocoder', '~> 1.4', '>= 1.4.5'
+gem "jquery-slick-rails"

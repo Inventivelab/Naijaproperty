@@ -4,6 +4,9 @@ class Listing < ApplicationRecord
 
   validates :listing_type, presence: true
 
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
+
   extend FriendlyId
   friendly_id :slug_listings, use: :slugged
 
@@ -20,10 +23,10 @@ class Listing < ApplicationRecord
    end
 
    def backgroud_image(size)
-      if self.photos.length > 0
-        self.photos[0].image.url(size)
-      else
-        "listings-blank.jpg"
-      end
+    if self.photos.length > 0
+      self.photos[0].image.url(size)
+    else
+      "listings-blank.jpg"
     end
+  end
 end
