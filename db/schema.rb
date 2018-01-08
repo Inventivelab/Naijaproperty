@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180105222602) do
+ActiveRecord::Schema.define(version: 20180108024346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.bigint "listing_id"
+    t.bigint "user_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_availabilities_on_listing_id"
+    t.index ["user_id"], name: "index_availabilities_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -145,6 +161,8 @@ ActiveRecord::Schema.define(version: 20180105222602) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "availabilities", "listings"
+  add_foreign_key "availabilities", "users"
   add_foreign_key "listings", "users"
   add_foreign_key "photos", "listings"
 end
