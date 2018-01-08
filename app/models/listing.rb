@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   has_many :photos
+  has_many :availabilities
 
   validates :listing_type, presence: true
 
