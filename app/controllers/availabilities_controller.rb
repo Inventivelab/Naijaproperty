@@ -1,6 +1,8 @@
 class AvailabilitiesController < ApplicationController
 
   def create
+    @listing = Listing.friendly.find(params[:listing_id])
+
     @availability = Availability.new(availability_params)
     @availability.user_id = current_user.id
     @availability.listing_id = @listing.id
