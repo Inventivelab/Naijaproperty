@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
-  before_action :is_authorized, only: [:listing, :pricing, :description, :features, :photo_upload, :location, :update]
+  before_action :is_authorized, only: [:listing, :pricing, :description, :features, :photo_upload, :location, :update, :destroy]
 
   def index
     @listings = current_user.listings
@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
   end
 
   def description
-    
+
   end
 
   def photo_upload
@@ -52,6 +52,12 @@ class ListingsController < ApplicationController
       flash[:notice] = "Something went wrong"
     end
       redirect_back(fallback_location: request.referer)
+  end
+
+  def destroy
+    @listing.destroy
+    flash[:alert] = "Your listing has been removed.."
+    redirect_back(fallback_location: request.referer)
   end
 
   private

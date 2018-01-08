@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/widgets/slider
 //= require jquery.slick
 //= require toastr
 //= require turbolinks

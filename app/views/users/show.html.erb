@@ -12,6 +12,9 @@
             <% if @user.confirmation_token%>
               <li>Email Address <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
             <% end %>
+            <% if @user.provider %>
+              <li>Facebook <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+            <% end %>
 
           </ul>
         </div>
@@ -22,6 +25,22 @@
       <div class="about row-space-3">
         <%= @user.bio %>
       </div>
+      <h4>Listings (<%= @listings.length %>)</h4><br>
+      <div class="row">
+        <% @listings.each do |listing| %>
+          <div class="col-md-4 col-sm-6">
+            <div class="card">
+              <div class="card-header preview">
+                <%= image_tag listing.backgroud_image(:medium)%>
+              </div>
+              <div class="card-body">
+                <%= link_to listing.listing_title, listing %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <br>
     </div>
   </div>
 </div>
