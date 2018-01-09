@@ -71,3 +71,4 @@ gem 'aws-sdk', '~> 2.8'
 gem 'geocoder', '~> 1.4', '>= 1.4.5'
 gem "jquery-slick-rails"
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'ransack', '~> 1.8', '>= 1.8.4'

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :availabilities, only: [:create]
   end
+  get 'search' => 'pages#search'
+  get 'for-rent' => 'pages#search_for_rent'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
