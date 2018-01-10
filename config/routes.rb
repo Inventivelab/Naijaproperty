@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   get 'search' => 'pages#search'
   get 'for-rent' => 'pages#search_for_rent'
+  get 'dashboard' => 'dashboards#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
