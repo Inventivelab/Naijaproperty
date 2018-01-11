@@ -14,4 +14,10 @@ class AvailabilityMailer < ApplicationMailer
         from: "sales@naijaproperty.com",
         subject: "Contact from user to check for Listing Availability")
   end
+
+  def send_autoreply_to_user(email, listing)
+    @email = email
+    @listing = listing
+    mail(to: @email, subject: "Thanks for contacting us, we'll get back to you! 😘 💋")
+  end
 end

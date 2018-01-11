@@ -144,19 +144,19 @@
         <h3>Near by</h3>
         <div class="col-md-12">
           <div class="row">
-            <% for listing in @listing.nearbys(4) %>
+            <%# for listing in @listing.nearbys(4) %>
               <div class="col-md-4 col-sm-6">
                 <div class="card">
                   <div class="card-header preview">
-                    <%= image_tag listing.backgroud_image(:medium) %>
+                    <%#= image_tag listing.backgroud_image(:medium) %>
                   </div>
                   <div class="card-body">
-                    <%= link_to listing.listing_title, listing %><br/>
-                    (<%= listing.distance.round(2) %> miles away)
+                    <%#= link_to listing.listing_title, listing %><br/>
+                    (<%#= listing.distance.round(2) %> miles away)
                   </div>
                 </div>
               </div>
-            <% end %>
+            <%# end %>
           </div>
         </div>
       </div>

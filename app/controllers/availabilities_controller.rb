@@ -16,6 +16,7 @@ class AvailabilitiesController < ApplicationController
       end_date = params[:availability][:end_date]
 
       AvailabilityMailer.availability_created(@listing.user, @availability.email, @availability.first_name, @availability.last_name, @availability.message, @availability.phone, @availability.start_date, @availability.end_date).deliver
+      #AvailabilityMailer.send_autoreply_to_user(@listing.user, @availability.email).deliver
       flash[:notice] = "Thanks for reaching out. Your message sent succefully, We'll get back too you as soon as possible"
       redirect_to @listing
     else
@@ -25,6 +26,14 @@ class AvailabilitiesController < ApplicationController
   end
 
   private
+    def send_sms(listing, availability)
+      @client = Twilio::REST::Client.new
+      @client.messages.create(
+        from: '+1512-640-0359 ',
+        to: listing.user.phone,
+        body: "#{availability.first_name} send you a meesage about your '#{listing.listing_title}' "
+      )
+    end
     def availability_params
       params.require(:availability).permit(:email, :first_name, :last_name, :phone, :start_date, :end_date, :message)
     end

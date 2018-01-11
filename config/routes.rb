@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get 'search' => 'pages#search'
   get 'for-rent' => 'pages#search_for_rent'
   get 'dashboard' => 'dashboards#index'
+  get '/notification_settings' => 'settings#edit'
+  post '/notification_settings' => 'settings#update'
+  get '/notifications' => 'notifications#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :listings
   has_many :availabilities
+  has_one :setting
+  after_create :add_setting
 
   validates :first_name, presence: true, length:{maximum: 20}
   validates :last_name, presence: true,  length:{maximum: 20}
@@ -24,6 +26,10 @@ class User < ApplicationRecord
 
    def full_name
     [first_name, last_name].join(" ")
+  end
+
+  def add_setting
+    Setting.create(user: self, enable_sms: true, enable_email: true)
   end
 
   def self.from_omniauth(auth)
