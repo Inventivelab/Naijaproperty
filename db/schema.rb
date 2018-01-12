@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110171748) do
+ActiveRecord::Schema.define(version: 20180111172308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20180110171748) do
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_availabilities_on_listing_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -116,6 +123,16 @@ ActiveRecord::Schema.define(version: 20180110171748) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "context"
+    t.bigint "user_id"
+    t.bigint "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.bigint "listing_id"
     t.datetime "created_at", null: false
@@ -176,6 +193,8 @@ ActiveRecord::Schema.define(version: 20180110171748) do
   add_foreign_key "availabilities", "listings"
   add_foreign_key "availabilities", "users"
   add_foreign_key "listings", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "users"
   add_foreign_key "photos", "listings"
   add_foreign_key "settings", "users"
 end

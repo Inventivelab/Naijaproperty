@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Your Chats Log</div>
+        <div class="card-body">
+          <div class="container">
+
+            <% @chats.each do |chat| %>
+                <% other = current_user == chat.sender ? chat.recipent : chat.sender %>
+                <%= link_to chat_messages_path(chat) do %>
+
+                    <div class="row chat">
+                      <% if chat.messages.any? %>
+                          <div class="col-md-2">
+                            <%= image_tag avatar_url(other), class: "rounded-circle avatar_medium" %>
+                          </div>
+                          <div class="col-md-2">
+                            <%= other.full_name %>
+                            <%= chat.messages.last.message_time %>
+                          </div>
+                          <div class="col-md-8">
+                            <%= chat.messages.last.context %>
+                          </div>
+                      <% end %>
+                    </div>
+
+                <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

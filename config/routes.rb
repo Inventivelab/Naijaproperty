@@ -24,12 +24,18 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :destroy]
     resources :availabilities, only: [:create]
   end
+
+  resources :chats, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
   get 'search' => 'pages#search'
   get 'for-rent' => 'pages#search_for_rent'
   get 'dashboard' => 'dashboards#index'
   get '/notification_settings' => 'settings#edit'
   post '/notification_settings' => 'settings#update'
   get '/notifications' => 'notifications#index'
+
+  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

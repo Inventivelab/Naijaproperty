@@ -16,6 +16,7 @@
 //= require jquery-ui/widgets/slider
 //= require jquery.slick
 //= require toastr
+//= require cable
 //= require turbolinks
 //= require_tree .
 //= require popper

@@ -26,9 +26,10 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Manage Listing", listings_path, class: "dropdown-item" %>
               <%= link_to "List Your Property", new_listing_path, class: "dropdown-item" %>
+              <%= link_to "Messages", chats_path, class: "dropdown-item" %>
 
               <div class="dropdown-divider"></div>
               <%= link_to "Update Profile", edit_user_registration_path, class: "dropdown-item" %>
@@ -52,3 +53,29 @@
     </span>
   </div>
 </nav>
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/listings/#{params[:id]}")%>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <div class="nav_center">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 active">
+          <li class="nav-item" <% if current_page?(dashboard_path) %> class="active"  <% end %> ><%= link_to "Dashboard", dashboard_path, class: "nav-link" %></li>
+          <li class="nav-item" <% if current_page?(listings_path) %> class="active"  <% end %> ><%= link_to "Manage Listings", listings_path, class: "nav-link" %></li>
+          <li class="nav-item" <% if current_page?(chats_path) %> class="active"  <% end %> ><%= link_to "Messages", chats_path, class: "nav-link" %></li>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+<% end %>
+
+<script>
+  $(function(){
+    $('#auto_address').geocomplete()
+  })
+</script>
