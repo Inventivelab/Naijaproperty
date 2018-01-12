@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :listings
   has_many :availabilities
+  has_many :notifications
+
   has_one :setting
   after_create :add_setting
 

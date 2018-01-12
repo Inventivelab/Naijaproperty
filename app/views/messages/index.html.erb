@@ -9,11 +9,11 @@
       <div class="card">
         <div class="card-header">
           Conversation with <%= @other.full_name %>
-          <input id="chatn_id" type="hidden" value="<%= @chatn.id %>">
+          <input id="chat_id" type="hidden" value="<%= @chat.id %>">
         </div>
         <div class="card-body">
           <div class="container text-center">
-            <%= form_for [@chatn, @chatn.messages.new], remote: true do |f| %>
+            <%= form_for [@chat, @chat.messages.new], remote: true do |f| %>
                 <div class="form-group">
                   <%= f.text_field :context, placeholder: "Add a personal message", class: "form-control" %>
                 </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div id="chat">
+      <div id="conversation">
         <%= render @messages %>
       </div>
 
