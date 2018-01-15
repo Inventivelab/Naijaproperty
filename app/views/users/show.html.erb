@@ -42,6 +42,16 @@
           </div>
         <% end %>
       </div>
+      <div class='row'>
+      <!-- REVIEWS -->
+      <div class="row">
+        <%= render 'reviews/form' %>
+
+        <div id="reviews" data-user-id="<%= @user.id %>">
+          <%= render @user.reviews %>
+        </div>
+      </div>
+      </div>
       <br>
     </div>
   </div>

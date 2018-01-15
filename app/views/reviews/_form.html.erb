@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <%= form_for @review, url: '#' do |f| %>
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Write a Review', rows: "4", cols: "7", class: 'btn btn-primary' %>
+  <% end %>
+  <% else %>
+  <%= link_to "Sign in to write a review", new_user_session_path, class: "btn btn-form "%>
+<% end %>

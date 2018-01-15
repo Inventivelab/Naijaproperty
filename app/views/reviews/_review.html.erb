@@ -1,0 +1,21 @@
+<div class="review-card">
+  <div class="card">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-2">
+          <%= image_tag avatar_url review.user %>
+        </div>
+        
+        <div class="col-md-10">
+          <div>
+            <%= review.content %>
+          </div>
+
+          <div class="review-attribution">
+            review posted by <span class="review-name"><%= review.user.full_name %></span> <%= distance_of_time_in_words(review.created_at, Time.now) %> ago
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

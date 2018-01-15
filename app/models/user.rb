@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :availabilities
   has_many :notifications
   has_many :comments, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   has_one :setting
   after_create :add_setting

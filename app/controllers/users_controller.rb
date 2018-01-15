@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @listings = @user.listings
+    @reviews = @user.reviews
+    #@user = User.includes(:reviews).friendly.find(params[:id])
+    @review = Review.new
   end
 
   def update_phone_number

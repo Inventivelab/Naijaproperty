@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115021714) do
+ActiveRecord::Schema.define(version: 20180115150431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,15 @@ ActiveRecord::Schema.define(version: 20180115021714) do
     t.index ["listing_id"], name: "index_photos_on_listing_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "star"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.boolean "enable_sms", default: true
     t.boolean "enable_email", default: true
@@ -219,5 +228,6 @@ ActiveRecord::Schema.define(version: 20180115021714) do
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "photos", "listings"
+  add_foreign_key "reviews", "users"
   add_foreign_key "settings", "users"
 end
