@@ -16,6 +16,8 @@
 //= require jquery-ui/widgets/slider
 //= require jquery.slick
 //= require toastr
+//= require lib/typed
+//= require typed-implementation
 //= require cable
 //= require turbolinks
 //= require_tree .
