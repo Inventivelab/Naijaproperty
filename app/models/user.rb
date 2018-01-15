@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :listings
   has_many :availabilities
   has_many :notifications
+  has_many :comments, dependent: :destroy
 
   has_one :setting
   after_create :add_setting
@@ -22,7 +23,8 @@ class User < ApplicationRecord
      if self.username
        self.username
      else
-       [first_name, last_name, id].join("")
+        user_id = self.id
+       [first_name, last_name, user_id].join("")
      end
    end
 

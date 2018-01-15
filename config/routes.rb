@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments
   root 'pages#home'
   devise_for :users,
              path: '',

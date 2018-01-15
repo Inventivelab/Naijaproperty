@@ -105,6 +105,13 @@
       <hr/>
 
       <!-- REVIEWS -->
+      <div class="row">
+        <%= render 'comments/comment_form' %>
+
+        <div id="comments" data-listing-id="<%= @listing.id %>">
+          <%= render @listing.comments %>
+        </div>
+      </div>
 
 
       <div class="row">

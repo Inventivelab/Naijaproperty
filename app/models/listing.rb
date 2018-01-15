@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :availabilities
+  has_many :comments, dependent: :destroy
 
   validates :listing_type, presence: true
 

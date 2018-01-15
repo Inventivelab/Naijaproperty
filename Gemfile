@@ -73,3 +73,4 @@ gem "jquery-slick-rails"
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'ransack', '~> 1.8', '>= 1.8.4'
 gem 'twilio-ruby', '~> 5.6'
+gem 'redis', '~> 4.0', '>= 4.0.1'

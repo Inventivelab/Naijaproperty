@@ -23,6 +23,8 @@ class ListingsController < ApplicationController
 
   def show
     @photos = @listing.photos
+    @listing = Listing.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
   end
 
   def listing

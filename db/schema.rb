@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112151110) do
+ActiveRecord::Schema.define(version: 20180115021714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20180112151110) do
     t.integer "recipent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "star"
+    t.bigint "user_id"
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_comments_on_listing_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -201,6 +212,8 @@ ActiveRecord::Schema.define(version: 20180112151110) do
 
   add_foreign_key "availabilities", "listings"
   add_foreign_key "availabilities", "users"
+  add_foreign_key "comments", "listings"
+  add_foreign_key "comments", "users"
   add_foreign_key "listings", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
