@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   post '/notification_settings' => 'settings#update'
   get '/notifications' => 'notifications#index'
 
+  resources :supports, only: [:new, :create]
+  get '/support' => 'supports#new'
+  
+
   mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
