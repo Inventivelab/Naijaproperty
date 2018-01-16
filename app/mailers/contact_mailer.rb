@@ -15,7 +15,9 @@ class ContactMailer < ApplicationMailer
   
     def send_autoreply_to_user(email)
       @email = email
-      mail(to: @email, subject: "Thanks for contacting us, we'll get back to you! 😘 💋")
+      mail(to: @email,
+           from: "noreply@naijaproperty.com", 
+           subject: "Support @NaijaProperty")
     end
   end
   

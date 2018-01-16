@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
           message = params[:contact][:message]
     
           ContactMailer.contact_created(@user, @contact.email, @contact.first_name, @contact.last_name, @contact.phone, @contact.message).deliver
+          ContactMailer.send_autoreply_to_user(email).deliver
           flash[:notice] = "Thanks for reaching out. Your message sent succefully, We'll get back too you as soon as possible"
           redirect_to @user
         else
