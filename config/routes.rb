@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :reviews
-  resources :comments
   root 'pages#home'
   devise_for :users,
              path: '',
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
     end
     resources :photos, only: [:create, :destroy]
     resources :availabilities, only: [:create]
+    resources :tell_a_friends, only: [:create]
     resources :comments, only: [:create]
   end
 
