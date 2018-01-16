@@ -19,7 +19,7 @@ class AvailabilitiesController < ApplicationController
       flash[:notice] = "Thanks for reaching out. Your message sent succefully, We'll get back too you as soon as possible"
       redirect_to @listing
     else
-      flash[:danger] = 'Error occured, message could not be sent.'
+      flash[:alert] = 'Error occured, message could not be sent.'
       redirect_to @listing
     end
   end

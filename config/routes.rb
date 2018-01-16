@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       post '/verify_phone_number' => 'users#verify_phone_number'
       patch '/update_phone_number' => 'users#update_phone_number'
     end
+    resources :contacts, only: [:create]
+    resources :review, only: [:create, :destroy]
   end
   resources :listings, except: [:edit] do
     member do
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     end
     resources :photos, only: [:create, :destroy]
     resources :availabilities, only: [:create]
+    resources :comments, only: [:create]
   end
 
   resources :chats, only: [:index, :create] do
