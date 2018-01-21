@@ -1,0 +1,38 @@
+<div class="row" id="edit-profile">
+  <!-- <div > -->
+
+    <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
+      <%= render 'shared/profile_nav' %>
+    </div>
+
+    <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
+      <div class="container">
+        <div class="card">
+          <div class="card-header">Your Profile</div>
+            <div class="card-body">
+              <div class="container-flow">
+                <div id="pictures"><%= render 'pictures/uploaded_pictures' %></div><br>
+                <%= form_for @user, url: user_pictures_path(@user), method: 'post', html: {multipart: true} do |f| %>
+                    <div class="form-group upload-btn">
+                      <span class="btn btn-secondary btn-file text-flister">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Select Photos
+                        <%= file_field_tag "avatars[]", class: "dropzone", type: :file, multiple: true %>
+                      </span>
+                    </div>
+                    <div class="text-center">
+                      <%= f.submit "Upload", class: "btn btn-form" %>
+                    </div>
+                  </div>
+                <% end %>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :availabilities
   has_many :notifications
   has_many :contacts
+  has_many :pictures
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
@@ -26,8 +27,7 @@ class User < ApplicationRecord
      if self.username
        self.username
      else
-        user_id = self.id
-       [first_name, last_name, user_id].join("")
+       [username, id].join("")
      end
    end
 
@@ -50,8 +50,8 @@ class User < ApplicationRecord
         user.password = Devise.friendly_token[0,20]
         user.first_name = auth.info.first_name
         user.last_name = auth.info.last_name
-        #user.username = auth.info.username
-        user.username = auth.extra.raw_info.username
+        user.username = auth.info.name
+        #user.username = auth.extra.raw_info.username
         user.image = auth.info.image
         user.uid = auth.uid
         user.provider = auth.provider
@@ -62,6 +62,13 @@ class User < ApplicationRecord
       end
     end
   end
+  def profile_image
+   if self.pictures.length > 0
+     self.pictures[0].avatar.url
+   else
+     avatar_url(user)
+   end
+ end
 
   def generate_pin
     self.pin = SecureRandom.hex(2)

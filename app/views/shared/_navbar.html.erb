@@ -19,10 +19,16 @@
     <span class="navbar-text left-nav">
       <ul class="navbar-nav mr-auto ">
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to notifications_path do %>
+              <i class="fa fa-bell fa-2x icon-flister-notification nav-link "></i>
+              <span class="badge" id="navbar_number_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+            <% end %>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>&nbsp;
-              <%= current_user.first_name %>
+              </div>  <%= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>
+                <%= current_user.first_name %>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -34,14 +40,8 @@
               <div class="dropdown-divider"></div>
               <%= link_to "Update Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
           </li>
-          <li class="nav-item">
-            <%= link_to notifications_path do %>
-              <i class="fa fa-bell fa-2x icon-flister-notification nav-link "></i>
-              <span class="badge" id="navbar_number_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
-            <% end %>
-          </li>
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>

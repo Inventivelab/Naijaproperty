@@ -1,12 +1,45 @@
-<% if user_signed_in? %>
-  <%= form_for @review, url: '#' do |f| %>
-    <div class="form-group">
-      <%= f.label :content %>
-      <%= f.text_area :content, class: 'form-control' %>
-    </div>
 
-    <%= f.submit 'Write a Review', rows: "4", cols: "7", class: 'btn btn-primary' %>
-  <% end %>
-  <% else %>
-  <%= link_to "Sign in to write a review", new_user_session_path, class: "btn btn-form "%>
-<% end %>
+<button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= @user.id %>">
+  Review
+</button>
+
+
+<div class="modal fade" id="#myModal_<%= @user.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for current_user.reviews.new do |f| %>
+            <div class="form-group text-center">
+              <div id="stars"></div>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :content, rows: 3, class: "form-control" %>
+            </div>
+
+
+            <%= f.hidden_field :user_id, value: @user.id %>
+
+            <div class="text-center">
+              <%= f.submit "Add Review", class: "btn btn-normal" %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+	$('#user_stars').raty({
+		path: '/assets',
+		scoreName: 'review[star]',
+		score: 1
+	});
+</script>

@@ -1,46 +1,75 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3 col-sm-5">
-      <div class="center">
-        <%= image_tag avatar_url(current_user), class: 'avatar_full' %>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <%= current_user.full_name %>
+<div class="row" id="edit-profile">
+  <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
+    <ul class="sidebar-profile">
+      <li class="sidebar-item">
+        <%= link_to (dashboard_path) do %>
+          <i class="fa fa-dashboard" aria-hidden="true"></i>
+          <span>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="sidebar-item">
+        <%= link_to (edit_user_registration_path) do %>
+          <i class="fa fa-database" aria-hidden="true"></i>
+          <span>Update Profile</span>
+        <% end %>
+      </li>
+
+      <li class="sidebar-item">
+        <%= link_to (current_user) do %>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <span>View Profile</span>
+        <% end %>
+      </li>
+  </div>
+
+  <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-5">
+          <div class="center">
+            <%= image_tag avatar_url(current_user), class: 'avatar_full' %>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <%= current_user.full_name %>
+            </div>
+            <div class="card-body">
+              <ul class="sidebar-list">
+                <% if current_user.confirmation_token%>
+                  <li>Email Address <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                <% end %>
+                <% if current_user.provider %>
+                  <li>Facebook <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                <% end %>
+                <% if current_user.phone_verified %>
+                  <li>Phone Number<span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="card-body">
-          <ul class="sidebar-list">
-            <% if current_user.confirmation_token%>
-              <li>Email Address <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.provider %>
-              <li>Facebook <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-            <% if current_user.phone_verified %>
-              <li>Phone Number<span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-9 col-sm-7">
-      <div class="card">
-        <div class="card-header">
-          Notification
-        </div>
-        <div class="card-body">
-          <%= link_to notifications_path do %>
-              You have <span id="number_of_unread"><%= current_user.unread %></span> notification(s).
-          <% end %>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          Your Listings (<%= @listings.length %>)
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <%= render partial: "listings/listings_list", locals: {listings: @listings} %>
+        <div class="col-md-9 col-sm-7">
+          <div class="card">
+            <div class="card-header">
+              Notification
+            </div>
+            <div class="card-body">
+              <%= link_to notifications_path do %>
+                  You have <span id="number_of_unread"><%= current_user.unread %></span> notification(s).
+              <% end %>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              Your Listings (<%= @listings.length %>)
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <%= render partial: "listings/listings_list", locals: {listings: @listings} %>
+              </div>
+            </div>
           </div>
         </div>
       </div>

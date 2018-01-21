@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-md-3">
       <div class="center">
+        <% if @user.pictures.count > 0 %>
+          <%= image_tag @user.pictures[0].avatar.url(), class: "avatar_full" %>
+        <% else %>
           <%= image_tag avatar_url(@user), class: "avatar_full" %>
+        <% end %>
+
           <% if current_user && current_user != @user %>
             <%= link_to "Send Message", chats_path(sender_id: current_user.id, recipent_id: @user.id), method: :post, class: "btn btn-secondary" %>
           <% end %>
@@ -45,13 +50,15 @@
       </div>
       <div class='row'>
       <!-- REVIEWS -->
-      <div class="row">
-        <%= render 'reviews/form' %>
-
-        <div id="reviews" data-user-id="<%= @user.id %>">
-          <%= render @user.reviews %>
+      <!-- <div class="row">
+        <h4>Reviews (<%#= @reviews.count %>)</h4>
+        <div class="row">
+          <#%= render "reviews/review" %>
         </div>
-      </div>
+        <br/>
+
+        <%#= render 'reviews/form' %>
+      </div> -->
       </div>
       <br>
     </div>

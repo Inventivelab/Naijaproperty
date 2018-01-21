@@ -1,0 +1,23 @@
+<% if @pictures.count > 0 %>
+  <div class="container">
+    <div class="row">
+      <% @pictures.each do |picture| %>
+        <div class="col-md-4 col-sm-6">
+          <div class="card">
+            <div class="card-header preview">
+              <%= image_tag picture.avatar.url() %>
+            </div>
+            <div class="card-body">
+              <span class="float-right">
+                <%= link_to user_picture_path(picture.user_id, picture), remote: true, method: :delete, data: { confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

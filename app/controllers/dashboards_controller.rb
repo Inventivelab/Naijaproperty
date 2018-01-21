@@ -3,6 +3,6 @@ class DashboardsController < ApplicationController
 
   def index
     @listings = current_user.listings
-    @reviews = current_user.reviews
+    #@reviews = current_user.reviews
   end
 end

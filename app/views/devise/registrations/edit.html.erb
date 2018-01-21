@@ -1,106 +1,74 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3 col-sm-5">
-      <ul class="sidebar-profile">
-        <li class="sidebar-item">
-          <%= link_to "Update Profile", edit_user_registration_path, class: "sidebar-link active"%>
-        </li>
-      </ul>
-      <br/>
-      <%= link_to "View My Profile", user_path(current_user), class: 'btn btn-outline-dark btn-lg profile-link' %>
+<div class="row" id="edit-profile">
+  <!-- <div > -->
+
+    <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
+      <%= render 'shared/profile_nav' %>
     </div>
-    <div class="col-md-9 col-sm-7 text-center">
-      <div class="card">
-        <div class="card-header">
-          Your Profile
-        </div>
-        <div class="card-body">
-          <div class="container-flow">
-            <!-- <h2 class="text-center">Edit <%= resource_name.to_s.humanize %></h2> -->
 
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              <%= render 'shared/devisemessage' %>
+    <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
+      <div class="container">
+        <div class="card">
+          <div class="card-header">Your Profile</div>
+            <div class="card-body">
+              <div class="container-flow">
 
-              <div class="form-group">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= render 'shared/devisemessage' %>
 
-                <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "Username"%>
+                  <div class="form-group">
+
+                    <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "Username"%>
+                  </div>
+                  <div class="form-group">
+
+                    <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+                  </div>
+                  <div class="form-group">
+
+                    <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+                  </div>
+                  <div class="form-group">
+
+                    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+                  </div>
+
+                  <div class="form-group">
+
+                    <%= f.text_field :website, class: "form-control", placeholder: "Business Website" %>
+                  </div>
+                  <div class="form-group">
+
+                    <%= f.text_area :bio, rows: "15", cols: "25", placeholder: "Description", class: "form-control" %>
+                  </div>
+
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
+
+                  <div class="form-group">
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password (leave blank if you don't want to change it)"%>
+                    <!-- <% if @minimum_password_length %>
+                      <br />
+                      <em><%= @minimum_password_length %> characters minimum</em>
+                    <% end %> -->
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.submit "Update", class: "btn btn-normal btn-block" %>
+                  </div>
+                <% end %>
               </div>
-              <div class="form-group">
-
-                <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
-              </div>
-              <div class="form-group">
-
-                <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
-              </div>
-              <div class="form-group">
-
-                <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
-              </div>
-
-              <div class="form-group">
-
-                <%= f.text_field :website, class: "form-control", placeholder: "Business Website" %>
-              </div>
-              <div class="form-group">
-
-                <%= f.text_area :bio, rows: "15", cols: "25", placeholder: "Description", class: "form-control" %>
-              </div>
-
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-              <% end %>
-
-              <div class="form-group">
-                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password (leave blank if you don't want to change it)"%>
-                <!-- <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %> -->
-              </div>
-
-              <div class="form-group">
-                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
-              </div>
-
-              <div class="form-group">
-                <%= f.submit "Update", class: "btn btn-normal btn-block" %>
-              </div>
-            <% end %>
-
-            <h3>Cancel my account</h3>
-
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-            <%= link_to "Back", :back %>
+            </div>
           </div>
         </div>
-      </div>
-      <br>
 
-      <br/>
 
-    <div class="card">
-      <div class="card-header">Your Phone Number</div>
-      <div class="card-body">
-        <div class="container">
-          <% if !current_user.phone.blank? %>
-              <h4><%= current_user.phone %></h4>
-              <button class="btn btn-secondary" data-toggle="modal" data-target="#update-phone">Update Phone Number</button>
-              <% if current_user.phone_verified == false %>
-                  <button class="btn btn-secondary" data-toggle="modal" data-target="#verify-phone">Verify</button>
-              <% end %>
-          <% else %>
-              <button class="btn btn-secondary" data-toggle="modal" data-target="#update-phone">Add Phone Number</button>
-          <% end %>
-        </div>
       </div>
-    </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL FOR PHONE NUMBER -->
-<%= render 'phone_number' %>
-<!-- MODAL FOR VERIFICATION -->
-<%= render 'phone_verification' %>
+</div>

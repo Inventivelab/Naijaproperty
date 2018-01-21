@@ -8,4 +8,13 @@ module ApplicationHelper
       "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
     end
   end
+
+  def timeago(time, options ={})
+		options[:class] ||= "timeago"
+		content_tag(
+			:time,
+			time.to_s,
+			options.merge(datetime: time.getutc.iso8601)
+		) if time
+	end
 end

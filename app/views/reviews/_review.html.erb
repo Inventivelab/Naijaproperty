@@ -1,21 +1,43 @@
-<div class="review-card">
-  <div class="card">
-    <div class="card-block">
+<div class="row">
+  <% if @reviews.blank? %>
+    <span class="center"><h4>There are no reviews</h4></span>
+  <% else %>
+    <% @reviews.order(id: :desc).each do |r| %>
+      <hr/>
       <div class="row">
-        <div class="col-md-2">
-          <%= image_tag avatar_url review.user %>
+        <div class="col-md-3 text-center">
+          <%= image_tag avatar_url(r.user), class: "img-circle avatar-medium" %><br/><br/>
+          <strong><%= r.user.full_name %></strong>
         </div>
-        
-        <div class="col-md-10">
-          <div>
-            <%= review.content %>
-          </div>
+        <div class="col-md-9">
+          <div id="star_<%= r.id %>"></div>
 
-          <div class="review-attribution">
-            review posted by <span class="review-name"><%= review.user.full_name %></span> <%= distance_of_time_in_words(review.created_at, Time.now) %> ago
-          </div>
+          <% if current_user && current_user == r.user %>
+              <span class="pull-right">
+                <%= link_to r, method: :delete, data: {confirm: "Are you sure?"} do %>
+                    <i class="fa fa-trash-o fa-lg"></i>
+                <% end %>
+              </span>
+          <% end %>
+          <div><%= timeago(r.created_at) %><%#= r.created_at.strftime("%v") %></div>
+          <div><%= r.content %></div>
         </div>
       </div>
-    </div>
-  </div>
+
+      <script>
+        $('#star_<%= r.id %>').raty({
+          path: '/assets',
+          readOnly: true,
+          score: <%= r.star %>
+        });
+      </script>
+
+    <% end %>
+  <% end %>
 </div>
+
+<script>
+	$(function() {
+		$("time.timeago").timeago();
+	})
+</script>

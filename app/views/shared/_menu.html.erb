@@ -1,0 +1,71 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-light" style="background-color: #fff;">
+  <%= link_to "NaijaProperty", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Sale", root_path, class: "nav-link nav-links" %><span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Rent", root_path, class: "nav-link nav-links" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Agent", root_path, class: "nav-link nav-links" %>
+      </li>
+
+    </ul>
+    <span class="navbar-text left-nav">
+      <ul class="navbar-nav mr-auto ">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to notifications_path do %>
+              <i class="nav-link fa fa-bell fa-2x icon-flister-notification  "></i>
+              <span class="badge" id="navbar_number_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+            <% end %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user.first_name %>&nbsp;
+              <%= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink ">
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Manage Listing", listings_path, class: "dropdown-item" %>
+              <%= link_to "List Your Property", new_listing_path, class: "dropdown-item" %>
+              <%= link_to "Messages", chats_path, class: "dropdown-item" %>
+
+              <div class="dropdown-divider"></div>
+              <%= link_to "Update Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <%= link_to "List Your Property", new_listing_path, class: "nav-link nav-btn", id: "nav-btn-right" %>
+            <%#= link_to "List Your Property", new_listing_path, class: "btn btn-outline-success my-2 my-sm-0 btn btn-form2 btn-small nav-btn", style: "color: white; text-decoration: none;" %>
+          </li>
+
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link nav-links" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link nav-links" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "List Your Property", new_listing_path, class: "nav-link nav-btn", id: "nav-btn-right" %>
+            <%#= link_to "List Your Property", new_listing_path, class: "btn btn-outline-success my-2 my-sm-0 btn btn-form2 btn-small nav-btn", style: "color: white; text-decoration: none;" %>
+          </li>
+        <% end %>
+      </ul>
+    </span>
+  </div>
+</nav>
+
+<script>
+  $(function(){
+    $('#auto_address').geocomplete()
+  })
+</script>

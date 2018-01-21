@@ -6,14 +6,20 @@ Rails.application.routes.draw do
              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
              controllers: {omniauth_callbacks: 'omniauth_callbacks',registrations: 'registrations' }
 
-  resources :users, only: [:show] do
+  # get ':id' => 'users#show'
+  resources :users, only: [:show, :index] do
     member do
+      get 'profile_picture' => 'users#profile_picture'
+      get 'phone_verification' => 'users#phone_verification'
       post '/verify_phone_number' => 'users#verify_phone_number'
       patch '/update_phone_number' => 'users#update_phone_number'
     end
     resources :contacts, only: [:create]
-    resources :review, only: [:create, :destroy]
+    resources :pictures, only: [:create, :destroy]
+
   end
+  resources :reviews, only: [:create, :destroy]
+
   resources :listings, except: [:edit] do
     member do
       get 'listing'
@@ -32,7 +38,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
-  get 'search' => 'pages#search'
+  get 'search', to: 'pages#search'
   get 'for-rent' => 'pages#search_for_rent'
   get 'dashboard' => 'dashboards#index'
   get '/notification_settings' => 'settings#edit'
@@ -41,7 +47,7 @@ Rails.application.routes.draw do
 
   resources :supports, only: [:new, :create]
   get '/support' => 'supports#new'
-  
+
 
   mount ActionCable.server => '/cable'
 

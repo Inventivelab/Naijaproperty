@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116152154) do
+ActiveRecord::Schema.define(version: 20180120145748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,17 @@ ActiveRecord::Schema.define(version: 20180116152154) do
     t.index ["listing_id"], name: "index_photos_on_listing_id"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "star"
@@ -263,6 +274,7 @@ ActiveRecord::Schema.define(version: 20180116152154) do
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "photos", "listings"
+  add_foreign_key "pictures", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "settings", "users"
   add_foreign_key "tell_a_friends", "listings"

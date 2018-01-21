@@ -1,12 +1,22 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :profile_picture, :phone_verification]
   before_action :authenticate_user!, except: [:show]
 
   def show
+    #@listing = Listing.friendly.find(params[:listing_id])
     @listings = @user.listings
-    @reviews = @user.reviews
-    #@user = User.includes(:reviews).friendly.find(params[:id])
-    @review = Review.new
+    #@reviews = Review.where(user_id: @user.id)
+    # @review = Review.new
+    # @reviews = @user.reviews
+
+    #@hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+  end
+
+  def profile_picture
+    @pictures = @user.pictures
+  end
+
+  def phone_verification
   end
 
   def update_phone_number
@@ -14,9 +24,9 @@ class UsersController < ApplicationController
     current_user.generate_pin
     current_user.send_pin
 
-    redirect_to edit_user_registration_path, notice: "Saved..."
+    redirect_to phone_verification_user_path, notice: "Saved..."
   rescue Exception => e
-    redirect_to edit_user_registration_path, alert: "#{e.message}"
+    redirect_to phone_verification_user_path, alert: "#{e.message}"
   end
 
   def verify_phone_number
@@ -28,10 +38,10 @@ class UsersController < ApplicationController
       flash[:alert] = "Cannot verify your phone number."
     end
 
-    redirect_to edit_user_registration_path
+    redirect_to phone_verification_user_path
 
   rescue Exception => e
-    redirect_to edit_user_registration_path, alert: "#{e.message}"
+    redirect_to phone_verification_user_path, alert: "#{e.message}"
   end
 
 
