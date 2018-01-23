@@ -1,6 +1,10 @@
 <div class="row" id="edit-profile">
   <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
-    <%= render 'shared/profile_nav' %>
+    <%#= render 'shared/profile_nav' %>
+    <%= link_to (phone_verification_user_path(user)) do %>
+      <i class="fa fa-phone-square" aria-hidden="true"></i>
+      <span class="profile-text">Phone Verification</span>
+    <% end %>
   </div>
 
   <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
