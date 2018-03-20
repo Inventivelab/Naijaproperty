@@ -25,6 +25,16 @@ class Listing < ApplicationRecord
      ]
    end
 
+   def prices
+      if self.price
+        self.price
+      elsif self.rent_price
+        self.rent_price
+      else self.short_stay_price
+        self.short_stay_price
+      end
+    end
+
    def backgroud_image(size)
     if self.photos.length > 0
       self.photos[0].image.url(size)

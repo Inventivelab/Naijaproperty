@@ -20,12 +20,14 @@
     <% end %>
   </li>
 
-  <% if !@listing.active && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
+
+  <%# if !@listing.active && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
+  <%# if !@listing.listing_type.blank? && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
 
     <%= form_for @listing do |f| %>
       <%= f.hidden_field :active, value: true %>
       <li><%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-publish btn-block" %></li>
     <% end %>
-  <% end %>
+  <%# end %>
 
 </ul>

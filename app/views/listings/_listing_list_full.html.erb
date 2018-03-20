@@ -1,0 +1,92 @@
+
+
+<% listings.each do |listing| %>
+  <div class="col-lg-4 col-md-4 col-sm-2">
+    <div class="card show_image_container" style="width: 18rem;">
+
+      <div class="single-item">
+        <% listing.photos.each do |photo| %>
+          <%= image_tag photo.image.url(), class: "card-img-top", width: "80%", height: "200px" %>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">N<%= listing.price || listing.rent_price || listing.short_stay_price %></h5>
+
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-6">
+              <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-6">
+              <i class="fa fa-bath">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %></i>
+            </div>
+            <!-- <div class="col-md-4 col-sm-6 col-4">
+              <i class="fa fa-home">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Home") %></i>
+            </div> -->
+          </div>
+
+        </li>
+
+      </ul>
+      <div class="card-body">
+        <%= link_to listing.listing_title, listing %><br>
+        <%= listing.location %>
+      </div>
+
+    </div><br>
+  </div>
+<% end %>
+
+
+<script>
+  $(document).ready(function(){
+    // $('.single-item-rtl').slick();
+
+    $('.single-item').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      // slidesToShow: 3,
+      arrows: true,
+      infinite: true,
+      speed: 300,
+      dots: true,
+      // autoplay: true,
+      // autoplaySpeed: 3000
+    });
+    //$('.fade').slick();
+
+    $('.center').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      arrows: true,
+      infinite: true,
+      speed: 300,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+        breakpoint: 868,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 550,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+</script>

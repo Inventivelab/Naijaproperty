@@ -29,7 +29,12 @@
       <div class="row">
         <div class="col-md-3 col-sm-5">
           <div class="center">
-            <%= image_tag avatar_url(current_user), class: 'avatar_full' %>
+            <% if current_user.pictures.count > 0 %>
+              <%= image_tag current_user.pictures[0].avatar.url(), class: 'avatar_full' %>
+            <% else %>
+              <%= image_tag avatar_url(current_user), class: 'avatar_full' %>
+            <% end %>
+            <%#= image_tag avatar_url(current_user), class: 'avatar_full' %>
           </div>
           <div class="card">
             <div class="card-header">

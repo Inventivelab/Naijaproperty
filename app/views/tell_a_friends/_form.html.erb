@@ -1,22 +1,28 @@
-<h4>Tell A Friend </h4>
-<h3>Recommend listing <%= @listing.listing_title %></h3>
-<hr>
-<%= form_for ([@listing, @listing.tell_a_friends.new]) do |f| %>
-	
-    <div class="form-group">
-        <%= f.text_field :your_name, class: "form-control", placeholder: "Your Name *"  %>
+<div class="card">
+	<div class="card-header">
+		<h4 >Tell A Friend</h4>
+		<span >Recommend <%= @listing.listing_title %> at <%= @listing.location %></span>
 	</div>
-    <div class="form-group">
-        <%= f.text_field :friend_name, class: "form-control", placeholder: "Your Friend's Name *"  %>
+	<div class="card-body">
+		<%= form_for ([@listing, @listing.tell_a_friends.new]) do |f| %>
+
+		    <div class="form-group">
+		        <%= f.text_field :your_name, class: "form-control", placeholder: "Your Name *"  %>
+			</div>
+		    <div class="form-group">
+		        <%= f.text_field :friend_name, class: "form-control", placeholder: "Your Friend's Name *"  %>
+			</div>
+			<div class="form-group">
+			    <%= f.text_field :friend_email, class: "form-control", placeholder: "Your Friend's Email Address *"  %>
+			</div>
+			<div class="form-group">
+			    <%#= f.label :message,  %>
+			    <%= f.text_area :message, class: "form-control", rows: "30", value: "I think you might be interested in this property #{@listing.listing_title} at #{@listing.location} " %>
+			</div>
+		    <div class="form-group">
+		        <%= f.submit "Send", class: 'btn btn-normal btn-block' %>
+		    </div>
+		<% end %>
+
 	</div>
-	<div class="form-group">
-	    <%= f.text_field :friend_email, class: "form-control", placeholder: "Your Friend's Email Address *"  %>
-	</div>
-	<div class="form-group">
-	    <%#= f.label :message,  %>
-	    <%= f.text_area :message, class: "form-control", value: "I think you might be interested in this property #{@listing.listing_title} at #{@listing.location} " %>
-	</div>
-    <div class="form-group">
-        <%= f.submit "Send", class: 'btn btn-primary' %>
-    </div>
-<% end %>
+</div>

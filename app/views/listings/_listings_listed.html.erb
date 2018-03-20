@@ -1,0 +1,55 @@
+<% listings.each do |listing| %>
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card card-bottom">
+      <div class="single-item">
+        <% listing.photos.each do |photo| %>
+          <%= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "250px" %>
+        <% end %>
+      </div>
+      <div class="card-info">
+        <p class="card-title">N<%= listing.price || listing.rent_price || listing.short_stay_price %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <%= link_to(listing) do %>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6">
+                <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <i class="fa fa-bath">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %></i>
+              </div><br>
+              <div class="col-md-12">
+                <%= listing.location %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+          <!-- <li class="list-group-item">
+            <%= link_to listing.listing_title, listing %><br>
+            <%= listing.location %>
+          </li> -->
+      </ul>
+    </div><br>
+  </div>
+<% end %>
+
+
+<script>
+  $(document).ready(function(){
+    // $('.single-item-rtl').slick();
+
+    $('.single-item').slick({
+      // centerMode: true,
+      // centerPadding: '60px',
+      // slidesToShow: 3,
+      // arrows: true,
+      // infinite: true,
+      // speed: 300,
+      // dots: true,
+      // autoplay: true,
+      // autoplaySpeed: 3000
+    });
+    //$('.fade').slick();
+  });
+</script>

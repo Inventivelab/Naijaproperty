@@ -23,17 +23,19 @@ class User < ApplicationRecord
    extend FriendlyId
    friendly_id :slug_users, use: :slugged
 
+  def full_name
+   [first_name, last_name].join(" ")
+  end
+
    def slug_users
      if self.username
-       self.username
+       [username, id].join("-")
      else
-       [username, id].join("")
+       [full_name, id].join("-")
      end
    end
 
-   def full_name
-    [first_name, last_name].join(" ")
-  end
+
 
   def add_setting
     Setting.create(user: self, enable_sms: true, enable_email: true)

@@ -1,9 +1,8 @@
 <div class="row" id="search_page">
   <div class="col-md-6 col-12" id="left_search_page">
-    <%= render 'google_map' %>
   </div>
   <div class="col-md-6 col-12" id="right_search_page">
-    <%= search_form_for @search, url: for_rent_path, remote: true do |f| %>
+    <%= search_form_for @short_stay, url: short_stay_path, remote: true do |f| %>
       <div class="row">
         <div class="col-md-8">
           <label>Price range:</label>
@@ -11,11 +10,11 @@
         </div>
         <div class="col-md-2">
           <label>Min Price:</label>
-          <%= f.text_field :price_gteq, class: 'form-control' %>
+          <%= f.text_field :rent_price_gteq, class: 'form-control' %>
         </div>
         <div class="col-md-2">
           <label>Max Price:</label>
-          <%= f.text_field :price_lteq, class: 'form-control' %>
+          <%= f.text_field :rent_price_lteq, class: 'form-control' %>
         </div>
       </div>
       <hr>

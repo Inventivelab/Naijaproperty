@@ -1,0 +1,277 @@
+<div class="row" id="search_page">
+  <div class="col-md-6 col-12" id="left_search_page">
+  </div>
+  <div class="col-md-6 col-12" id="right_search_page">
+    <%= search_form_for @rent, url: rent_path, remote: true do |f| %>
+      <div class="row">
+        <div class="col-md-8">
+          <label>Price range:</label>
+          <div id="slider-range"></div>
+        </div>
+        <div class="col-md-2">
+          <label>Min Price:</label>
+          <%= f.text_field :rent_price_gteq, class: 'form-control' %>
+        </div>
+        <div class="col-md-2">
+          <label>Max Price:</label>
+          <%= f.text_field :rent_price_lteq, class: 'form-control' %>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <%= text_field_tag :start_date, params[:start_date], readOnly: true, placeholder: "Start Date", class: "form-control datapicker" %>
+        </div>
+        <div class="col-md-6">
+          <%= text_field_tag :end_date, params[:end_date], readOnly: true, placeholder: "End Date", class: "form-control datepicker" %>
+        </div>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="form-group">
+              <label>Year Built</label>
+              <%= f.text_field :year_built, placeholder: "Year Built", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group select">
+            <label>Bedrooms</label>
+            <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["+", 4], ["5", 4], ["6+", 6]], id: "bedroom", prompt: "Select...", class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group select">
+            <label>Bathrooms</label>
+            <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bathroom", prompt: "Select...", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="right-search">
+        <div class="row"><br>
+          <div class="collapse-search">
+            <button id="filter" class="btn btn-secondary" data-toggle="collapse" data-target="#collapsePanel">
+            More filters <i class="fa fa-chevron-down"></i>
+          </button>
+          </div>
+        </div><br>
+      <div class="collapse" id="collapsePanel">
+        <div class="row">
+          <div class="listing-sub-heading">
+            Property Type
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Apartments/Flats"%>  Apartments/Flats
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Blocks Of Flats"%> Blocks Of Flats
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Luxury Serviced Apartments"%> Luxury Serviced Apartments
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Bungalow"%> Bungalow
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Duplexes"%> Duplexes
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Self Contained/Studio"%> Self Contained/Studio
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Townhouses"%> Townhouses
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Penthouse"%> Penthouse
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Terraces"%> Terraces
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Commercial Property"%> Commercial Property
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Industrial/Warehouse"%> Industrial/Warehouse
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Single Family House"%> Single Family House
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Multi-Family-Home"%> Multi-Family-Home
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Hotels"%> Hotels
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Land"%> Land
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[apartment_type_eq_any][]", "Farm"%> Farm
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="listing-sub-heading">
+            Unique Features
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[basement_eq]", true %> TV
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[centralair_eq]", true %> Kitchen
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[laundry_room_eq]", true %> Internet
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[pool_eq]", true %> Heating
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[balcony_eq]", true %> Air Condition
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[familyroom_eq]", true %> Family Room
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="listing-sub-heading">
+            Lot Features
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[staff_quarters_eq]", true %> Staff Quarters
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[river_view_eq]", true %> River View
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[fence_eq]", true %> Fence
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[fitness_center_eq]", true %> Fitness Center
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[city_light_eq]", true %> City Light
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[access_gate_eq]", true %> Access Gate
+          </div>
+        </div><br/>
+        <div class="row">
+          <div class="listing-sub-heading">
+            Community Features
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[security_post_eq]", true %> Security Post
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[tennis_court_eq]", true %> Tennis Court
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[basketball_court_eq]", true %> BasketBall Court
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[pet_allowed_eq]", true %> Pet Allowed
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[borehole_eq]", true %> Borehole
+          </div>
+          <div class="col-md-4">
+            <%= check_box_tag "q[senior_community_eq]", true %> Senior Community
+          </div>
+        </div><br/>
+
+        <div class="row">
+          <div class="listing-sub-heading">
+            Parking Type
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            <%= check_box_tag "q[surface_lot_eq]", true %> Surface Lot
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            <%= check_box_tag "q[covered_eq]", true %> Covered
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            <%= check_box_tag "q[garage_court_eq]", true %> Garage
+          </div>
+          <div class="col-md-3 col-sm-6 col-6">
+            <%= check_box_tag "q[street_parking_eq]", true %> Street Parking
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+        <%= f.submit "Search", class: "btn btn-form" %>
+      </div>
+    <% end %>
+
+
+
+
+
+      <div class="row" id="listings_list">
+        <%= render partial: "listings/listings_list", locals: { listings: @arrListings }%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $('#start_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr("disabled", false);
+    }
+  });
+
+  $('#end_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+
+  var open = true;
+
+  $('#filter').click(function() {
+    if (open) {
+      $('#filter').html("More filters <i class='fa fa-chevron-up'></i>")
+    } else {
+      $('#filter').html("More filters <i class='fa fa-chevron-down'></i>")
+    }
+    open = !open;
+  });
+</script>
+
+<script>
+  $(function() {
+    $("#q_price_gteq").val('500');
+    $("#q_price_lteq").val('3000');
+
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 5000,
+      values: [500, 3000],
+      slide: function(event, ui) {
+        $("#q_price_gteq").val(ui.values[0]);
+        $("#q_price_lteq").val(ui.values[1]);
+      }
+    });
+
+    $(".ui-widget-header").css('background', '#00A699');
+    $(".ui-state-default, .ui-widget-content").css('background', 'white');
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699');
+  })
+</script>

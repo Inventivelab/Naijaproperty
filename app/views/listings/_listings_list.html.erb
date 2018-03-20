@@ -5,8 +5,8 @@
         <%= image_tag listing.backgroud_image(:medium)%>
       </div>
       <div class="card-body">
-        <%= link_to listing.listing_title, listing %>
-        $<%= listing.price %> - <%= listing.listing_type %> - <%= pluralize(listing.bedroom, "Bedroom") %>
+      <%= link_to listing.listing_title, listing %>
+      $<%= listing.prices %> - <%= listing.listing_type %> - <%= pluralize(listing.bedroom, "Bedroom") %>
         <!-- <div id="star_<%#= listing.id%>"></div><%#= pluralize(listing.average_rating, "Review")%> -->
       </div>
     </div>

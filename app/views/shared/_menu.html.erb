@@ -6,10 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Sale", root_path, class: "nav-link nav-links" %><span class="sr-only">(current)</span>
+        <%= link_to "Sale", sales_path, class: "nav-link nav-links" %><span class="sr-only">(current)</span>
       </li>
       <li class="nav-item">
-        <%= link_to "Rent", root_path, class: "nav-link nav-links" %>
+        <%= link_to "Rent", rent_path, class: "nav-link nav-links" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Short-Stay", rent_path, class: "nav-link nav-links" %>
       </li>
       <li class="nav-item">
         <%= link_to "Agent", root_path, class: "nav-link nav-links" %>
@@ -19,17 +22,16 @@
     <span class="navbar-text left-nav">
       <ul class="navbar-nav mr-auto ">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to notifications_path do %>
-              <i class="nav-link fa fa-bell fa-2x icon-flister-notification  "></i>
-              <span class="badge" id="navbar_number_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
-            <% end %>
-          </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-              <%= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>&nbsp;
-              <%= current_user.first_name %>
+              <% if current_user.pictures.count > 0 %>
+                <%= image_tag current_user.pictures[0].avatar.url(), class: 'rounded-circle avatar_small' %>
+              <% else %>
+                <%= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>
+              <% end %>
+              <%#= image_tag avatar_url(current_user), class: 'rounded-circle avatar_small' %>
+              <%#= current_user.first_name %>
 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink ">
@@ -44,9 +46,12 @@
             </div>
           </li>
           <li class="nav-item">
-            <%= link_to "List Your Property", new_listing_path, class: "nav-link nav-btn", id: "nav-btn-right" %>
-            <%#= link_to "List Your Property", new_listing_path, class: "btn btn-outline-success my-2 my-sm-0 btn btn-form2 btn-small nav-btn", style: "color: white; text-decoration: none;" %>
-          </li>
+            <%= link_to notifications_path do %>
+              <i class="nav-link fa fa-bell fa-2x icon-flister-notification  "></i>
+              <span class="badge" id="navbar_number_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+            <% end %>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
         <% else %>
           <li class="nav-item">

@@ -7,17 +7,26 @@
  @import 'pages';
  @import 'users';
 
- .input-group-btn {
-     position: relative;
-     align-items: stretch;
-     font-size: 0;
-     white-space: nowrap;
- }
- .btn-primary:focus, .btn-primary:active {
-     border-color: #00A5A8 !important;
-     background-color: #009DA0 !important;
-     color: #FFF !important;
- }
+ body {
+  color: #565a5c;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: 'Roboto Slab', serif;
+  // font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+ // .input-group-btn {
+ //     position: relative;
+ //     align-items: stretch;
+ //     font-size: 0;
+ //     white-space: nowrap;
+        // green #339999
+ // }
+ // .btn-primary:focus, .btn-primary:active {
+ //     border-color: #00A5A8 !important;
+ //     background-color: #009DA0 !important;
+ //     color: #FFF !important;
+ // }
 
 // #339999;
 //  body {
