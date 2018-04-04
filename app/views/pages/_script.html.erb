@@ -1,0 +1,90 @@
+<script>
+  $(document).ready(function(){
+    $('.fade').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
+
+    $('.center').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      arrows: true,
+      infinite: true,
+      speed: 300,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+        breakpoint: 868,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 550,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+<script>
+  $(function() {
+    $("#q_prices_gteq").val('500');
+    $("#q_prices_lteq").val('3000');
+
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 5000,
+      values: [500, 3000],
+      slide: function(event, ui) {
+        $("#q_prices_gteq").val(ui.values[0]);
+        $("#q_prices_lteq").val(ui.values[1]);
+      }
+    });
+
+    $(".ui-widget-header").css('background', '#00A699');
+    $(".ui-state-default, .ui-widget-content").css('background', 'white');
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699');
+  })
+</script>
+
+<script>
+  $('#start_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr("disabled", false);
+    }
+  });
+
+  $('#end_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+
+  $(function(){
+    $('#autolocation').geocomplete()
+  })
+</script>

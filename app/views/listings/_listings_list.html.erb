@@ -2,13 +2,44 @@
   <div class="col-md-3 col-sm-6">
     <div class="card">
       <div class="card-header preview">
-        <%= image_tag listing.backgroud_image(:medium)%>
+        <%= link_to(listing) do %>
+          <%= image_tag listing.backgroud_image(:medium)%>
+        <% end %>
       </div>
       <div class="card-body">
-      <%= link_to listing.listing_title, listing %>
-      $<%= listing.prices %> - <%= listing.listing_type %> - <%= pluralize(listing.bedroom, "Bedroom") %>
-        <!-- <div id="star_<%#= listing.id%>"></div><%#= pluralize(listing.average_rating, "Review")%> -->
+        <h5><%= link_to listing.listing_title, listing %></h5>
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= listing.listing_type %>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              ₦<%= listing.prices %>
+          </div>
+        </div>
       </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <div class="row">
+            <!-- <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <%= listing.listing_type %>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+                ₦<%= listing.prices %>
+            </div> -->
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <i class="fa fa-bath">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %></i>
+            </div>
+
+          </div>
+        </li>
+        <li class="list-group-item"><%= listing.location %></li>
+      </ul>
+        <!-- <div id="star_<%#= listing.id%>"></div><%#= pluralize(listing.average_rating, "Review")%> -->
+      <!-- </div> -->
     </div>
   </div>
 <% end %>

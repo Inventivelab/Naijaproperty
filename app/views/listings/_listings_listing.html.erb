@@ -1,0 +1,77 @@
+<% listings.each do |listing| %>
+  <div class="col-lg-3 col-md-3 col-sm-6">
+    <div class="card card-bottom">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% listing.photos.each do |photo| %>
+            <div class="carousel-item <%= 'active' if photo.id == listing.photos[0].id %>">
+              <%= image_tag photo.image.url(), width: "100%", height: "200px" %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+      
+      <div class="card-info"><br>
+        <p class="card-title"><%= link_to listing.listing_title, listing %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <!-- <%= link_to(listing) do %> -->
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <%= listing.listing_type %>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              N<%= listing.price || listing.rent_price || listing.short_stay_price %>
+            </div><br>
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              <i class="fa fa-bath">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %></i>
+            </div><br>
+          </div>
+        </li>
+
+        <li class="list-group-item">
+          <p class="card-title"><%= listing.location %></p>
+        </li>
+        <!-- <% end %> -->
+          <!-- <li class="list-group-item">
+            <%= link_to listing.listing_title, listing %><br>
+            <%= listing.location %>
+          </li> -->
+      </ul>
+    </div><br>
+  </div>
+<% end %>
+
+
+<script>
+  $(document).ready(function(){
+    // $('.single-item-rtl').slick();
+
+    $('.single-item').slick({
+      // centerMode: true,
+      // centerPadding: '60px',
+      // slidesToShow: 3,
+      // arrows: true,
+      // infinite: true,
+      // speed: 300,
+      // dots: true,
+      // autoplay: true,
+      // autoplaySpeed: 3000
+    });
+    //$('.fade').slick();
+  });
+</script>

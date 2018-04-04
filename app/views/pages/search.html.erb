@@ -29,7 +29,7 @@
               var prices = listing.price || listing.rent_price || listing.short_stay_price
               infowindow = new google.maps.InfoWindow({
 
-                content: "<div class='map_price'>$" + prices + "</div>"
+                content: "<div class='map_price'>₦" + prices +  "</div>" + "<p>" + listing.listing_type + "</p>"
               });
               infowindow.open(map, marker);
             })
@@ -242,7 +242,7 @@
       </div>
       <br>
       <div class="row" id="listings_list">
-        <%= render partial: "listings/listings_list", locals: { listings: @arrListings }%>
+        <%= render partial: "listings/listings_sales", locals: { listings: @arrListings }%>
       </div>
     </div>
   </div>

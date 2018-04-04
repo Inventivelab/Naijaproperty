@@ -728,7 +728,7 @@ a {
   }
   input{
     height: 50px;
-    width: 50%;
+    width: 40%;
     border: 1px solid #339999;
     border-radius: 2px;
     padding: 10px;
@@ -739,7 +739,7 @@ a {
   }
   select{
     height: 50px;
-    width: 25%;
+    width: 20%;
     border: 1px solid #339999;
     border-radius: 2px;
     color: #565a5c;
@@ -785,4 +785,47 @@ a {
 }
 .card-box-body{
   padding-top: 30px;
+}
+
+.jumbotron {
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  text-shadow: 2px 2px #000;
+}
+
+.bg-cover {
+
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: 1;
+}
+.bg-all{
+  background-image: url('http://s3.amazonaws.com/naijaproperty/photos/images/6/original/property01.jpg?1520827896');
+}
+
+.bg-rent{
+  background-image: url('http://s3.amazonaws.com/naijaproperty/photos/images/5/original/pro5.jpeg?1520827896');
+}
+
+.bg-shortstay{
+  background-image: url('http://s3.amazonaws.com/naijaproperty/photos/images/7/original/property02.jpg?1520827897');
+}
+
+.bg-sales{
+  background-image: url('http://s3.amazonaws.com/naijaproperty/photos/images/1/original/pro1.jpeg?1520827893');
+}
+
+
+.overlay {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }

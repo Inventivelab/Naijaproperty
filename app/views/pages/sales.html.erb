@@ -1,111 +1,97 @@
-<div class="search-container">
-  <div class="container-show search-form-field">
-    <%= search_form_for @sales, url: sales_path, remote: true do |f| %>
-    <%#= form_tag sales_path, method: :get, remote: true do |f| %>
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-12 input-group ">
-          <%= text_field_tag :sales, params[:sales], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
-          <%#= f.text_field :location, placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
-          <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4], ["5", 5], ["6+", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
-          <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
+<div class="jumbotron jumbotron bg-cover bg-rent">
+  <div class="overlay"></div>
+  <h1 class="display-4"><span class="text-red">NaijaProperty</span> Book unique homes <span class="element"></span> and experience a city like a local</h1>
+  <%= render "nav" %>
 
-        </div>
-        <div class="col-md-2 col-sm-3 col-6">
-          <div class="collapse-search">
-            <button id="filter"  data-toggle="collapse" data-target="#collapsePanel" class= "btn btn-form form-control " id= "search-btn">
-              Filters<i class="fa fa-chevron-down"></i>
-            </button>
+  <div class="home_page">
+    <div class="home_page_left">
+      <%= search_form_for @sales, url: for_sales_path do |f| %>
+      <%#= form_tag sales_path, method: :get do |f| %>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 search-form-field">
+              <div class="input-groupww mb-4eee input-group">
+
+                <%= text_field_tag :sales, params[:sales], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control", id: "autolocation" %>
+                <!-- <div class="input-group-append"> -->
+                  <%#= f.select :bedroom_gteq, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3 Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6+ Bedrooms", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
+                  <%#= f.select :bathroom_gteq, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6+ Bathrooms", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
+
+                  <%#= f.select :property_type, [["Apartments/Flats", "Apartments/Flats"], ["Blocks Of Flats", "Blocks Of Flats"], ["Luxury Serviced Apartments", "Luxury Serviced Apartments"],
+                                ["Bungalow", "Bungalow"], ["Duplexes", "Duplexes"], ["Self Contained/Studio", "Self Contained/Studio"],["Townhouses", "Townhouses"],
+                                ["Penthouse", "Penthouse"], ["Terraces", "Terraces"], ["Commercial Property", "Commercial Property"], ["Industrial/Warehouse", "Industrial/Warehouse"],
+                                ["Single Family House", "Single Family House"], ["Multi-Family-Home", "Multi-Family-Home"],["Hotels", "Hotels"], ["Land", "Land"],  ["Farms", "Farms"]
+                                ], id: "property_type", prompt: "Property Type", class: "form-control select" %>
+                  <%#= f.select :bedroom_gteq, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3 Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 4], ["6 Bedrooms", 6], ["7+ Bedrooms", 7]], id: "bedroom", prompt: "Bed", class: "form-control" %>
+                  <%#= f.select :bathroom_gteq, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6 Bathrooms", 6], ["7+ Bathrooms", 7]],
+                                id: "bathrooms", prompt: "Bath", class: "form-control" %>
+                  <%#= select_tag :listing_type, params[:listing_type],  id: "listing_type", prompt: "Select...", class: "form-control selsct" %>
+                  <%#= text_field_tag :start_date, params[:start_date], placeholder: "Start Date", class: "form-control datapicker" %>
+                  <%#= text_field_tag :end_date, params[:end_date], placeholder: "End Date", class: "form-control datepicker" %>
+                  <!-- <span class="input-group-text btn btn-normal" id="basic-addon2"><%= submit_tag '', class: "btn btn-normal"%> <i class="fa fa-search fa-2x"></i></span> -->
+                    <!-- <span class="input-group-text btn btn-normal" id="basic-addon2"><%= submit_tag '<i class="fa fa-search fa-2x" aria-hidden="true"></i>'.html_safe, class: "btn btn-normal"%></span> -->
+                  <!-- <span class="input-group-text btn btn-normal" id="basic-addon2"><%= button_tag type: 'submit', class: "btn btn-normal" do %>
+                    <i class="fa fa-search" aria-hidden="true" style="font-size: 1.5rem;"></i>
+                  <% end %> -->
+                  <%= button_tag fa_icon("search "), class: "btn btn-normal", id: "register-button", style: "font-size: 1.8rem" %>
+                  <!-- <span class= "input-group-text btn btn-normal", id= "basic-addon2"><%= button_tag type: 'submit', class: "btn btn-normal" do %>
+                    <i class="fa fa-search" aria-hidden="true" style="font-size: 2rem;"></i>
+                  <% end %> -->
+                <!-- </span> -->
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
 
 
-
-        <div class="col-md-2 col-sm-3 col-6">
-          <div class="float-right">
-            <%#= button_tag fa_icon("search "), class: "btn btn-normal form-control", id: "register-button", style: "font-size: 1.8rem" %>
-            <%= f.submit "Search", class: "btn btn-form form-control ", id: "search-btn"%>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    </div>
   </div>
+
+  <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p> -->
 </div>
 
 
-<div class="container-show"><br>
+
+
+<div class="container-show">
   <div class="row">
-    <div class="col-md-8 col-sm-12 col-12" id="listings_sales">
-      <%= render partial: "listings/listings_sales", locals: {listings: @listings} %>
-    </div>
-    <div class="col-md-4 d-none d-md-block">
-      <div class="card">
-        <div class="card-header">
-          <h3>This is Awesome</h3>
-        </div>
-        <div class="card-body">
-          Unfortunately these new bootstrap 4 classes do not work like the old ones on a div using collapse as they set the visible div to block which starts out visible rather than hidden and if you add an extra div around the collapse functionality no longer works.
-        </div>
-      </div>
-    </div>
+    <%= render partial: "listings/listings_list", locals: {listings: @listings.limit(4)} %>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div><h3>Cities</h3></div>
+    <br/>
+  <div class="row">
 
+    <div class="col-md-3 col-sm-6">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=austin">
+        <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
+      </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
+        <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
+      </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
+        <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
+      </a>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=new+york">
+        <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
+      </a>
+    </div>
   </div>
 </div>
 
 
-<script>
-  $('#start_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#end_date').datepicker("option", "minDate", selected);
-      $('#end_date').attr("disabled", false);
-    }
-  });
-
-  $('#end_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#start_date').datepicker("option", "maxDate", selected);
-    }
-  });
-
-  var open = true;
-
-  $('#filter').click(function() {
-    if (open) {
-      $('#filter').html("Filters <i class='fa fa-chevron-up'></i>")
-    } else {
-      $('#filter').html("Filters <i class='fa fa-chevron-down'></i>")
-    }
-    open = !open;
-  });
-
-  $(function(){
-    $('#autolocation').geocomplete()
-  })
-</script>
-
-<script>
-  $(function() {
-    $("#q_prices_gteq").val('500');
-    $("#q_prices_lteq").val('3000');
-
-    $("#slider-range").slider({
-      range: true,
-      min: 0,
-      max: 5000,
-      values: [500, 3000],
-      slide: function(event, ui) {
-        $("#q_prices_gteq").val(ui.values[0]);
-        $("#q_prices_lteq").val(ui.values[1]);
-      }
-    });
-
-    $(".ui-widget-header").css('background', '#00A699');
-    $(".ui-state-default, .ui-widget-content").css('background', 'white');
-    $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699');
-  })
-</script>
+<%= render "script" %>

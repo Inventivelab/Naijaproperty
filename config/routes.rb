@@ -38,9 +38,11 @@ Rails.application.routes.draw do
   resources :chats, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
+  get 'search' => 'pages#search'
   get 'sales', to: 'pages#sales'
   get 'rent' => 'pages#rent'
   get 'short_stay' => 'pages#short_stay'
+  get 'for_sales' => 'pages#for_sales'
   get 'for_rent' => 'pages#for_rent'
   get 'for_short_stay' => 'pages#for_short_stay'
   get 'dashboard' => 'dashboards#index'

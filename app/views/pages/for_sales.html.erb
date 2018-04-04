@@ -1,0 +1,55 @@
+<div class="search-container">
+  <div class="container-show search-form-field">
+    <%= search_form_for @sales, url: for_sales_path, remote: true do |f| %>
+    <%#= form_tag sales_path, method: :get, remote: true do |f| %>
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-12 input-group ">
+          <%= text_field_tag :sales, params[:sales], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
+          <%#= f.text_field :location, placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
+          <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4], ["5", 5], ["6+", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
+          <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
+
+        </div>
+        <div class="col-md-2 col-sm-3 col-6">
+          <div class="collapse-search">
+            <button id="filter"  data-toggle="collapse" data-target="#collapsePanel" class= "btn btn-form form-control " id= "search-btn">
+              Filters<i class="fa fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-2 col-sm-3 col-6">
+          <div class="float-right">
+            <%#= button_tag fa_icon("search "), class: "btn btn-normal form-control", id: "register-button", style: "font-size: 1.8rem" %>
+            <%= f.submit "Search", class: "btn btn-form form-control ", id: "search-btn"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container-show"><br>
+  <div class="row">
+    <div class="col-md-8 col-sm-12 col-12" id="listings_sales">
+      <%= render partial: "listings/listings_sales", locals: {listings: @listings} %>
+    </div>
+    <div class="col-md-4 d-none d-md-block">
+      <div class="card">
+        <div class="card-header">
+          <h3>This is Awesome</h3>
+        </div>
+        <div class="card-body">
+          Unfortunately these new bootstrap 4 classes do not work like the old ones on a div using collapse as they set the visible div to block which starts out visible rather than hidden and if you add an extra div around the collapse functionality no longer works.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<%= render "script" %>
