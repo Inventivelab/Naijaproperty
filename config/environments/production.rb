@@ -86,6 +86,10 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
+
+  config.action_mailer.default_url_options = { host: 'naijaproperty.herokuapp.com', port: 3000 }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :smtp
