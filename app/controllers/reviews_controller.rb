@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       end
     # else
     #   flash[:alert] = "Not found "
-    end
+    # end
 
     redirect_back(fallback_location: request.referer)
   end
