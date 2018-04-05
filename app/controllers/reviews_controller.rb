@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
           # Already reviewed
           flash[:success] = "You already submitted a reviewed"
       end
-    else
-      flash[:alert] = "Not found "
+    # else
+    #   flash[:alert] = "Not found "
     end
 
     redirect_back(fallback_location: request.referer)
