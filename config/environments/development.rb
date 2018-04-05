@@ -59,6 +59,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     post: 587,
+    :domain => 'naijaproperty.herokuapp.com',
     user_name: ENV["sendgrid_username"],
     password: ENV["sendgrid_password"],
     authentication: 'plain'
