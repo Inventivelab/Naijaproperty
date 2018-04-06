@@ -86,5 +86,27 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    post: 587,
+    domain: 'naijaproperty.herokuapp.com',
+    user_name: ENV["sendgrid_username"],
+    password: ENV["sendgrid_password"],
+    authentication: 'plain'
+
+  }
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: ENV["aws_host_name"],
+    s3_credentials: {
+      bucket: ENV["s3_bucket_name"],
+      access_key_id: ENV["aws_access_key_id"],
+      secret_access_key: ENV["aws_secret_access_key"],
+      s3_region:ENV["aws_region"]
+    }
+  }
+
 end
