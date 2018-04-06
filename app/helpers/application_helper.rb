@@ -18,7 +18,7 @@ module ApplicationHelper
 		) if time
 	end
 
-  def title(listing_title)
+  def listing_title(listing_title)
   content_for(:title) { listing_title }
   end
 

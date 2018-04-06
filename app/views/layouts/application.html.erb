@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Naijaproperty</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      <% if yield(:title).present? %>
-          <%= yield(:title) %>
+      <% if yield(:listing_title).present? %>
+          <%= yield(:listing_title) %>
       <% else %>
           NaijaProperty | Property in Nigeria | Lagos Abuja Property
       <% end %>
@@ -17,6 +13,10 @@
     <% else %>
       <meta name="description" content="NaijaProperty | List and Search Property in Nigeria" />
     <% end %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJGFMxkkSpR8KuuyoIGa57jOCfphYSK8&libraries=places"></script>
