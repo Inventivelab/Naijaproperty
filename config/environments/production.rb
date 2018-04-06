@@ -86,8 +86,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
-  
+  config.action_cable.url = "WSS://naijaproperty.herokuapp.com/cable"
+
   config.action_mailer.default_url_options = { host: 'naijaproperty.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
