@@ -17,4 +17,12 @@ module ApplicationHelper
 			options.merge(datetime: time.getutc.iso8601)
 		) if time
 	end
+
+  def title(listing_title)
+  content_for(:title) { listing_title }
+  end
+
+  def meta_description(listing_summary)
+    content_for(:meta_description) { listing_summary }
+  end
 end

@@ -1,6 +1,9 @@
 <% content_for :head do %>
   <meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
+<% title @listing.title %>
+<% meta_description @listing.description.truncate(150, separator: ' ') %>
+
 <!-- <div class="center">
   <% @photos.each do |photo| %>
     <%= image_tag photo.image.url(), width: "100%", height: "350px" %>

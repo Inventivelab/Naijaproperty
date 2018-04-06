@@ -5,6 +5,18 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      <% if yield(:title).present? %>
+          <%= yield(:title) %>
+      <% else %>
+          NaijaProperty | Property in Nigeria | Lagos Abuja Property
+      <% end %>
+    </title>
+    <% if yield(:meta_description).present? %>
+      <meta name="description" content="<%= yield(:meta_description) %>" />
+    <% else %>
+      <meta name="description" content="NaijaProperty | List and Search Property in Nigeria" />
+    <% end %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJGFMxkkSpR8KuuyoIGa57jOCfphYSK8&libraries=places"></script>
