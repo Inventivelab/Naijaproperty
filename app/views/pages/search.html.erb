@@ -1,59 +1,206 @@
 <div class="row" id="search_page">
-  <div class="col-md-6 col-12" id="left_search_page">
-    <div>
-      <div id="map" >
-        <script src=ENV["map_url_map"]></script>
-        <script>
-          function initialize(listings){
-            var location = {lat: 44.5403, lng: -78.5463}
+  <div class="d-none d-sm-block col-md-6 col-sm-6" id="left_search_page">
+    <div id="map" >
+      <script src=ENV["map_url_map"]></script>
+      <script>
+        function initialize(listings){
+          var location = {lat: 44.5403, lng: -78.5463}
 
-            if (listings.length > 0) {
-              location = {lat: listings[0].latitude, lng: listings[0].longitude }
-            }
+          if (listings.length > 0) {
+            location = {lat: listings[0].latitude, lng: listings[0].longitude }
+          }
 
             var map = new google.maps.Map(document.getElementById('map'), {
               center: location,
-              zoom: 12
+               zoom: 12,
+
+              // styles: [
+              // {elementType: 'geometry', stylers: [{color: '#e6efee'}]},
+              // {elementType: 'labels.text.stroke', stylers: [{color: '#e6efee'}]},
+              // {elementType: 'labels.text.fill', stylers: [{color: '#000000'}]},
+              // {
+              //   featureType: 'administrative.locality',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#0b6839'}]
+              // },
+              // {
+              //   featureType: 'poi',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#ec6564'}]
+              // },
+              // {
+              //   featureType: 'poi.park',
+              //   elementType: 'geometry',
+              //   stylers: [{color: '#263c3f'}]
+              // },
+              // {
+              //   featureType: 'poi.park',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#6b9a76'}]
+              // },
+              // {
+              //   featureType: 'road',
+              //   elementType: 'geometry',
+              //   stylers: [{color: '#b0b2ae'}]
+              // }
+              // {
+              //   featureType: 'road',
+              //   elementType: 'geometry.stroke',
+              //   stylers: [{color: '#212a37'}]
+              // },
+              // {
+              //   featureType: 'road',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#9ca5b3'}]
+              // },
+              // {
+              //   featureType: 'road.highway',
+              //   elementType: 'geometry',
+              //   stylers: [{color: '#746855'}]
+              // },
+              // {
+              //   featureType: 'road.highway',
+              //   elementType: 'geometry.stroke',
+              //   stylers: [{color: '#1f2835'}]
+              // },
+              // {
+              //   featureType: 'road.highway',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#f3d19c'}]
+              // },
+              // {
+              //   featureType: 'transit',
+              //   elementType: 'geometry',
+              //   stylers: [{color: '#2f3948'}]
+              // },
+              // {
+              //   featureType: 'transit.station',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#d59563'}]
+              // },
+              // {
+              //   featureType: 'water',
+              //   elementType: 'geometry',
+              //   stylers: [{color: '#17263c'}]
+              // },
+              // {
+              //   featureType: 'water',
+              //   elementType: 'labels.text.fill',
+              //   stylers: [{color: '#515c6d'}]
+              // },
+              // {
+              //   featureType: 'water',
+              //   elementType: 'labels.text.stroke',
+              //   stylers: [{color: '#17263c'}]
+              // }
+            // ]
+
+
             });
 
-            var marker, infowindow;
 
 
-            listings.forEach(function(listing){
-              marker = new google.maps.Marker({
-                position: {lat:  listing.latitude , lng:  listing.longitude },
-                map: map
-              });
+          var marker, infowindow;
+
+          // <% @listings.each do |listing| %>
+          //   image = "No";
+          //   marker = new google.maps.Marker({
+          //     position: {lat:  <%= listing.latitude %>, lng:  <%= listing.longitude %> },
+          //     map: map,
+          //     icon: image
+          //   });
+          //
+          //   infowindow = new google.maps.InfoWindow({
+          //
+          //
+          //     content: '<div class="map-price"><%= link_to(listing) do %> ₦ <%= listing.rent_price if listing.rent_price %><%= listing.price if listing.price %><%= listing.short_stay_price if listing.short_stay_price %> <br> <%= listing.listing_type %> <% end %> </div>'
+          //   });
+          //   infowindow.open(map, marker);
+          //
+          // <% end %>
 
 
-              var prices = listing.price || listing.rent_price || listing.short_stay_price
-              infowindow = new google.maps.InfoWindow({
 
-                content: "<div class='map_price'>₦" + prices +  "</div>" + "<p>" + listing.listing_type + "</p>"
-              });
-              infowindow.open(map, marker);
-            })
+          listings.forEach(function(listing){
+            var image = "No";
+            var prices = "listing.price || listing.rent_price || listing.short_stay_price"
+            marker = new google.maps.Marker({
+              position: {lat:  listing.latitude , lng:  listing.longitude },
+              map: map
+              // icon: prices
+            });
 
-          }
-          google.maps.event.addDomListener(window, 'load', function() {
-            initialize(<%= raw @arrListings.to_json %>)
-          });
-        </script>
+            var prices = listing.price || listing.rent_price || listing.short_stay_price
+            infowindow = new google.maps.InfoWindow({
+
+              content: "<div class='map_price'>₦" + prices +  "</div>" + "<p>" + listing.listing_type + "</p>"
+            });
+            infowindow.open(map, marker);
+          })
+
+        }
+        google.maps.event.addDomListener(window, 'load', function() {
+          initialize(<%= raw @arrListings.to_json %>)
+        });
+      </script>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-6 col-12" id="right_search_page">
+    <div class="search-top sticky-top">
+      <div class=" search-form-field">
+        <%= search_form_for @search, url: search_path, remote: true do |f| %>
+        <%#= form_tag sales_path, method: :get, remote: true do |f| %>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 input-group ">
+              <%= text_field_tag :search, params[:search], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
+              <%#= f.text_field :location, placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control ", id: "autolocation" %>
+              <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bedroom", prompt: "Bedroom...", class: "form-control select-field" %>
+              <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bathroom", prompt: "Bathroom...", class: "form-control select-field"  %>
+              <%#= f.select :listing_type_eq_any, [["Short Stay", "Short Stay"],["For Sale", "For Sale"], ["For Rent", "For Rent"]], id: "listing_type", prompt: "Property-Type", class: "form-control select-field" %>
+              <!-- <div class="float-right">
+                <%#= button_tag fa_icon("search "), class: "btn btn-normal form-control", id: "register-button", style: "font-size: 1.8rem" %>
+                <%= f.submit "Search", class: "btn btn-form form-control ", id: "search-btn"%>
+              </div> -->
+            </div><br><br>
+            <div class="col-md-12 col-sm-12 col-12 input-group ">
+
+              <%= f.select :listing_type_eq_any, [["Short Stay", "Short Stay"],["For Sale", "For Sale"], ["For Rent", "For Rent"]], id: "listing_type", prompt: "Property-Type", class: "form-control select-field select" %>
+              <%= f.select :property_type_eq_any, [["Apartments/Flats", "Apartments/Flats"], ["Blocks Of Flats", "Blocks Of Flats"], ["Luxury Serviced Apartments", "Luxury Serviced Apartments"],
+                            ["Bungalow", "Bungalow"], ["Duplexes", "Duplexes"], ["Self Contained/Studio", "Self Contained/Studio"],["Townhouses", "Townhouses"],
+                            ["Penthouse", "Penthouse"], ["Terraces", "Terraces"], ["Commercial Property", "Commercial Property"], ["Industrial/Warehouse", "Industrial/Warehouse"],
+                            ["Single Family House", "Single Family House"], ["Multi-Family-Home", "Multi-Family-Home"],["Hotels", "Hotels"], ["Land", "Land"],  ["Farms", "Farms"]
+                            ], id: "property_type", prompt: "Home Type", class: "form-control select-field select" %>
+
+              <div class="float-right">
+                <%#= button_tag fa_icon("search "), class: "btn btn-normal form-control", id: "register-button", style: "font-size: 1.8rem" %>
+                <%= f.submit "Find Home", class: "btn btn-form form-control", id: "search-btn"%>
+              </div>
+            </div>
+
+
+
+
+            <!-- <div class="col-md-2 col-sm-4 col-6">
+              <div class="float-right">
+                <%#= button_tag fa_icon("search "), class: "btn btn-normal form-control", id: "register-button", style: "font-size: 1.8rem" %>
+                <%= f.submit "Search", class: "btn btn-form form-control ", id: "search-btn"%>
+              </div>
+            </div> -->
+          </div>
+        <% end %>
       </div>
     </div>
-
-  </div>
-  <div class="col-md-6 col-12" id="right_search_page">
     <div class="right-search">
       <div class="row"><br>
-        <div class="collapse-search">
+        <!-- <div class="collapse-search">
           <button id="filter" class="btn btn-secondary" data-toggle="collapse" data-target="#collapsePanel">
           More filters <i class="fa fa-chevron-down"></i>
-        </button>
+        </button> -->
         </div>
       </div><br>
       <div class="collapse" id="collapsePanel">
-        <%= search_form_for @search, url: sales_path, remote: true do |f| %>
+        <%= search_form_for @search, url: search_path, remote: true do |f| %>
           <div class="row">
 
           </div>

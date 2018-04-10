@@ -19,7 +19,7 @@ FriendlyId.defaults do |config|
   config.reserved_words = %w(new edit index session login logout users admin
     stylesheets assets javascripts images)
 
-  #  ## Friendly Finders
+  # ##Friendly Finders
   #
   # Uncomment this to use friendly finders in all models. By default, if
   # you wish to find a record by its friendly id, you must do:
@@ -38,19 +38,19 @@ FriendlyId.defaults do |config|
   # performance because it will avoid Rails-internal code that makes runtime
   # calls to `Module.extend`.
   #
-  # config.use :finders
+  config.use :finders
   #
   # ## Slugs
   #
   # Most applications will use the :slugged module everywhere. If you wish
   # to do so, uncomment the following line.
   #
-  # config.use :slugged
+  config.use :slugged
   #
   # By default, FriendlyId's :slugged addon expects the slug column to be named
   # 'slug', but you can change it if you wish.
   #
-  # config.slug_column = 'slug'
+  config.slug_column = 'slug'
   #
   # By default, slug has no size limit, but you can change it if you wish.
   #
@@ -61,7 +61,7 @@ FriendlyId.defaults do |config|
   # separator. If you're upgrading from FriendlyId 4, you may wish to replace this
   # with two dashes.
   #
-  # config.sequence_separator = '-'
+  config.sequence_separator = '-'
   #
   # Note that you must use the :slugged addon **prior** to the line which
   # configures the sequence separator, or else FriendlyId will raise an undefined
@@ -89,23 +89,34 @@ FriendlyId.defaults do |config|
   # ASCII. If you use this, don't forget to add "babosa" to your Gemfile.
   #
   # config.use Module.new {
-  #   def normalize_friendly_id(text)
-  #     text.to_slug.normalize! :transliterations => [:russian, :latin]
-  #   end
+  #   # def should_generate_new_friendly_id?
+  #   #   slug.blank? || self.slug_users_changed? || self.slug_listings
+  #   # end
+  #   # def normalize_friendly_id(text)
+  #   #   text.to_slug.normalize! :transliterations => [:russian, :latin]
+  #   # end
   # }
 
 
 end
 
 module FriendlyId
-  module Slugged
+  module SluggedUser
     def should_generate_new_friendly_id?
-      return true if send(friendly_id_config.slug_column).nil? && !send(friendly_id_config.base).nil?
-
-      change = :"#{friendly_id_config.base}_changed?"
-      return true if respond_to?(change) && send(change)
-
-      false
+      slug.blank? || self.username_changed?
     end
+    # def should_generate_new_friendly_id?
+    #   return true if send(friendly_id_config.slug_column).nil? && !send(friendly_id_config.base).nil?
+    #
+    #   change = :"#{friendly_id_config.base}_changed?"
+    #   return true if respond_to?(change) && send(change)
+    #
+    #   false
+    # end
+  end
+  module SluggedListing
+    # def should_generate_new_friendly_id?
+    #   slug.blank? || self.slug_listings
+    # end
   end
 end

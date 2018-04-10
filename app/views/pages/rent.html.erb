@@ -5,7 +5,7 @@
 
   <div class="home_page">
     <div class="home_page_left">
-      <%= search_form_for @rent, url: for_rent_path do |f| %>
+      <%= search_form_for @rent, url: search_path do |f| %>
       <%#= form_tag sales_path, method: :get do |f| %>
         <div class="container">
           <div class="row">
@@ -14,6 +14,7 @@
 
                 <%= text_field_tag :rent, params[:rent], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control", id: "autolocation" %>
                 <!-- <div class="input-group-append"> -->
+                <%= hidden_field_tag "q[listing_type_eq_any][]", "For Rent", id: "listing_type", prompt: "Property-Type", class: "form-control select-field" %>
                   <%= f.select :bedroom_gteq, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3 Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6+ Bedrooms", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
                   <%= f.select :bathroom_gteq, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6+ Bathrooms", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
 

@@ -81,9 +81,9 @@
 
       <!-- GOOGLE MAP -->
       <div class="row">
-        <div id="map"></div>
+        <div id="map">
 
-        <script src=ENV["map_url"]></script>
+        <script src=ENV["map_url_map"]></script>
         <script>
           function initialize() {
             var location = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>};
@@ -98,18 +98,19 @@
             });
 
             var infoWindow = new google.maps.InfoWindow({
-              content: '<div id="content"><%= image_tag @listing.backgroud_image(:medium), width: "100%" %> <br><br><p><%= @listing.location %></p></div>'
+              content: '<div id="content"><%= image_tag @listing.backgroud_image(:medium), width: "100%" %> <br><br><p><%= @listing.location %></p><p><%= @listing.listing_type %></p></div>'
             });
 
             infoWindow.open(map, marker);
           }
-          // $(document).on("turbolinks:load", function(){
-          //   initialize(<%= raw @listings.to_json %>)
-          //   })
+          $(document).on("turbolinks:load", function(){
+            initialize(<%= raw @listings.to_json %>)
+            })
 
           google.maps.event.addDomListener(window, 'load', initialize);
 
         </script>
+        </div>
       </div>
       <hr/>
 

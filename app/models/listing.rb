@@ -11,7 +11,7 @@ class Listing < ApplicationRecord
   after_validation :geocode, if: :location_changed?
 
   extend FriendlyId
-  friendly_id :slug_listings, use: :slugged
+  friendly_id :slug_listings, use: :slugged_listing
 
    def slug_listings
      [

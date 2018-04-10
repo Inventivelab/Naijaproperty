@@ -34,7 +34,7 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @listings_address = Listing.where(active: true).near(session[:loc_search], 50, order: 'distance')
+      @listings_address = Listing.where(active: true).near(session[:loc_search], 500, order: 'distance')
     else
       @listings_address = Listing.where(active: true).all
     end
@@ -54,7 +54,7 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @listings_address = Listing.all.where(listing_type: "For Sale")
+      @listings_address = Listing.all.where(listing_type: "For Sale").near(session[:loc_search], 500, order: 'distance')
       # @listings_address = Listing.all.where(listing_type: "For Sale").near(session[:loc_search], 5000, order: 'distance')
       #&& Listing.where(active: true).near(session[:loc_search], 50000, order: 'distance')
     else
@@ -99,7 +99,7 @@ class PagesController < ApplicationController
       # STEP 2
       # if (@listing_type == "For Rent")
         if session[:loc_search] && session[:loc_search] != ""
-          @listings_address = Listing.all.where(listing_type: "For Rent")
+          @listings_address = Listing.all.where(listing_type: "For Rent").near(session[:loc_search], 500, order: 'distance')
           #&& Listing.where(active: true).near(session[:loc_search], 5, order: 'distance')
         else
           @listings_address = Listing.where(active: true).all
@@ -145,7 +145,7 @@ class PagesController < ApplicationController
       # STEP 2
       # if (@listing_type == "For Rent")
         if session[:loc_search] && session[:loc_search] != ""
-          @listings_address = Listing.all.where(listing_type: "Short Stay")
+          @listings_address = Listing.all.where(listing_type: "Short Stay").near(session[:loc_search], 500, order: 'distance')
           #&& Listing.where(active: true).near(session[:loc_search], 5, order: 'distance')
         else
           @listings_address = Listing.where(active: true).all

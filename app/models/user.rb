@@ -19,23 +19,16 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length:{maximum: 20}
   validates :last_name, presence: true,  length:{maximum: 20}
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
+
+
 
    extend FriendlyId
-   friendly_id :slug_users, use: :slugged
+   friendly_id :username, use: :slugged_user
 
   def full_name
    [first_name, last_name].join(" ")
   end
-
-   def slug_users
-     if self.username
-       [username, id].join("-")
-     else
-       [full_name, id].join("-")
-     end
-   end
-
-
 
   def add_setting
     Setting.create(user: self, enable_sms: true, enable_email: true)
@@ -52,7 +45,7 @@ class User < ApplicationRecord
         user.password = Devise.friendly_token[0,20]
         user.first_name = auth.info.first_name
         user.last_name = auth.info.last_name
-        user.username = auth.info.name
+        user.username = [auth.info.name, auth.uid].join("-")
         #user.username = auth.extra.raw_info.username
         user.image = auth.info.image
         user.uid = auth.uid

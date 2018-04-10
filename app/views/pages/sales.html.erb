@@ -5,7 +5,7 @@
 
   <div class="home_page">
     <div class="home_page_left">
-      <%= search_form_for @sales, url: for_sales_path do |f| %>
+      <%= search_form_for @sales, url: search_path do |f| %>
       <%#= form_tag sales_path, method: :get do |f| %>
         <div class="container">
           <div class="row">
@@ -13,6 +13,7 @@
               <div class="input-groupww mb-4eee input-group">
 
                 <%= text_field_tag :sales, params[:sales], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control", id: "autolocation" %>
+                <%= hidden_field_tag "q[listing_type_eq_any][]", "For Sale", id: "listing_type", prompt: "Property-Type", class: "form-control select-field" %>
                 <!-- <div class="input-group-append"> -->
                   <%#= f.select :bedroom_gteq, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3 Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6+ Bedrooms", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
                   <%#= f.select :bathroom_gteq, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6+ Bathrooms", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
@@ -61,7 +62,7 @@
 
 <div class="container-show">
   <div class="row">
-    <%= render partial: "listings/listings_list", locals: {listings: @listings.limit(4)} %>
+    <%= render partial: "listings/listings_list", locals: {listings: @listings} %>
   </div>
 </div>
 <br>
