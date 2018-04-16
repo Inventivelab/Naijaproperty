@@ -13,29 +13,21 @@
             <%= listing.listing_type %>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              ₦<%= listing.prices %>
+              ₦&nbsp;<%= listing.prices %>
+          </div><br>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= fa_icon "bed", text: pluralize(listing.bedroom, "Bed"), left: true  %>
           </div>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= fa_icon "bath", text: pluralize(listing.bathroom, "Bath"), left: true  %>
+          </div>
+          
         </div>
+
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <div class="row">
-            <!-- <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              <%= listing.listing_type %>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-                ₦<%= listing.prices %>
-            </div> -->
-            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              <i class="fa fa-bath">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %></i>
-            </div>
 
-          </div>
-        </li>
         <li class="list-group-item"><%= listing.location %></li>
       </ul>
         <!-- <div id="star_<%#= listing.id%>"></div><%#= pluralize(listing.average_rating, "Review")%> -->

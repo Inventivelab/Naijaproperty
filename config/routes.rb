@@ -6,7 +6,8 @@ Rails.application.routes.draw do
              path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
              controllers: {omniauth_callbacks: 'omniauth_callbacks',registrations: 'registrations' }
 
-  # get ':id' => 'users#show'
+  get 'n/:id' => 'users#show'
+
   resources :users, only: [:show, :index] do
     member do
       get 'profile_picture' => 'users#profile_picture'
@@ -39,10 +40,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   get 'search' => 'pages#search'
-  get 'sales', to: 'pages#sales'
+  get 'search_list', to: 'pages#search_list'
   get 'rent' => 'pages#rent'
   get 'short_stay' => 'pages#short_stay'
-  get 'for_sales' => 'pages#for_sales'
+  get 'sales' => 'pages#sales'
   get 'for_rent' => 'pages#for_rent'
   get 'for_short_stay' => 'pages#for_short_stay'
   get 'dashboard' => 'dashboards#index'

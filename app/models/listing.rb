@@ -6,7 +6,7 @@ class Listing < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :listing_type, presence: true
-
+  # self.per_page = 4
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
 

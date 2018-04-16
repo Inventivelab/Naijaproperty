@@ -17,8 +17,8 @@
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJGFMxkkSpR8KuuyoIGa57jOCfphYSK8&libraries=places"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://code.jquery.com/ui/1.11.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
@@ -39,3 +39,5 @@
     <%= render 'shared/footer' %>
   </body>
 </html>
+<%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -19,7 +19,6 @@
 //= require lib/typed
 //= require typed-implementation
 //= require cable
-//= require turbolinks
 //= require_tree .
 //= require popper
 //= require bootstrap-sprockets

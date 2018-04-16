@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
   end
 
   def description
-
+  
   end
 
   def photo_upload
