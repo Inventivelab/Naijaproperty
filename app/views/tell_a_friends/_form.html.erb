@@ -1,5 +1,6 @@
 <!-- <button type="button" class="btn btn-normal btn-block" data-toggle="modal" data-target="#tellAFriend" data-whatever="@tell_a_friends">Tell a Friend</button> -->
-<%= (fa_stacked_icon "user-plus ", base: "square-o", text: 'Tell a Friend', "data-toggle" => "modal", "data-target" => "#tellAFriend", "data-whatever" => "@tell_a_friends", 'style' => "color: #339999;") %>
+<span style= "cursor: pointer; color: #339999;"><%= (fa_stacked_icon "user-plus ", base: "square-o", "data-toggle" => "modal", "data-target" => "#tellAFriend", "data-whatever" => "@tell_a_friends", 'style' => "color: #339999;") %>
+<span data-toggle="modal" data-target="#tellAFriend" data-whatever="@tell_a_friends">Tell a Friend</span></span>
 
 <div class="modal fade" id="tellAFriend" tabindex="-1" role="dialog" aria-labelledby="tellAFriendLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

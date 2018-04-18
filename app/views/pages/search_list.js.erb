@@ -1,0 +1,2 @@
+$("#listings_list").html('<%= escape_javascript render partial: "listings/listings_sales", locals: { listings: @arrListings } %>')
+$("#paginator").html("<%= escape_javascript(paginate(@listings, remote: true)) %>")

@@ -25,4 +25,10 @@ module ApplicationHelper
   def meta_description(listing_summary)
     content_for(:meta_description) { listing_summary }
   end
+
+  def paginate objects, options = {}
+    options.reverse_merge!( theme: 'twitter-bootstrap-4' )
+
+    super( objects, options )
+  end
 end

@@ -150,7 +150,20 @@
 
     <div class="col-md-4 col-sm-5">
       <div class="card">
-        <div class="card-header"></div>
+        <div class="card-header">
+          <span>
+            Verification Status:
+            <% if @listing.user.confirmation_token%>
+              <%= fa_stacked_icon "envelope", base: "square-o", left: true, style: "font-size: .9rem;" %>
+            <% end %>
+            <% if @listing.user.provider %>
+              <%= fa_stacked_icon "facebook ", base: "square-o", left: true, style: "font-size: .9rem;" %>
+            <% end %>
+            <% if @listing.user.phone_verified %>
+              <%= fa_stacked_icon "phone ", base: "square-o", left: true, style: "font-size: .9rem;" %>
+            <% end %>
+          </span>
+        </div>
         <div class="card-body">
           <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 col-5">
@@ -168,7 +181,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div><br>
       <div class="availabilities-form">
         <%= render 'availabilities/form' %>
       </div><br>
@@ -176,12 +189,14 @@
         <div class="card-header preview">
 
         </div>
+        <div class="card-body">
+          <%= render 'tell_a_friends/form' %>
+        </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title) %></li>
-
-          <li class="list-group-item"><%= render 'tell_a_friends/form' %></li>
         </ul>
       </div>
+
       <!-- <div class="tell-a-friends-form">
 
 

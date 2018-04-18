@@ -29,7 +29,14 @@
 
           </div>
         </div>
+        <% if current_user && current_user == @user %>
+        <%#= link_to (edit_user_registration_path) do %>
+          <%= link_to (fa_stacked_icon "edit ", text: "Update Profile", class: "float-left"), edit_user_registration_path, class: "btn btn-normal btn-block" %>
+        <%# end %>
+      <% else %>
         <%= render 'contacts/form' %>
+      <% end %>
+
       </div>
     </div>
     <div class="col-md-9">

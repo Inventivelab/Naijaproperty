@@ -18,14 +18,18 @@
           <div class="col form-group">
             <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "Username" %>
           </div>
-        </div>
-
-        <div class="form-row">
           <div class="col form-group">
             <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
           </div>
+        </div>
+
+        <div class="form-row">
+
           <div class="col form-group">
             <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          </div>
+          <div class="col form-group">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
           </div>
         </div>
         <div class="form-group">
