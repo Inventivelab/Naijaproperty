@@ -2,13 +2,15 @@
 <%= (fa_stacked_icon "envelope ", base: "square-o", "data-toggle" => "modal", "data-target" => "#contactAgent", "data-whatever" => "@contact_me", 'style' => "color: #339999; font-size: 1.6rem;") %>
 <div class="modal fade" id="contactAgent" tabindex="-1" role="dialog" aria-labelledby="contactAgentLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
+
     <div class="modal-content">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="modal-title center-text" id="contactAgentLabel">Contact <%= @listing.user.full_name %></h5>
+					<h5 class="modal-title center-text" id="contactAgentLabel">Contact our local agent <%= @listing.user.full_name %></h5>
 				</div>
 			</div>
       <div class="modal-header">
+        <span>We're here to help! <%= @listing.user.first_name %> will contact you within five business hours.</span>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -30,8 +32,7 @@
 				            <%= f.text_field :phone, class: "form-control", value: "#{current_user.phone}" %>
 				        </div>
 				        <div class="form-group">
-				            <%= f.text_area :message, class: "form-control availability-textarea", value: "Dear Hiring Manager,
-				            'I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity." %>
+				            <%= f.text_area :message, class: "form-control availability-textarea", value: "Hi #{@listing.user.first_name}, I'd like to know more about buying or selling my property..." %>
 				        </div>
 				<!-- <div class="modal-footer"> -->
 					    <div class="form-group">
@@ -46,21 +47,20 @@
 					    </div>
 						<% else %>
 							<div class="form-group">
-					            <%= f.text_field :first_name, class: "form-control", placeholder: "First Name *"  %>
-					        </div>
-					        <div class="form-group">
-					            <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name *"  %>
-						    </div>
-						    <div class="form-group">
-						        <%= f.text_field :email, class: "form-control", placeholder: "Email Address *"  %>
-						    </div>
-							<div class="form-group">
-						        <%= f.text_field :phone, class: "form-control", placeholder: "Phone"  %>
-						    </div>
+		            <%= f.text_field :first_name, class: "form-control", placeholder: "First Name *"  %>
+			        </div>
+			        <div class="form-group">
+			            <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name *"  %>
+				      </div>
+					    <div class="form-group">
+					        <%= f.text_field :email, class: "form-control", placeholder: "Email Address *"  %>
+					    </div>
+						  <div class="form-group">
+					        <%= f.text_field :phone, class: "form-control", placeholder: "Phone"  %>
+					    </div>
 
 							<div class="form-group">
-					        <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager
-								I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity." %>
+					        <%= f.text_area :message, class: "form-control", value: "Hi #{@listing.user.first_name}, I'd like to know more about selling or buying my property..." %>
 					    </div>
 							<div class="form-group">
 								<div class="row">

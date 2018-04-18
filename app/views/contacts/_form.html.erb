@@ -30,8 +30,7 @@
 				            <%= f.text_field :phone, class: "form-control", value: "#{current_user.phone}" %>
 				        </div>
 				        <div class="form-group">
-				            <%= f.text_area :message, class: "form-control availability-textarea", value: "Dear Hiring Manager,
-				            'I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity." %>
+				            <%= f.text_area :message, class: "form-control availability-textarea", value: "Hi #{@user.first_name}, I'd like to know more about selling my home.." %>
 				        </div>
 				<!-- <div class="modal-footer"> -->
 					    <div class="form-group">
@@ -59,8 +58,7 @@
 						    </div>
 
 							<div class="form-group">
-					        <%= f.text_area :message, class: "form-control", value: "Dear Hiring Manager
-								I feel that my skills and experience are a great fit for this position. Please feel free to contact me to arrange an interview. I look forward to learning more about this opportunity." %>
+					        <%= f.text_area :message, class: "form-control", value: "Hi #{@user.first_name}, I'd like to know more about selling my home.." %>
 					    </div>
 							<div class="form-group">
 								<div class="row">

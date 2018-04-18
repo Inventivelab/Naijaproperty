@@ -7,17 +7,16 @@ class ContactMailer < ApplicationMailer
       @last_name = last_name
       @phone = phone
       @message = message
-  
+
       mail(to: @user.email,
           from: @email,
-          subject: "Contact from user to check for Listing Availability")
+          subject: "You have a new message from #{@user.first_name}")
     end
-  
+
     def send_autoreply_to_user(email)
       @email = email
       mail(to: @email,
-           from: "noreply@naijaproperty.com", 
+           from: "noreply@naijaproperty.com",
            subject: "Support @NaijaProperty")
     end
   end
-  
