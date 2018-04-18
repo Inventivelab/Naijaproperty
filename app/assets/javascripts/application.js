@@ -19,6 +19,8 @@
 //= require lib/typed
 //= require typed-implementation
 //= require cable
+//= require social-share-button
+//= require social-share-button/wechat
 //= require_tree .
 //= require popper
 //= require bootstrap-sprockets

@@ -11,19 +11,23 @@
           <% if current_user && current_user != @user %>
             <%= link_to "Send Message", chats_path(sender_id: current_user.id, recipent_id: @user.id), method: :post, class: "btn btn-secondary" %>
           <% end %>
-      </div><br>
+      </div>
+
       <div class="card">
-        <div class="card-header">Verification</div>
+        <div class="card-header">Verification Status</div>
         <div class="card-body">
-          <ul class="sidebar-list">
+          <div class="sidebar-list">
             <% if @user.confirmation_token%>
-              <li>Email Address <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+              <div><%= fa_stacked_icon "envelope", base: "square-o", text: "Email Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
             <% end %>
             <% if @user.provider %>
-              <li>Facebook <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+              <div><%= fa_stacked_icon "facebook ", base: "square-o", text: "Facebook Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
+            <% end %>
+            <% if @user.phone_verified %>
+              <div><%= fa_stacked_icon "phone ", base: "square-o", text: "Phone Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
             <% end %>
 
-          </ul>
+          </div>
         </div>
         <%= render 'contacts/form' %>
       </div>

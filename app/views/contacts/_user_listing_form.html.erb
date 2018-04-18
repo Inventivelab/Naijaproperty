@@ -1,11 +1,11 @@
-<button type="button" class="btn btn-normal btn-block" data-toggle="modal" data-target="#contactAgent" data-whatever="@contact_me">Contact Me</button>
-
+<!-- <button type="button" class="btn btn-normal btn-block" data-toggle="modal" data-target="#contactAgent" data-whatever="@contact_me">Contact Me</button> -->
+<%= (fa_stacked_icon "envelope ", base: "square-o", "data-toggle" => "modal", "data-target" => "#contactAgent", "data-whatever" => "@contact_me", 'style' => "color: #339999; font-size: 1.6rem;") %>
 <div class="modal fade" id="contactAgent" tabindex="-1" role="dialog" aria-labelledby="contactAgentLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 			<div class="card">
 				<div class="card-header">
-					<h5 class="modal-title center-text" id="contactAgentLabel">Contact <%= @user.full_name %></h5>
+					<h5 class="modal-title center-text" id="contactAgentLabel">Contact <%= @listing.user.full_name %></h5>
 				</div>
 			</div>
       <div class="modal-header">
@@ -15,7 +15,7 @@
 
       </div>
       <div class="modal-body">
-				<%= form_for ([@user, @user.contacts.new]) do |f| %>
+				<%= form_for ([@listing.user, @listing.user.contacts.new]) do |f| %>
 					<% if current_user %>
 						<div class="form-group">
 				            <%= f.text_field :first_name, value: "#{current_user.first_name}", class: "form-control" %>

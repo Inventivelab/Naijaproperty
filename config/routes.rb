@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       get 'photo_upload'
       get 'features'
       get 'location'
+      get :toggle_status
+
     end
     resources :photos, only: [:create, :destroy]
     resources :availabilities, only: [:create]

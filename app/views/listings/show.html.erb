@@ -145,7 +145,6 @@
             </div>
           </div>
         <% end %>
-
       </div>
     </div>
 
@@ -154,18 +153,18 @@
         <div class="card-header"></div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4 col-sm-4 col-5">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-5">
               <%= image_tag avatar_url(@listing.user), class: "avatar_listing" %><br/>
             </div>
-            <div class="col-md-8 col-sm-8 col-7">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-7">
               <span><%= @listing.user.full_name %></span><br>
-              <span><% if @listing.user.phone %>
-                  <i class="fa fa-phone">
-                  &nbsp;&nbsp;<%= @listing.user.phone %>
-                <% end %>
+              <span><%#= pluralize(@user.listing.length, "Listing") %></span>
+              <%= link_to "All add by User", user_path(@listing.user)  %><br>
+              <span>
+                <%= button_tag fa_icon "phone ", text: @listing.user.phone if @listing.user.phone %>
+                <%= render 'contacts/user_listing_form' %>
               </span>
-              <span><%#= pluralize(@user.listings.length, "Listing") %></span>
-              <%= link_to "All add by User", user_path(@listing.user)  %>
+
             </div>
           </div>
         </div>
@@ -173,9 +172,20 @@
       <div class="availabilities-form">
         <%= render 'availabilities/form' %>
       </div><br>
-      <div class="tell-a-friends-form">
-        <%= render 'tell_a_friends/form' %>
+      <div class="card">
+        <div class="card-header preview">
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title) %></li>
+
+          <li class="list-group-item"><%= render 'tell_a_friends/form' %></li>
+        </ul>
       </div>
+      <!-- <div class="tell-a-friends-form">
+
+
+      </div> -->
     </div>
   </div>
 </div>

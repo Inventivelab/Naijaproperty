@@ -41,7 +41,10 @@
               </div>
 
             </li>
-            <li class="list-group-item"><%= listing.location%></li>
+            <li class="list-group-item"><%= listing.location%><br>
+              <%= button_tag fa_icon "phone", text: listing.user.phone if listing.user.phone  %>
+              <%= render 'availabilities/availability_listing' %>
+            </li>
 
           </ul>
         </div>
@@ -49,6 +52,7 @@
     </div>
   </div>
 <% end %>
+
 
 
 <script>

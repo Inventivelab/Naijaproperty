@@ -5,16 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
 
-  has_many :listings
-  has_many :availabilities
-  has_many :notifications
-  has_many :contacts
-  has_many :pictures
+  has_many :listings, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
 
-  has_one :setting
+  has_one :setting, dependent: :nullify
   after_create :add_setting
 
   validates :first_name, presence: true, length:{maximum: 20}

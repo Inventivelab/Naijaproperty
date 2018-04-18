@@ -1,8 +1,9 @@
 class Listing < ApplicationRecord
+  enum status: {draft: 0, published: 1}
   belongs_to :user
-  has_many :photos
-  has_many :availabilities
-  has_many :tell_a_friends
+  has_many :photos, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
+  has_many :tell_a_friends, dependent: :nullify
   has_many :comments, dependent: :destroy
 
   validates :listing_type, presence: true

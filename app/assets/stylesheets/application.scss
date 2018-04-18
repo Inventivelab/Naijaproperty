@@ -6,6 +6,7 @@
  @import 'listings';
  @import 'pages';
  @import 'users';
+ @import "social-share-button";
 
 
  // green: #339999
@@ -702,6 +703,15 @@ a:hover {
 
 
 // listing
+.center-text{
+  text-align: center;
+}
+button {
+  border-radius: 5px;
+  background: #339999;
+  color: white;
+  padding: 10px 10px;
+}
 .container-search{
   width: 100%;
   .paginate-center{

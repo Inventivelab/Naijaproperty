@@ -41,17 +41,17 @@
               <%= current_user.full_name %>
             </div>
             <div class="card-body">
-              <ul class="sidebar-list">
+              <div class="sidebar-list">
                 <% if current_user.confirmation_token%>
-                  <li>Email Address <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                  <div><%= fa_stacked_icon "envelope", base: "square-o", text: "Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
                 <% end %>
                 <% if current_user.provider %>
-                  <li>Facebook <span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                  <div><%= fa_stacked_icon "facebook ", base: "square-o", text: " Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
                 <% end %>
                 <% if current_user.phone_verified %>
-                  <li>Phone Number<span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></li>
+                  <div><%= fa_stacked_icon "phone ", base: "square-o", text: "Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
                 <% end %>
-              </ul>
+              </div>
             </div>
           </div>
         </div>

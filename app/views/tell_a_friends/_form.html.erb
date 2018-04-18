@@ -1,28 +1,46 @@
-<div class="card">
-	<div class="card-header">
-		<h4 >Tell A Friend</h4>
-		<span >Recommend <%= @listing.listing_title %> at <%= @listing.location %></span>
-	</div>
-	<div class="card-body">
-		<%= form_for ([@listing, @listing.tell_a_friends.new]) do |f| %>
+<!-- <button type="button" class="btn btn-normal btn-block" data-toggle="modal" data-target="#tellAFriend" data-whatever="@tell_a_friends">Tell a Friend</button> -->
+<%= (fa_stacked_icon "user-plus ", base: "square-o", text: 'Tell a Friend', "data-toggle" => "modal", "data-target" => "#tellAFriend", "data-whatever" => "@tell_a_friends", 'style' => "color: #339999;") %>
 
-		    <div class="form-group">
-		        <%= f.text_field :your_name, class: "form-control", placeholder: "Your Name *"  %>
+<div class="modal fade" id="tellAFriend" tabindex="-1" role="dialog" aria-labelledby="tellAFriendLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+			<div class="card">
+				<div class="card-header">
+					<h5 class="modal-title center-text" id="tellAFriendLabel">Tell A Friend</h5>
+				</div>
 			</div>
-		    <div class="form-group">
-		        <%= f.text_field :friend_name, class: "form-control", placeholder: "Your Friend's Name *"  %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<%= form_for ([@listing, @listing.tell_a_friends.new]) do |f| %>
+					<div class="form-group">
+			       <%= f.text_field :your_name, class: "form-control", placeholder: "Your Name *"  %>
+					</div>
+			    <div class="form-group">
+			        <%= f.text_field :friend_name, class: "form-control", placeholder: "Your Friend's Name *"  %>
+					</div>
+					<div class="form-group">
+					    <%= f.text_field :friend_email, class: "form-control", placeholder: "Your Friend's Email Address *"  %>
+					</div>
+					<div class="form-group">
+					    <%#= f.label :message,  %>
+					   <%= f.text_area :message, class: "form-control", rows: "30", value: "I think you might be interested in this property #{@listing.listing_title} at #{@listing.location} " %>
+					</div>
+			    <div class="form-group">
+						<div class="row">
+							<div class="col-6">
+								<%= button_tag("Cancel", class: 'btn btn-secondary', "data-dismiss" => "modal")%>
+							</div>
+							<div class="col-6">
+								<%= f.submit "Send", class: 'btn btn-normal btn-block' %>
+							</div>
+						</div>
+			    </div>
+				<% end %>
 			</div>
-			<div class="form-group">
-			    <%= f.text_field :friend_email, class: "form-control", placeholder: "Your Friend's Email Address *"  %>
-			</div>
-			<div class="form-group">
-			    <%#= f.label :message,  %>
-			    <%= f.text_area :message, class: "form-control", rows: "30", value: "I think you might be interested in this property #{@listing.listing_title} at #{@listing.location} " %>
-			</div>
-		    <div class="form-group">
-		        <%= f.submit "Send", class: 'btn btn-normal btn-block' %>
-		    </div>
-		<% end %>
-
+		</div>
 	</div>
 </div>

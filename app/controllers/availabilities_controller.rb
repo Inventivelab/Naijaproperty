@@ -16,11 +16,14 @@ class AvailabilitiesController < ApplicationController
       end_date = params[:availability][:end_date]
 
       AvailabilityMailer.availability_created(@listing, @listing.user, @availability.email, @availability.first_name, @availability.last_name, @availability.message, @availability.phone, @availability.start_date, @availability.end_date).deliver
+      AvailabilityMailer.send_autoreply_to_user(email).deliver
       flash[:notice] = "Thanks for reaching out. Your message sent succefully, We'll get back too you as soon as possible"
-      redirect_to @listing
+      redirect_back(fallback_location: request.referer)
+      # redirect_to @listing
     else
       flash[:alert] = 'Error occured, message could not be sent.'
-      redirect_to @listing
+      redirect_back(fallback_location: request.referer)
+      
     end
   end
 

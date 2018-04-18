@@ -16,18 +16,23 @@
 
           <% @listings.each do |listing| %>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-lg-2 col-md-4 col-sm-4">
                 <%= image_tag listing.backgroud_image(:thumb) %>
               </div>
-              <div class="col-md-4">
+              <div class="col-lg-3 col-md-8 col-sm-8">
                 <h4><%= listing.listing_title %></h4>
               </div>
-              <div class="col-md-3 right">
-                <%= link_to "Update", listing_listing_path(listing), class: "btn btn-form" %>
-              </div>
-              <div class="col-md-3 right">
+              <div class="col-lg-7 col-md-12 col-sm-12 right"><br>
+                <%= link_to listing.status, toggle_status_listing_path(listing), class: "btn btn-form" %>&nbsp;&nbsp;
+                <%= link_to "Update", listing_listing_path(listing), class: "btn btn-form" %>&nbsp;&nbsp;
                 <%= link_to "Delete", listing_path(listing),method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger"%>
               </div>
+              <!-- <div class="col-md-3 right">
+
+              </div>
+              <div class="col-md-3 right">
+
+              </div> -->
             </div>
             <hr/>
           <% end %>
