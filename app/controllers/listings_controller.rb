@@ -62,16 +62,6 @@ class ListingsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
-  def toggle_status
-    if @listing.draft?
-      @listing.published!
-    else @listing.published?
-      @listing.draft!
-    end
-    flash[:notice] = "Listing status has been updated!"
-    redirect_back(fallback_location: request.referer)
-  end
-
   private
 
     def set_listing

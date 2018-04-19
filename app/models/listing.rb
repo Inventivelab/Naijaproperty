@@ -1,5 +1,4 @@
 class Listing < ApplicationRecord
-  enum status: {draft: 0, published: 1}
   belongs_to :user
   has_many :photos, dependent: :destroy
   has_many :availabilities
