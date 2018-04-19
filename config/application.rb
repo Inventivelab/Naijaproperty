@@ -27,5 +27,10 @@ module Naijaproperty
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.action_view.sanitized_allowed_tags = ['strong', 'em', 'b', 'i', 'p', 'code', 'pre,' 'tt,' 'samp,' 'kbd', 'var,' 'sub',
+    'sup', 'dfn', 'cite', 'big', 'small', 'address', 'hr', 'br', 'div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'dl',
+    'dt', 'dd' 'abbr', 'acronym', 'a', 'img', 'del', 'ins', 'colors', 'table', 'td', 'tr', 'url', 'video', 'source', 'emoticons']
+
+    config.action_view.sanitized_allowed_attributes = ['href', 'title', 'width', 'height', 'alt', 'cite', 'datetime', 'style', 'class', 'name', 'abbr', 'src', 'video', 'source']
   end
 end

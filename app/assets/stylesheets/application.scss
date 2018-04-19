@@ -7,8 +7,17 @@
  @import 'pages';
  @import 'users';
  @import "social-share-button";
-
-
+ @import "froala_editor.min";
+ @import "froala_style.min";
+ @import "font-awesome-sprockets";
+ @import 'plugins/char_counter.min.css';
+ @import 'plugins/char_counter.min.css';
+ @import 'plugins/colors.min.css';
+ @import 'plugins/emoticons.min.css';
+ @import 'plugins/line_breaker.min.css';
+ @import 'plugins/quick_insert.min.css';
+ @import 'plugins/table.min.css';
+ @import 'third_party/spell_checker.min.css';
 
  // green: #339999
  // dark-green: #0b6839
@@ -754,6 +763,12 @@ a:hover {
 
 
 // listing
+.fr-toolbar{
+  border-top: 5px solid #339999;
+}
+.fr-toolbar .fr-command.fr-btn, .fr-popup .fr-command.fr-btn {
+  color: #339999;
+}
 .paginate:active{
   color: red;
 }

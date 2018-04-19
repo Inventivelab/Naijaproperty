@@ -39,11 +39,13 @@
                 </div>
                 <div class="col-md-12 form-group input-text">
                   <label>Address</label><span class='required-aesterik'>*</span>
+                  <input id="x" type="hidden" name="content">
+
                   <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
                 </div>
                 <div class="col-md-12 form-group input-text">
                   <label>Listing Description</label><span class='required-aesterik'>*</span>
-                  <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control", required: true %>
+                  <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control", id: "myEditor", required: true %>
                 </div>
               </div>
               <div class="text-center">

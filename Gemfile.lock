@@ -110,6 +110,8 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    font-awesome-sass (5.0.9)
+      sass (>= 3.2)
     formatador (0.2.5)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
@@ -336,6 +338,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    wysiwyg-rails (2.8.0)
+      font-awesome-sass (>= 4.4.0)
+      railties (>= 3.2, < 6.0)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -384,6 +389,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  wysiwyg-rails
 
 BUNDLED WITH
    1.16.0.pre.3
