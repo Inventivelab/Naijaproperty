@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <% if yield(:listing_title).present? %>
+          <%= yield(:listing_title) %>
+      <% else %>
+          NaijaProperty | Property in Nigeria | Lagos Abuja Property
+      <% end %>
+    </title>
+    <% if yield(:meta_description).present? %>
+      <meta name="description" content="<%= yield(:meta_description) %>" />
+    <% else %>
+      <meta name="description" content="NaijaProperty | List and Search Property in Nigeria" />
+    <% end %>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZJGFMxkkSpR8KuuyoIGa57jOCfphYSK8&libraries=places"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
+  </head>
+
+  <body>
+    <%= render 'shared/menu' %>
+    <%= render 'shared/message' %>
+    <% if current_user %>
+      <input type="hidden" id="user_id" value="<%= current_user.id %>">
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

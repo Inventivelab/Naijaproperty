@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_search, only: [:home, :search, :search_list]
+  layout "application_search", only: :search
   def home
     @listings_all = Listing.all
     #@listings = Listing.where(active: true).limit(3)

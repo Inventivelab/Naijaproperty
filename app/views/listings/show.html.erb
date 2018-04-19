@@ -193,7 +193,7 @@
           <%= render 'tell_a_friends/form' %>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title) %></li>
+          <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title, desc: truncate(@listing.description, length: 200, separator: ' '), image: @listing.backgroud_image(:medium)) %></li>
         </ul>
       </div>
 

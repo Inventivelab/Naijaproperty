@@ -9,6 +9,7 @@
  @import "social-share-button";
 
 
+
  // green: #339999
  // dark-green: #0b6839
  // orange: #ec7e31
@@ -22,16 +23,66 @@
   // font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
-.footer {
-    // position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
+footer{
+  width: 100%;
+  background: #fbfcfc;
+  margin-top: 40px;
+  margin-bottom: 0;
+  border-top: 3px solid #eee;
+  clear: both;
+  bottom: 0;
+  left: 0;
+  .bottom{
+    padding-top: 20px;
+    .footer-menu > ul{
+      list-style-type: none;
+      a{
+        color: #339999;;
+      }
+
+    }
+
+  }
+
+}
+footer a:link{
+  color: #339999;;
+}
+footer a:visited {
+  color: #d9534f;
+}
+footer a:hover{
+  color: #fff;
+}
+footer a:active {
+  color: #d9534f;
+}
+.last-bottom{
+  width: 100%;
+
+  background-color: #f8f8f8;
+  color: #b0b2ae;
+  font-size: 18px;
+  p{
     text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  a{
+    color: #339999;;
+  }
 }
 
+// .footer {
+//     // position: fixed;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     background-color: red;
+//     color: white;
+//     text-align: center;
+// }
+//
 a {
  color: #339999;
 }
@@ -703,6 +754,12 @@ a:hover {
 
 
 // listing
+.paginate:active{
+  color: red;
+}
+.paginate:hover{
+  color: red;
+}
 .center-text{
   text-align: center;
 }
