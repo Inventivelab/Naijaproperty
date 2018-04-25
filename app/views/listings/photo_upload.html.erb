@@ -17,7 +17,7 @@
               You can add up to 15 photos to your listing.
             </div>
 
-            <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true, class: "dropzone"} do |f| %>
+            <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true} do |f| %>
               <div class="row">
                 <div class="col-12">
                   <div class="card justify-content-center" style="width: 100%; height: 200px; text-align: center; color: #e6efee; font-size: 6rem; border: 4px dashed #e6efee;">

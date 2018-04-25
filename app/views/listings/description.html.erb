@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-12 form-group input-text">
                   <label>Listing Description</label><span class='required-aesterik'>*</span>
-                  <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control", id: "myEditor", required: true %>
+                  <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control ckeditor", required: true %>
                 </div>
               </div>
               <div class="text-center">
@@ -61,12 +61,10 @@
 
 
 
-<!-- <script>
+<script>
   $(function() {
-    $('#myEditor').froalaEditor({
-      dragInline: false,
-      toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'insertLink', 'undo', 'redo', 'colors', 'align', 'orderedlist', 'unorderedlist', 'indent', 'indent'],
-      pluginsEnabled: ['image', 'link', 'draggable', 'lists', 'colors', 'align']
-    })
+    $('.ckeditor').ckeditor({
+  // optional config
+    });
   });
-</script> -->
+</script>

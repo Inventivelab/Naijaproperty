@@ -79,4 +79,4 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'bootstrap_form'
 gem 'bootstrap4-kaminari-views', '~> 1.0'
 gem 'social-share-button'
-gem "wysiwyg-rails"
+gem 'ckeditor_rails'
