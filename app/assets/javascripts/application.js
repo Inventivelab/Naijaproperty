@@ -19,7 +19,6 @@
 //= require lib/typed
 //= require typed-implementation
 //= require cable
-//= require dropzone
 //= require social-share-button
 //= require social-share-button/wechat
 //= require froala_editor.min.js

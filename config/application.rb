@@ -33,8 +33,7 @@ module Naijaproperty
     'dt', 'dd' 'abbr', 'acronym', 'a', 'img', 'del', 'ins', 'colors', 'table', 'td', 'tr', 'url', 'video', 'source']
 
     config.action_view.sanitized_allowed_attributes = ['href', 'title', 'width', 'height', 'alt', 'cite', 'datetime', 'style', 'class', 'name', 'abbr', 'src']
-    # config.filestack_rails.api_key = ENV['filestack_api_key']
-    # config.filestack_rails.client_name = ENV['filestack_name']
+
 
   end
 end
