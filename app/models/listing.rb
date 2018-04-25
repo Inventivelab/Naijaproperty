@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
+
   has_many :photos, dependent: :destroy
   has_many :availabilities
   has_many :tell_a_friends
@@ -23,6 +24,10 @@ class Listing < ApplicationRecord
        [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built],
        [:listing_title, :property_type, :listing_type, :bedroom, :bathroom, :year_built, :location]
      ]
+   end
+
+   def lagos
+     self.location.includes?("lagos")
    end
 
    def prices

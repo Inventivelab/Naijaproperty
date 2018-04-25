@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-
   def create
     @listing = Listing.friendly.find(params[:listing_id])
     if params[:images]

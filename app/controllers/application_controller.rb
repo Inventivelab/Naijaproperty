@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :username, :phone, :bio, :business_name, :address, :website ])
     end
+
+#     helper FilepickerRails::Engine.helpers
 end

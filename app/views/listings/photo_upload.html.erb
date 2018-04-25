@@ -13,33 +13,63 @@
             <div class="listing-sub-heading">
               Fields marked with an asterisk (*) are mandatory
             </div>
-            <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true} do |f| %>
-                <div class="form-group upload-btn">
-                  <span class="btn btn-secondary btn-file text-flister">
+            <div class="listing-sub-heading">
+              You can add up to 15 photos to your listing.
+            </div>
+
+            <%= form_for @listing, url: listing_photos_path(@listing), method: 'post', html: {multipart: true, class: "dropzone"} do |f| %>
+              <div class="row">
+                <div class="col-12">
+                  <div class="card justify-content-center" style="width: 100%; height: 200px; text-align: center; color: #e6efee; font-size: 6rem; border: 4px dashed #e6efee;">
+                    <div class="card-body btn-file ">
+                      <i class="fa fa-plus" aria-hidden="true" style="color: #e6efee;"></i>
+                      <%= file_field_tag "images[]", class: "dropzone", type: :file, multiple: true %>
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+              <div class="row justify-content-end">
+                <div class="col-md-5 col-sm-6 col-12">
+                  <div class="card " style="width: 100%; margin: auto; text-align: center; color: #e6efee;">
+                    <div class="card-header text-center">
+                      <span class="listing-title">
+                        <%= button_tag fa_icon("upload", text: "Upload", left: true), class: "btn btn-form", style: "font-size: 1.3rem" %>
+                        <%#= f.submit "Upload", class: "btn btn-form" %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+            <% end %>
+            <div id="photos"><%= render 'photos/uploaded_photos' %></div>
+
+                <!-- <div class="form-group upload-btn">
+                   <span class="btn btn-secondary btn-file text-flister">
                     <i class="fa fa-plus" aria-hidden="true"></i> Select Photos
                     <%= file_field_tag "images[]", class: "dropzone", type: :file, multiple: true %>
                   </span>
-                </div>
-                <div class="text-center">
-                  <%= f.submit "Upload", class: "btn btn-form" %>
-                </div>
-              </div>
-            <% end %>
-            <div id="photos"><%= render 'photos/uploaded_photos' %></div><br>
+                </div> -->
 
-            <div class="row justify-content-md-center">
-              <div class="col-md-5">
-                <%# if !@listing.listing_type.blank? && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
 
-                  <%= form_for @listing do |f| %>
-                    <%= f.hidden_field :active, value: true %>
-                    <%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-publish btn-block" %>
-                  <% end %>
-                <%# end %>
-              </div>
-            </div>
+
+
+
+
+
 
           </div>
+        </div>
+        <div class="card-header text-center" style="background-color: #e6efee;">
+          <span class="listing-title">
+            <div class="col-md-5 float-right">
+              <%# if !@listing.listing_type.blank? && !@listing.price.blank? && !@listing.description.blank? && !@listing.photos.blank? && !@listing.location.blank? %>
+              <%= form_for @listing do |f| %>
+                <%= f.hidden_field :active, value: true %>
+                <%= f.submit "Publish", id: "activate_publish_btn", class: "btn btn-publish btn-block", style: "background-color: #e6efee; border: 2px solid #e6efee; color: #ec6564;" %>
+              <% end %>
+              <%# end %>
+            </div>
+          </span>
         </div>
       </div>
     </div>

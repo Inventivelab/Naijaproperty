@@ -6,18 +6,28 @@
  @import 'listings';
  @import 'pages';
  @import 'users';
+ @import 'dropzone/dropzone';
  @import "social-share-button";
  @import "froala_editor.min";
  @import "froala_style.min";
  @import "font-awesome-sprockets";
  @import 'plugins/char_counter.min.css';
- @import 'plugins/char_counter.min.css';
+ @import 'plugins/code_view.min.css';
  @import 'plugins/colors.min.css';
  @import 'plugins/emoticons.min.css';
+ @import 'plugins/file.min.css';
+ @import 'plugins/fullscreen.min.css';
+ @import 'plugins/help.min.css';
+ @import 'plugins/image_manager.min.css';
+ @import 'plugins/image.min.css';
  @import 'plugins/line_breaker.min.css';
  @import 'plugins/quick_insert.min.css';
+ @import 'plugins/special_characters.min.css';
  @import 'plugins/table.min.css';
+ @import 'plugins/video.min.css';
+ @import 'third_party/embedly.min.css';
  @import 'third_party/spell_checker.min.css';
+
 
  // green: #339999
  // dark-green: #0b6839
@@ -92,6 +102,11 @@ footer a:active {
 //     text-align: center;
 // }
 //
+
+// Components & Utilities
+.small_ele{
+  font-size: 10px;
+}
 a {
  color: #339999;
 }

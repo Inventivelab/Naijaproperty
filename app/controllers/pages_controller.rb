@@ -5,9 +5,6 @@ class PagesController < ApplicationController
     @listings_all = Listing.all
     #@listings = Listing.where(active: true).limit(3)
     # @listings = Listing.where(active: true).all
-    # if params[:search].present? && params[:search].strip != ""
-    #   session[:loc_search] = params[:search]
-    # end
   end
 
   def search
@@ -25,9 +22,10 @@ class PagesController < ApplicationController
     end
 
     if session[:loc_search] && session[:loc_search] != ""
-      @listings_address = Listing.all.where(listing_type: "For Sale").near(session[:loc_search], 500, order: 'distance')
+      @listings_address = Listing.all.where(listing_type: "For Sale").near(session[:loc_search], 50, order: 'distance')
       # @listings_address = Listing.all.where(listing_type: "For Sale").near(session[:loc_search], 5000, order: 'distance')
       #&& Listing.where(active: true).near(session[:loc_search], 50000, order: 'distance')
+      # includes(:location).where(:location => { active: true } ).all
     else
       @listings_address = Listing.where(active: true).all
     end
@@ -47,8 +45,7 @@ class PagesController < ApplicationController
     end
 
     if session[:loc_search] && session[:loc_search] != ""
-      @listings_address = Listing.all.where(listing_type: "For Rent").near(session[:loc_search], 500, order: 'distance')
-      #&& Listing.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @listings_address = Listing.all.where(listing_type: "For Rent" ).near(session[:loc_search], 500, order: 'distance')
     else
       @listings_address = Listing.where(active: true).all
     end
@@ -70,7 +67,6 @@ class PagesController < ApplicationController
 
     if session[:loc_search] && session[:loc_search] != ""
       @listings_address = Listing.all.where(listing_type: "Short Stay").near(session[:loc_search], 500, order: 'distance')
-      #&& Listing.where(active: true).near(session[:loc_search], 5, order: 'distance')
     else
       @listings_address = Listing.where(active: true).all
     end
@@ -99,13 +95,8 @@ private
 
     @search = @listings_address.ransack(params[:q])
     @listings = @search.result.page(params[:page] || 1).per(3)
-    # @listings = @search.result.paginate(:page => params[:page])
 
     @arrListings = @listings.to_a
-      # respond_to do |format|
-      #   format.js  { render 'search_paginator.js.erb' }
-      #   format.html
-      #  end
-    # render action: :search, layout: request.xhr? == nil
+
   end
 end

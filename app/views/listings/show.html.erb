@@ -23,6 +23,9 @@
     </div>
   </div>
 </div>
+<!-- <%# @photos.each do |photo| %>
+  <%#= filestack_image @listing.photo, transform: filestack_transform.resize(width:100, height:100).flip.enhance %>
+<%# end %> -->
 
 <div class="container-fluid">
   <div class="row">
@@ -31,11 +34,14 @@
         <div class="col-md-12 show_image_container">
           <div class="slider-for">
             <% @photos.each do |photo| %>
+            <%#= filestack_image photo, transform: filestack_transform.resize(width:500, height:500) %>
               <%= image_tag photo.image.url(), width: "100%", height: "500px" %>
             <% end %>
           </div>
+
           <div class="slider-nav">
             <% @photos.each do |photo| %>
+              <%#= filestack_image photo, transform: filestack_transform.resize(width:100, height:100) %>
               <%= image_tag photo.image.url(), width: "80px", height: "100px" %>
             <% end %>
           </div>
@@ -124,7 +130,7 @@
         </div>
       </div>
 
-      <!-- NEAR BY ROOMS -->
+      NEAR BY ROOMS -->
       <% if @listing.nearbys.length > 0 %>
           <div class="col-md-12">
             <h3>Nearby Similar Homes</h3>
@@ -151,7 +157,7 @@
     <div class="col-md-4 col-sm-5">
       <div class="card">
         <div class="card-header">
-          <span>
+          <span class= 'row justify-content-center'>
             Verification Status:
             <% if @listing.user.confirmation_token%>
               <%= fa_stacked_icon "envelope", base: "square-o", left: true, style: "font-size: .9rem;" %>
@@ -183,7 +189,7 @@
         </div>
       </div><br>
       <div class="availabilities-form">
-        <%= render 'availabilities/form' %>
+        <%= render 'contacts/contact_for_listing' %>
       </div><br>
       <div class="card">
         <div class="card-header preview">
@@ -196,11 +202,6 @@
           <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title, desc: truncate(@listing.description, length: 200, separator: ' '), image: @listing.backgroud_image(:medium), :'data-type' => 'photo') %></li>
         </ul>
       </div>
-
-      <!-- <div class="tell-a-friends-form">
-
-
-      </div> -->
     </div>
   </div>
 </div>
