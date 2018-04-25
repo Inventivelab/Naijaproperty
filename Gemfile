@@ -80,6 +80,3 @@ gem 'bootstrap_form'
 gem 'bootstrap4-kaminari-views', '~> 1.0'
 gem 'social-share-button'
 gem "wysiwyg-rails"
-# gem 'filestack-rails', '~> 3.1.0'
-# gem 'dropzonejs-rails'
-# # gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
