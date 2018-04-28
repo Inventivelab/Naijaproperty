@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout "application_search", only: :search
   def home
     @listings_all = Listing.all
-    #@listings = Listing.where(active: true).limit(3)
+    @listing_one = Listing.where(active: true).limit(1)
     # @listings = Listing.where(active: true).all
   end
 

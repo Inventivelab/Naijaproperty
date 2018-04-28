@@ -759,6 +759,19 @@ a:hover {
 
 
 // listing
+.listing_one{
+  width: 100%;
+  height: 100%;
+  padding: 35px 0;
+  background-color: #f8f8f8;
+  .listing_one_title{
+    font-size: 1.5rem;
+  }
+  .listing_one_desc{
+    margin-top: 20px;
+    bottom: 0;
+  }
+}
 .fr-toolbar{
   border-top: 5px solid #339999;
 }
@@ -843,6 +856,13 @@ button {
   width: 40%;
 }
 
+
+.slick-prev {
+  left: 10px;
+  // color: red;
+  // background: white; /*to notice it, is white*/
+  z-index: 1;
+}
 .slick-next{
   margin-right: 40px;
   // background-color: #e6efee;

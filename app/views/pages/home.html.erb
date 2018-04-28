@@ -31,6 +31,32 @@
     <%= render partial: "listings/listings_list", locals: {listings: @listings_all.limit(4)} %>
   </div>
 </div>
+<div class="listing_one">
+  <div class="container-show">
+    <% @listing_one.each do |listing| %>
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="single-item">
+          <% listing.photos.each do |photo| %>
+            <%= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "350px" %>
+          <% end %>
+        </div>
+        <!-- <div>
+          <%#= image_tag listing.backgroud_image(:medium), width: '100%', height: "300px" %>
+            <%#= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "250px" %>
+        </div> -->
+      </div>
+      <div class="col-sm-5"><br/>
+        <span class="card-title listing_one_title"><%= link_to listing.listing_title, listing %></span><br/>
+        <span ><%= listing.location %></span>
+        <p class="listing_one_desc"><%= truncate(listing.description, :length => 300, :separator => ' ') %></p>
+
+      </div>
+      <%#= render partial: "listings/listings_list", locals: {listings: @listings_all.limit(4)} %>
+    </div>
+    <% end %>
+  </div>
+</div>
 <br>
 <div class="container">
   <div><h3>Cities</h3></div>
@@ -60,4 +86,14 @@
   </div>
 </div>
 
-<%= render "script" %>
+<script>
+  $(document).ready(function(){
+
+    $('.single-item').slick({
+      // dots: true
+    });
+    //$('.fade').slick();
+  });
+</script>
+
+<%#= render "script" %>

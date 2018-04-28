@@ -41,5 +41,29 @@
   </body>
 </html>
 
+<script>
+
+  $(document).ready(function() {
+
+    $('.slider-for').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      fade: true,
+      asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for',
+      dots: false,
+      centerMode: true,
+      focusOnSelect: true
+    });
+  });
+
+</script>
+
+
 <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
