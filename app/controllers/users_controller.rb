@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :profile_picture, :phone_verification]
   before_action :authenticate_user!, except: [:show]
+  before_action :user_listing, only: [:show]
 
   def show
     #@listing = Listing.friendly.find(params[:listing_id])
-    @listings = @user.listings
+
     #@reviews = Review.where(user_id: @user.id)
     # @review = Review.new
     # @reviews = @user.reviews
@@ -46,6 +47,10 @@ class UsersController < ApplicationController
 
 
   private
+
+    def user_listing
+      @listings = @user.listings
+    end
 
     def user_params
       params.require(:user).permit(:phone, :pin)

@@ -5,7 +5,7 @@ module ApplicationHelper
       "http://graph.facebook.com/#{user.uid}/picture?type=large"
     elsif
       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-      "https://www.gravatar.com/avatar/#{gravatar_id}.jpg?d=identical&s=150"
+      "https://www.gravatar.com/avatar/#{gravatar_id}"
     else
       "https://s3.amazonaws.com/naijaproperty/np/listings-blank.jpg"
     end

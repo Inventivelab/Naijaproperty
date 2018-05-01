@@ -49,7 +49,7 @@
       <div class="col-sm-5"><br/>
         <span class="card-title listing_one_title"><%= link_to listing.listing_title, listing %></span><br/>
         <span ><%= listing.location %></span>
-        <p class="listing_one_desc"><%= truncate(listing.description, :length => 300, :separator => ' ') %></p>
+        <p class="listing_one_desc"><%= sanitize truncate(listing.description, :length => 300, :separator => ' ') %></p>
 
       </div>
       <%#= render partial: "listings/listings_list", locals: {listings: @listings_all.limit(4)} %>

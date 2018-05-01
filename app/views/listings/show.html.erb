@@ -168,7 +168,12 @@
         <div class="card-body">
           <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 col-5">
-              <%= image_tag avatar_url(@listing.user), class: "avatar_listing" %><br/>
+              <% if @listing.user.pictures.count > 0 %>
+                <%= image_tag @listing.user.pictures[0].avatar.url(), class: "avatar_full" %>
+              <% else %>
+                <%= image_tag avatar_url(@listing.user), class: "avatar_listing" %>
+              <% end %>
+              <%#= image_tag avatar_url(@listing.user), class: "avatar_listing" %><br/>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12 col-7">
               <span><%= @listing.user.full_name %></span><br>
