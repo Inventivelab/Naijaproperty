@@ -6,6 +6,7 @@ Rails.application.routes.draw do
              controllers: {omniauth_callbacks: 'omniauth_callbacks',registrations: 'registrations' }
 
   get 'n/:id' => 'users#show'
+  get 'agents' => 'users#agents'
 
   resources :users, only: [:show, :index] do
     member do

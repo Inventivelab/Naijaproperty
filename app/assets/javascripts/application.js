@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/widgets/slider
+//= require jquery-ui/widgets/autocomplete
 //= require jquery.slick
 //= require toastr
 //= require lib/typed

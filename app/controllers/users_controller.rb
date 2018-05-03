@@ -3,6 +3,19 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :user_listing, only: [:show]
 
+  def index
+    # @users = User.limit(4).order("created_at DESC")
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    # else
+    #   @users = User.limit(4).order("created_at DESC")
+    end
+  end
+
+  def agents
+    @users = User.limit(2).order("created_at DESC")
+  end
+
   def show
     #@listing = Listing.friendly.find(params[:listing_id])
 

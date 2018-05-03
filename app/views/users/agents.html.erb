@@ -1,0 +1,27 @@
+<div class="jumbotron jumbotron bg-cover bg-all">
+  <div class="overlay"></div>
+  <h2 class="display-4"><span class="text-red">Find a Local Real Estate Agent</h2>
+
+  <div class="home_page">
+    <div class="home_page_left">
+      <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 search-form-field">
+              <div class="input-groupww mb-4eee input-group">
+                <%= text_field_tag :search, params[:search], placeholder: "Find real estate agents by name or location",'aria-describedby':"basic-addon2", class: "form-control", id: "autolocation" %>
+                <%= button_tag fa_icon("search "), class: "btn btn-normal", id: "register-button", style: "font-size: 1.8rem" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container-show">
+  <div class="row">
+     <%= render partial: "user_profile" %>
+  </div>
+</div>
