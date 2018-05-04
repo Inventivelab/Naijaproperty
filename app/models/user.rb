@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :logos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 

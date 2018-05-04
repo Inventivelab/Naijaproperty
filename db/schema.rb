@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429004950) do
+ActiveRecord::Schema.define(version: 20180504013633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,6 +180,17 @@ ActiveRecord::Schema.define(version: 20180429004950) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "logos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "banner_file_name"
+    t.string "banner_content_type"
+    t.integer "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.index ["user_id"], name: "index_logos_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "context"
     t.bigint "user_id"
@@ -307,6 +318,7 @@ ActiveRecord::Schema.define(version: 20180429004950) do
   add_foreign_key "comments", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "listings", "users"
+  add_foreign_key "logos", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"

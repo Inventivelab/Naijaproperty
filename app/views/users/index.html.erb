@@ -24,7 +24,7 @@
   <div class="row">
     <% if @users.blank? %>
       <h4>No Agents with this term <%= params[:search] %>, yet</h4>
-      <p>Sorry, there is no available local real estate agents serve this area yet... </p>
+      <p>Sorry, there is no available local real estate agents with this keywords <%= params[:search] %>, serve this area yet... </p>
    <% else %>
      <%= render partial: "user_profile" %>
   <% end %>

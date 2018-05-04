@@ -1,0 +1,4 @@
+$('#logos').html("<%= j render 'uploaded_logos' %>")
+<% if @user.logos.blank? %>
+  $('#check_upload').hide();
+<% end %>
