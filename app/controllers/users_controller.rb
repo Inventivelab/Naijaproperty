@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :profile_picture, :phone_verification]
+  before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo]
   before_action :authenticate_user!, except: [:show, :index, :agents]
-  before_action :user_listing, only: [:show]
+  before_action :user_listing, only: [:show, :agents, :index]
 
   def index
     # @users = User.limit(4).order("created_at DESC")
