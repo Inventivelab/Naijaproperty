@@ -1,16 +1,11 @@
 class PagesController < ApplicationController
   before_action :set_search, only: [:home, :search, :search_list]
   layout "application_search", only: :search
+
   def home
     @listings_all = Listing.all
-    #@listing_one = Listing.where(active: true).limit(1).near(session, 50, order: 'distance')
-    if
-      @listing_one = Listing.where(active: true).limit(1).near(50, order: 'distance')
-    else
-      @listing_one = Listing.where(active: true).limit(1)
-    end
-    @listing_one = @listing_one
-    # @listings = Listing.where(active: true).all
+    @listing_one = Listing.where(active: true).limit(1)
+    # @listing_one = Listing.where(active: true).limit(1).near(session[:loc_search], 50000, order: 'distance')
   end
 
   def search

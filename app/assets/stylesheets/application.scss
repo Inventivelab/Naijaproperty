@@ -28,7 +28,7 @@ footer{
   background: #fbfcfc;
   margin-top: 40px;
   margin-bottom: 0;
-  border-top: 3px solid #eee;
+  // border-top: 3px solid #eee;
   clear: both;
   bottom: 0;
   left: 0;
@@ -57,10 +57,24 @@ footer a:hover{
 footer a:active {
   color: #d9534f;
 }
+
+.top-bottom{
+  width: 100%;
+  border-bottom: 3px solid #eee;
+  background-color: #f8f8f8;
+  color: #b0b2ae;
+  font-size: 18px;
+  p{
+    padding: 15px 0;
+  }
+  a{
+    color: #339999;;
+  }
+}
 .last-bottom{
   width: 100%;
 
-  background-color: #f8f8f8;
+  background-color: #fbfcfc;
   color: #b0b2ae;
   font-size: 18px;
   p{
