@@ -1,11 +1,11 @@
 <div class="row" id="edit-profile">
   <!-- <div > -->
 
-    <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
+    <div class="col-md-3 col-sm-5 col-2 text-center" id="profile-menu">
       <%= render 'shared/profile_nav' %>
     </div>
 
-    <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
+    <div class=" col-md-9 col-sm-7 col-10 text-center" id="profile-content">
       <div class="container">
         <div class="card">
           <div class="card-header">Update Profile</div>
@@ -17,40 +17,72 @@
                 <div class="card">
                   <div class="card-header" id="update_profile_header">Required</div>
                   <div class="card-body">
-                    <div class="form-group">
 
-                      <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "Username"%>
+                    <div class="form-group row">
+                      <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                        <%= f.label :username %>
+                        <%= fa_icon "lock", right: true, class: "fa-profile"  %>
+                      </div>
+
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_field :username, autofocus: true, class: "form-control ", placeholder: "Username"%>
+                      </div>
                     </div>
-                    <div class="form-group">
-
-                      <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+                    <div class="form-group row">
+                      <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                        <%= f.label :first_name %>
+                        <%= fa_icon "lock", right: true, class: "fa-profile" %>
+                      </div>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+                      </div>
                     </div>
-                    <div class="form-group">
-
-                      <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+                    <div class="form-group row">
+                      <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                        <%= f.label :last_name %>
+                        <%= fa_icon "lock", right: true, class: "fa-profile" %>
+                      </div>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_field :last_name, autofocus: true, class: "form-control ", placeholder: "Enter your last name"%>
+                      </div>
                     </div>
-                    <div class="form-group">
-
-                      <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+                    <div class="form-group row">
+                      <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                        <%= f.label :email, "Email Address" %>
+                        <%= fa_icon "lock", right: true, class: "fa-profile" %>
+                      </div>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.email_field :email, class: "form-control", placeholder: "Your Email" %>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%= f.label :bio, "Describe Yourself", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_area :bio, rows: "15", cols: "25", placeholder: "Describe Yourself", class: "form-control" %>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <%= f.label :address, class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_field :address, class: "form-control", placeholder: "Your Address Location" %>
+                      </div>
                     </div>
 
-
-                    <div class="form-group">
-
-                      <%= f.text_area :bio, rows: "15", cols: "25", placeholder: "Describe Yourself", class: "form-control" %>
+                    <div class="form-group row">
+                      <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                        <%= f.label :gender, "I Am" %>
+                        <%= fa_icon "lock", right: true, class: "fa-profile" %>
+                      </div>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.select :gender, [["Male", "Male"], ["Female", "Female"], ["Other", "Other"]],
+                                      id: "gender", prompt: "Select...", class: "form-control" %>
+                      </div>
                     </div>
-                    <div class="form-group">
-
-                      <%= f.text_field :address, class: "form-control", placeholder: "Your Address Location" %>
-                    </div>
-
-                    <div class="form-group">
-
-                      <%= f.text_field :dateofbirth, class: "form-control", placeholder: "Date of Birth" %>
-                    </div>
-                    <div class="form-group">
-
-                      <%= f.text_field :gender, class: "form-control", placeholder: "Male or Female" %>
+                    <div class="form-group row">
+                      <%= f.label :dateofbirth, "Birth Date", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                      <div class="col-lg-9 col-md-8">
+                        <%= f.text_field :dateofbirth, class: "form-control datepicker", placeholder: "Date of Birth" %>
+                      </div>
                     </div>
                   </div>
                 </div><br/>
@@ -61,18 +93,26 @@
                   <div class="card">
                     <div class="card-header" id="update_profile_header">Company Info (OPTIONAL)</div>
                     <div class="card-body">
-                      <div class="form-group">
 
-                        <%= f.text_field :business_name, class: "form-control", placeholder: "Company or Business Name" %>
+                      <div class="form-group row">
+                        <%= f.label :business_name, "Business Name", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                        <div class="col-lg-9 col-md-8">
+                          <%= f.text_field :business_name, class: "form-control", placeholder: "Business/Company Name" %>
+                        </div>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group row">
+                        <%= f.label :company_address, "Business Address", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                        <div class="col-lg-9 col-md-8">
+                          <%= f.text_field :company_address, class: "form-control", placeholder: "Business/Company Address" %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <%= f.label :website, "Website URL", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
+                        <div class="col-lg-9 col-md-8">
+                          <%= f.text_field :website, class: "form-control", placeholder: " e.g www.companyname.com" %>
+                        </div>
+                      </div>
 
-                        <%= f.text_field :company_address, class: "form-control", placeholder: "Business/Company Address" %>
-                      </div>
-                      <div class="form-group">
-
-                        <%= f.text_field :website, class: "form-control", placeholder: "Business/Company Website URL e.g www.company.com" %>
-                      </div>
                     </div>
                   </div><br/>
 
