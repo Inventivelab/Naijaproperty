@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @listings_all = Listing.all
-    @listing_one = Listing.where(active: true).limit(1)
+    @listing_one = Listing.where(featured: 1).limit(1)
     # @listing_one = Listing.where(active: true).limit(1).near(session[:loc_search], 50000, order: 'distance')
   end
 

@@ -81,7 +81,7 @@
                     <div class="form-group row">
                       <%= f.label :dateofbirth, "Birth Date", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
                       <div class="col-lg-9 col-md-8">
-                        <%= f.text_field :dateofbirth, class: "form-control datepicker", placeholder: "Date of Birth" %>
+                        <%= f.text_field :dateofbirth, placeholder: "DOB", class: "form-control datepicker" %>
                       </div>
                     </div>
                   </div>
@@ -152,3 +152,9 @@
   </div>
 
 </div>
+
+<script>
+  (function() {
+    $('.datepicker').datepicker();
+  });
+</script>

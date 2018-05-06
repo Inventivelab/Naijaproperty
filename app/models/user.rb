@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable, :omniauthable
 
   attr_accessor :login
+  enum status: { Waiting: 0, Approved: 1, Declined: 2 }
   has_many :listings, dependent: :destroy
   has_many :availabilities, dependent: :destroy
   has_many :notifications, dependent: :destroy
@@ -16,7 +17,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
 
-  # has_one :setting, dependent: :nullify
+  has_one :setting, dependent: :nullify
   after_create :add_setting
 
   validates :first_name, presence: true, length:{maximum: 20}

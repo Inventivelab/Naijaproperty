@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create]
   before_action :is_authenticated, except: [:show]
-  before_action :current_user_admin?, except: [:show]
 
   before_action :is_authorized, only: [:listing, :pricing, :description, :features, :photo_upload, :location, :update, :destroy]
 
@@ -80,7 +79,7 @@ class ListingsController < ApplicationController
         :location, :rent_price, :short_stay_price, :price,
         :garage_size, :number_of_floors, :square_feet,
         :property_features, :lot_features, :community_features,
-        :parking_type, :video_url, :active, :instant,
+        :parking_type, :video_url, :active, :instant, :featured,
         :basement,
         :centralair,
         :dinning_room,
@@ -133,6 +132,6 @@ class ListingsController < ApplicationController
     end
 
     def is_authorized
-      redirect_to root_path, alert: "You don't have permission" unless current_user.id == @listing.user_id
+      redirect_to root_path, alert: "You don't have permission" unless current_user_admin? || current_user.id == @listing.user_id
     end
 end

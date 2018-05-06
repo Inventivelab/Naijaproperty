@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
+  enum featured: { Non_Featured: 0, Featured: 1 }
 
   has_many :photos, dependent: :destroy
   has_many :availabilities
