@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo]
-  before_action :authenticate_user!, except: [:show, :index, :agents]
+  before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo, :delete]
+  before_action :is_authenticated, except: [:show, :index, :agents]
   before_action :user_listing, only: [:show, :agents, :index]
+  before_action :require_admin, only: [:delete]
 
   def index
     # @users = User.limit(4).order("created_at DESC")
@@ -62,8 +63,19 @@ class UsersController < ApplicationController
     redirect_to phone_verification_user_path, alert: "#{e.message}"
   end
 
+  def destroy
+   @user.destroy
+   session[:user_id] = nil
+   redirect_to root_url, alert: "Account successfully deleted!"
+ end
+
 
   private
+
+    def is_authenticated
+      authenticate_user! || current_user_admin?
+    end
+
 
     def user_listing
       @listings = @user.listings

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
 
-  has_one :setting, dependent: :nullify
+  # has_one :setting, dependent: :nullify
   after_create :add_setting
 
   validates :first_name, presence: true, length:{maximum: 20}

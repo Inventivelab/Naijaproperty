@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   before_action :set_listing, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:show]
+  before_action :is_authenticated, except: [:show]
+  before_action :current_user_admin?, except: [:show]
+
   before_action :is_authorized, only: [:listing, :pricing, :description, :features, :photo_upload, :location, :update, :destroy]
 
   def index
@@ -120,6 +122,14 @@ class ListingsController < ApplicationController
         :swimming_pool, :string
 
       )
+    end
+
+    def current_user_admin?
+     current_user && current_user.admin?
+    end
+
+    def is_authenticated
+      authenticate_user! || current_user_admin?
     end
 
     def is_authorized
