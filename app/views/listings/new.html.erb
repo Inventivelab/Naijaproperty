@@ -15,7 +15,7 @@
               <div class="form-group row">
                 <%= f.label :featured, "Featured:", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
                 <div class="col-lg-9 col-md-8">
-                  <%= f.select :featured, Listing.featureds.map { |key, value| [key.humanize, key]}, selected: 'Non_Featured', prompt: "Select...", class: "form-control" %>
+                  <%= f.select :featured, Listing.featureds.map { |key, value| [key.humanize, key]}, prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
             <% end %>

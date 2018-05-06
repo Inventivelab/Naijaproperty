@@ -201,7 +201,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><%= social_share_button_tag(@listing.listing_title, desc: truncate(@listing.description, length: 200, separator: ' '), image: @listing.backgroud_image(:medium), :'data-type' => 'photo') %></li>
         </ul><br/>
-        <% if current_user.admin? %>
+        <% if current_user_admin? %>
           <%= link_to "Update", listing_listing_path(@listing), class: "btn btn-form" %>&nbsp;&nbsp;
           <%= link_to "Delete", listing_path(@listing),method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger"%>
         <% end %>
