@@ -64,7 +64,7 @@
                     <div class="form-group row">
                       <%= f.label :address, class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
                       <div class="col-lg-9 col-md-8">
-                        <%= f.text_field :address, class: "form-control", placeholder: "Your Address Location" %>
+                        <%= f.text_field :address, class: "form-control", placeholder: "Your Address Location", id: "auto_address" %>
                       </div>
                     </div>
 
@@ -103,7 +103,7 @@
                       <div class="form-group row">
                         <%= f.label :company_address, "Business Address", class: "d-none d-md-block col-lg-3 col-md-4 col-form-label text-left"%>
                         <div class="col-lg-9 col-md-8">
-                          <%= f.text_field :company_address, class: "form-control", placeholder: "Business/Company Address" %>
+                          <%= f.text_field :company_address, class: "form-control", placeholder: "Business/Company Address", id: "auto_address" %>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -154,7 +154,7 @@
 </div>
 
 <script>
-  (function() {
+  $(document).ready(function() {
     $('.datepicker').datepicker();
   });
 </script>
