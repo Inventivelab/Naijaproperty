@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo, :delete]
   before_action :is_authenticated, except: [:show, :index, :agents]
-  before_action :user_listing, only: [:show, :agents, :index]
+  before_action :user_listing, only: [:show]
   before_action :require_admin, only: [:delete]
 
   def index
