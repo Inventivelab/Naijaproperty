@@ -10,6 +10,12 @@ class ApplicationController < ActionController::Base
   # def after_sign_in_path_for(resource_or_scope)
   #   session.fetch 'user_return_to', user_path
   # end
+  def authenticate_active_admin_user!
+    authenticate_user!
+    unless current_user.superadmin?
+      redirect_to root_path, alert: "Unauthorized access!!"
+    end
+  end
 
   def after_sign_out_path_for(resource_or_scope)
     stored_location_for(resource_or_scope) || super

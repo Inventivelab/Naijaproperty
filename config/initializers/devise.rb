@@ -140,7 +140,7 @@ Devise.setup do |config|
   # unconfirmed_email column, and copied to email column on successful confirmation.
   config.reconfirmable = false
   config.authentication_keys = [ :login ]
-  
+
   # config.reset_password_keys = [ :username ]
   # config.confirmation_keys = [ :username ]
 
@@ -210,6 +210,7 @@ Devise.setup do |config|
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
+  config.allow_unconfirmed_access_for = 365.days
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.

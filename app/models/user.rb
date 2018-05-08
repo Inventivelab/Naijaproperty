@@ -4,15 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :omniauthable
+         #
 
   attr_accessor :login
   enum status: { Waiting: 0, Approved: 1, Declined: 2 }
   has_many :listings, dependent: :destroy
-  has_many :availabilities, dependent: :destroy
+  has_many :availabilities, dependent: :nullify
   has_many :notifications, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :pictures, dependent: :destroy
   has_many :logos, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
