@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :username
+  permit_params :email, :password, :password_confirmation, :first_name, :last_name, :username, :bio, :business_name, :address, :website, :gender, :company_address, :dateofbirth, :admin, :moderator, :editor, :banned, :status, :superadmin
 
   form do |f|
     f.inputs "User Details" do
