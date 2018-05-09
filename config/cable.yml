@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: REDIS_URL
+  url: <%= ENV["REDISCLOUD_URL"] %>
   channel_prefix: Naijaproperty_production
