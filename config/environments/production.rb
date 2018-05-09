@@ -87,8 +87,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.active_record.dump_schema_after_migration = false
-  config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
+  # config.active_record.dump_schema_after_migration = false
+  # config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
   #config.action_cable.url = "WSS://naijaproperty.herokuapp.com/cable"
 
   Rails.application.config.action_cable.disable_request_forgery_protection = true
