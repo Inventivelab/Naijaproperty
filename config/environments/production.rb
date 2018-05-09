@@ -87,9 +87,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
+  #config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
   config.action_cable.url = "wss://naijaproperty.herokuapp.com/cable"
-  
+
   # config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
 
   config.action_mailer.default_url_options = { host: 'naijaproperty.herokuapp.com' }
