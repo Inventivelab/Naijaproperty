@@ -89,7 +89,9 @@ Rails.application.configure do
 
   config.active_record.dump_schema_after_migration = false
   config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
-  config.action_cable.url = "wss://naijaproperty.herokuapp.com/cable"
+  config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
+
+  Rails.application.config.action_cable.disable_request_forgery_protection = true
 
   # config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
 
