@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://naijaproperty.herokuapp.com
+  url: redis://10.10.3.153:6381
   channel_prefix: Naijaproperty_production
