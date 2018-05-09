@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require active_admin
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/widgets/slider
 //= require jquery-ui/widgets/autocomplete
