@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def authenticate_active_admin_user!
     authenticate_user!
     unless current_user.superadmin?
-      redirect_to root_path, alert: "Unauthorized access!!"
+      redirect_to root_path, alert: "Unauthorized access, You need to be authenticated!!"
     end
   end
 

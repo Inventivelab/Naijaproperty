@@ -49,7 +49,7 @@
       <div class="col-sm-5"><br/>
         <span class="card-title listing_one_title"><%= link_to listing.listing_title, listing %></span><br/>
         <span ><%= listing.location %></span>
-        <p class="listing_one_desc"><%= sanitize(truncate(listing.description, :length => 300, :separator => ' ')) %></p>
+        <p class="listing_one_desc"><%= sanitize listing.description.truncate(300, separator: ' ') %></p>
 
       </div>
       <%#= render partial: "listings/listings_list", locals: {listings: @listings_all.limit(4)} %>
@@ -64,22 +64,22 @@
   <div class="row">
 
     <div class="col-md-3 col-sm-6">
-      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=austin">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=lagos+Nigeria">
         <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
       </a>
     </div>
     <div class="col-md-3 col-sm-6">
-      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=abuja">
         <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
       </a>
     </div>
     <div class="col-md-3 col-sm-6">
-      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=ibadan">
         <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
       </a>
     </div>
     <div class="col-md-3 col-sm-6">
-      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=new+york">
+      <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=port+harcourt">
         <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
       </a>
     </div>
