@@ -43,6 +43,9 @@ permit_params :email, :password, :password_confirmation, :first_name, :last_name
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :bio
+      f.input :Address
+      f.input :gender
     end
     f.actions
   end
