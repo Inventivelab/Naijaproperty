@@ -3,21 +3,19 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "User Details" do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
       f.input :first_name
       f.input :last_name
       f.input :username
-      unless f.object.new_record?
-        f.input :bio
-        f.input :address
-        f.input :gender
-        f.input :dateofbirth
-        f.input :business_name
-        f.input :company_address
-        f.input :website
-      end
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+      f.input :bio
+      f.input :address
+      f.input :gender
+      f.input :dateofbirth
+      f.input :business_name
+      f.input :company_address
+      f.input :website
       f.input :superadmin, :label => "Super Administrator"
       f.input :admin, :label => "Admin"
       f.input :moderator, :label => "Moderator"
@@ -26,7 +24,13 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-
+  
+  # form do |f|
+  # f.inputs do
+  #   if f.object.new_record?
+  #     f.input :name
+  #   end
+  # end
   # create_or_edit = Proc.new {
   #   @user            = User.find_or_create_by(params[:id])
   #   @user.superadmin = params[:user][:superadmin]
