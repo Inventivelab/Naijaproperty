@@ -51,7 +51,7 @@
               <div class="col-md-4 col-sm-6 select">
                 <div class="form-group">
                   <label>Bedrooms</label><span class='required-aesterik'>*</span>
-                  <%= f.select :bedroom, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3  Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6 Bedrooms", 6], ["7+ Bedrooms", 7]],
+                  <%= f.select :bedroom, [["None", 0],["1 Bedroom", 1], ["2 Bedrooms", 2], ["3  Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6 Bedrooms", 6], ["7+ Bedrooms", 7]],
                                 id: "bedroom", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -59,7 +59,7 @@
               <div class="col-md-4 col-sm-6 select">
                 <div class="form-group">
                   <label>Bathrooms</label><span class='required-aesterik'>*</span>
-                  <%= f.select :bathroom, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6 Bathrooms", 6], ["7+ Bathrooms", 7]],
+                  <%= f.select :bathroom, [["None", 0],["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6 Bathrooms", 6], ["7+ Bathrooms", 7]],
                                 id: "bathrooms", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
