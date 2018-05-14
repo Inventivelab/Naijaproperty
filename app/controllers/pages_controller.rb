@@ -8,6 +8,12 @@ class PagesController < ApplicationController
     # @listing_one = Listing.where(active: true).limit(1).near(session[:loc_search], 50000, order: 'distance')
   end
 
+  def About
+  end
+
+  def privacy
+  end
+
   def search
 
   end

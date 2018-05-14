@@ -33,4 +33,14 @@ module ApplicationHelper
 
     super( objects, options )
   end
+
+  def price_to_currency(price)
+    price_to_currency(price, :unit => "₦", :separator => ",", :delimiter => ".")
+  end
+  def rent_to_currency(rent_price)
+    rent_to_currency(price, :unit => "₦", :separator => ",", :delimiter => ".")
+  end
+  def short_stay_to_currency(short_stay_price)
+    short_stay_to_currency(short_stay_price, :unit => "₦", :separator => ",", :delimiter => ".")
+  end
 end

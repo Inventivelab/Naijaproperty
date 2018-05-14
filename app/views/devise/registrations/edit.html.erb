@@ -17,7 +17,14 @@
                 <div class="card">
                   <div class="card-header" id="update_profile_header">Required</div>
                   <div class="card-body">
+                    <div class= "row">
+                      <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 
+                        <%#- else devise_mapping.confirmable? && controller_name = 'confirmations' %>
+                          <!-- Your email has been confirmed -->
+                      <% end -%>
+                    </div>
                     <div class="form-group row">
                       <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
                         <%= f.label :username %>

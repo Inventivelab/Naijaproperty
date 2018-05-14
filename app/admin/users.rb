@@ -37,12 +37,24 @@ permit_params :email, :password, :password_confirmation, :first_name, :last_name
 
   form do |f|
     f.inputs do
+      f.input :username
       f.input :first_name
       f.input :last_name
-      f.input :username
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :bio
+      f.input :address
+      f.input :gender
+      f.input :dateofbirth
+      f.input :business_name
+      f.input :company_address
+      f.input :website
+      f.input :superadmin, :label => "Super Administrator"
+      f.input :admin, :label => "Admin"
+      f.input :moderator, :label => "Moderator"
+      f.input :editor, :label => "Editor"
+      f.input :banned, :label => "Banned"
     end
     f.actions
   end

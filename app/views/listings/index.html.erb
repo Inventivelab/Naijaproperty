@@ -20,7 +20,7 @@
                 <%= image_tag listing.backgroud_image(:thumb) %>
               </div>
               <div class="col-lg-3 col-md-8 col-sm-8">
-                <h4><%= listing.listing_title %></h4>
+                <h4><%= link_to listing.listing_title, listing %></h4>
               </div>
               <div class="col-lg-7 col-md-12 col-sm-12 right"><br>
                 <%= link_to "Update", listing_listing_path(listing), class: "btn btn-form" %>&nbsp;&nbsp;
