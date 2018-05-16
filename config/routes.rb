@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:index, :create] do
     resources :messages, only: [:index, :create]
   end
-  
+
   get 'about' => 'pages#about'
   get 'privacy' => 'pages#privacy'
   get 'search' => 'pages#search'

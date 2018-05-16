@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  #before_action :check_user_confirmation!, only: :create
   before_action :store_user_location!, if: :storable_location?
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # def after_sign_in_path_for(resource_or_scope)
@@ -8,8 +10,16 @@ class ApplicationController < ActionController::Base
   # end
 
   # def after_sign_in_path_for(resource_or_scope)
-  #   session.fetch 'user_return_to', user_path
+  #   unless current_user && current_user.confirmed?
+  #     flash[:alert] = "You have to confirm your account before continuing. Didn't receive confirmation instructions?"
+  #     redirect_to new_confirmation_path(resource_name)
+  #   else
+  #     session.fetch('user_return_to', user_path) || dashboard_path
+  #   end
   # end
+
+
+
   def authenticate_active_admin_user!
     authenticate_user!
     unless current_user.superadmin?
@@ -75,4 +85,10 @@ class ApplicationController < ActionController::Base
     def store_user_location!
       store_location_for(:user, request.fullpath)
     end
+
+    # def check_user_confirmation!
+    #   user = User.find_by_email(params[:email])
+    #   redirect_to new_confirmation_path(:user) unless user && user.confirmed?
+    # end
+
 end

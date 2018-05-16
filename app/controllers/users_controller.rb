@@ -27,6 +27,8 @@ class UsersController < ApplicationController
     #@hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
+
+
   def profile_picture
     @pictures = @user.pictures
   end
@@ -68,7 +70,6 @@ class UsersController < ApplicationController
    session[:user_id] = nil
    redirect_to root_url, alert: "Account successfully deleted!"
  end
-
 
   private
 
