@@ -4,9 +4,6 @@
       <h2 class= "text-center">Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-      <% end -%>
         <div class="form-group">
           <%= f.label :login, "Username / Email" %><br />
           <%= f.text_field :login, autofocus: true, class: "form-control" %>
