@@ -15,7 +15,8 @@ class ListingsController < ApplicationController
   def create
     @listing = current_user.listings.build(listing_params)
     if @listing.save
-      redirect_to listing_listing_path(@listing), notice: "Saved..."
+      redirect_to description_listing_path(@listing), notice: "Saved..."
+      #redirect_to listing_listing_path(@listing), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong"
       render :new
@@ -33,7 +34,7 @@ class ListingsController < ApplicationController
   end
 
   def description
-
+    
   end
 
   def photo_upload
@@ -63,6 +64,16 @@ class ListingsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
+  def listing_status
+  if @listing.draft?
+    @listing.published!
+  elsif @listing.published?
+    @listing.draft!
+  end
+  flash[:success] = "Listing status has been updated!"
+  redirect_back(fallback_location: request.referer)
+end
+
   private
 
     def set_listing
@@ -79,7 +90,7 @@ class ListingsController < ApplicationController
         :location, :rent_price, :short_stay_price, :price,
         :garage_size, :number_of_floors, :square_feet,
         :property_features, :lot_features, :community_features,
-        :parking_type, :video_url, :active, :instant, :featured,
+        :parking_type, :video_url, :active, :instant, :featured, :listing_status,
         :basement,
         :centralair,
         :dinning_room,

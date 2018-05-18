@@ -89,9 +89,26 @@
                 </div>
               </div>
 
+              <div class="col-md-12 form-group input-text">
+                <label>Address</label><span class='required-aesterik'>*</span>
+                <input id="x" type="hidden" name="content">
 
+                <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
+              </div>
             </div>
-            <div><%= f.submit "Save", class: "btn btn-normal" %></div>
+            <div>
+              <span >
+              <%= f.radio_button :listing_status, 'draft' %>
+              <%= f.label :listing_status, 'Draft' %>
+              </span>&nbsp;&nbsp;&nbsp;
+              <span>
+                <%= f.radio_button :listing_status, 'published' %>
+                <%= f.label :listing_status, 'Published' %>
+              </span>
+              <span class="float-right">
+                <%= f.submit "Save", class: "btn btn-normal" %>
+              </span>
+            </div>
           <% end %>
         </div>
       </div>

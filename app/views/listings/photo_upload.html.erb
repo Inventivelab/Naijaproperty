@@ -33,6 +33,14 @@
                   <div class="card " style="width: 100%; margin: auto; text-align: center; color: #e6efee;">
                     <div class="card-header text-center">
                       <span class="listing-title">
+                        <span >
+                        <%= f.radio_button :listing_status, 'draft' %>
+                        <%= f.label :listing_status, 'Draft' %>
+                        </span>&nbsp;&nbsp;&nbsp;
+                        <span>
+                          <%= f.radio_button :listing_status, 'published' %>
+                          <%= f.label :listing_status, 'Published' %>
+                        </span>
                         <%= button_tag fa_icon("upload", text: "Upload", left: true), class: "btn btn-form", style: "font-size: 1.3rem" %>
                         <%#= f.submit "Upload", class: "btn btn-form" %>
                       </span>

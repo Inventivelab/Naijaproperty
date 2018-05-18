@@ -37,19 +37,170 @@
                                   id: "swimming_pool", prompt: "None", class: "form-control" %>
                   </div>
                 </div>
-                <div class="col-md-12 form-group input-text">
-                  <label>Address</label><span class='required-aesterik'>*</span>
-                  <input id="x" type="hidden" name="content">
 
-                  <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
-                </div>
                 <div class="col-md-12 form-group input-text">
                   <label>Listing Description</label><span class='required-aesterik'>*</span>
                   <%= f.text_area :description, rows: 10, placeholder: "Brief description of your listing", class: "form-control ckeditor", required: true %>
+                </div><br />
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <div class="listing-sub-heading">
+                    Unique Features
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :basement %> Basement
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :centralair %> Central Air
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :dinning_room %> Dinning Room
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :disability %> Disability
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :guest_toilet %> Guest Toilet
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :walldrobe %> Built in Walldrobe
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :laundry_room %> Laundry Room
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :fireplace %> Fireplace
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :familyroom %> Family Room
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :pantry %> Pantry
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :pool %> Spa/Hottube
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :balcony %> Balcony
                 </div>
               </div>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <div class="listing-sub-heading">
+                    Lot Features
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :staff_quarters %> Staff Quarters
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :water_view %> Water View
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :city_light %> City Light
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :mountain_view %> Mountain View
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :ocean_view %> Ocean View
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :river_view %> River View
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :pool %> Spa/Hottube
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :fitness_center %> Fitness Center
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :access_gate %> Access Gate
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :fence %> Fence
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <div class="listing-sub-heading">
+                    Community Features
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :security_post %> Security Post
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :tennis_court %> Tennis Court
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :basketball_court %> BasketBall Court
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :pet_allowed %> Pet Friendly
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :recreation_facilities %> Recreation Facilities
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :electric_fencing %> Electric Fencing
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :basketball_court %> BasketBall Court
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :pet_allowed %> Pet Friendly
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :cable_tv %> Cable TV
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :borehole%> Borehole
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :alarm %> Alarm
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :senior_community %> Senior Community
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <div class="listing-sub-heading">
+                    Parking Type
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :surface_lot %> Surface Lot
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :covered %> Covered
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :garage %> Garage
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                  <%= f.check_box :street_parking %> Street Parking
+                </div>
+              </div>
+
               <div class="text-center">
+                <span >
+                <%= f.radio_button :listing_status, 'draft' %>
+                <%= f.label :listing_status, 'Draft' %>
+                </span>&nbsp;&nbsp;&nbsp;
+                <span>
+                  <%= f.radio_button :listing_status, 'published' %>
+                  <%= f.label :listing_status, 'Published' %>
+                </span>
+                <span class="float-right">
+                <%= link_to "Prev", listing_listing_path(@listing), class: "btn btn-form" %>
                 <%= f.submit "Save", class: "btn btn-form" %>
+                </span
               </div>
             <% end %>
           </div>

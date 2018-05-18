@@ -23,8 +23,12 @@
                 <h4><%= link_to listing.listing_title, listing %></h4>
               </div>
               <div class="col-lg-7 col-md-12 col-sm-12 right"><br>
-                <%= link_to "Update", listing_listing_path(listing), class: "btn btn-form" %>&nbsp;&nbsp;
-                <%= link_to "Delete", listing_path(listing),method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger"%>
+                <%= link_to fa_icon('file-text', text: listing.listing_status), listing_status_listing_path(listing) %> &nbsp;
+                <%= link_to fa_icon('pencil-square-o'), listing_listing_path(listing) %> &nbsp;
+                <%= link_to fa_icon('trash'), listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                <%#= link_to "Update", listing_listing_path(listing), class: "btn btn-form" %>&nbsp;&nbsp;
+                <%#= link_to "Delete", listing_path(listing),method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-danger"%>
               </div>
               <!-- <div class="col-md-3 right">
 

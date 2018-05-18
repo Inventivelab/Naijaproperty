@@ -84,9 +84,24 @@
                   <%= f.text_field :square_feet, placeholder: "Size in Square Feet", class: "form-control" %>
                 </div>
               </div>
+              <div class="col-md-12 form-group input-text">
+                <label>Address</label><span class='required-aesterik'>*</span>
+                <input id="x" type="hidden" name="content">
 
+                <%= f.text_field :location, placeholder: "Property Location", class: "form-control", id: "auto_address", required: true %>
+              </div>
             </div>
-            <div><%= f.submit "Add Listing and Continue", class: "btn btn-normal" %></div>
+            <div>
+              <span >
+              <%= f.radio_button :listing_status, 'draft' %>
+              <%= f.label :listing_status, 'Draft' %>
+              </span>&nbsp;&nbsp;&nbsp;
+              <span>
+                <%= f.radio_button :listing_status, 'published' %>
+                <%= f.label :listing_status, 'Published' %>
+              </span>
+              <%= f.submit "Add Listing and Continue", class: "btn btn-normal float-right" %>
+            </div>
 
             <!-- <div class="row form-group">
               <div class="col-12">

@@ -2,14 +2,14 @@
   <li class="nav-item">
     <%= link_to "Property Information", listing_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
   </li>
-  <li class="nav-item">
-    <%= link_to "Features", features_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
-  </li>
+  <!-- <li class="nav-item">
+    <%#= link_to "Features", features_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
+  </li> -->
   <li class="nav-item">
     <% if @listing.description.blank? %>
-      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link disabled" %>
+      <%= link_to "Property Details & Features", description_listing_path, class: "sidebar-link nav-link disabled" %>
     <% else %>
-      <%= link_to "Property Details", description_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
+      <%= link_to "Property Details & Features", description_listing_path, class: "sidebar-link nav-link active", id: "text-nav" %>
     <% end %>
   </li>
   <li class="nav-item">
