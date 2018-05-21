@@ -29,6 +29,12 @@
       <span class="profile-text">Company Logo</span>
     <% end %>
   </li>
+  <li class="sidebar-item">
+    <%= link_to (listings_path) do %>
+      <i class="fa fa-building" aria-hidden="true"></i>
+      <span class="profile-text">My Listings</span>
+    <% end %>
+  </li>
 
   <li class="sidebar-item">
     <%= link_to (current_user) do %>

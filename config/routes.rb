@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
   get 'privacy' => 'pages#privacy'
+  get 'terms-of-service' => 'pages#terms'
   get 'search' => 'pages#search'
   get 'search_list', to: 'pages#search_list'
   get 'rent' => 'pages#rent'
