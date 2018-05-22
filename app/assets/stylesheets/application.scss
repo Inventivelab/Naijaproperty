@@ -25,6 +25,9 @@
 footer{
   width: 100%;
   background: #fbfcfc;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: normal;
   margin-top: 40px;
   margin-bottom: 0;
   // border-top: 3px solid #eee;
@@ -32,14 +35,37 @@ footer{
   bottom: 0;
   left: 0;
   .bottom{
-    padding-top: 20px;
-    .footer-menu > ul{
-      list-style-type: none;
+    .link-footer{
+      hr{
+        margin-top: 4px;
+        color: #fff;
+      }
+      ul{
+        margin-top: -10px;
+      }
+      ul,li{
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+      }
       a{
-        color: #339999;;
+        color: #565A5C;
+      }
+      span{
+        // width: 100%;
+        // border-bottom: 1px solid #565A5C;
       }
 
+
     }
+    padding-top: 20px;
+    // .footer-menu > ul{
+    //   list-style-type: none;
+    //   a{
+    //     color: #339999;;
+    //   }
+    //
+    // }
 
   }
 
@@ -61,8 +87,23 @@ footer a:active {
   width: 100%;
   border-bottom: 3px solid #eee;
   background-color: #f8f8f8;
-  color: #b0b2ae;
+  color: #565A5C;
   font-size: 18px;
+  padding: 15px;
+  .bottom-right{
+    float: right;
+  }
+  .np-fa{
+    border: 2px solid #fff;
+    border-radius: 100px;
+    padding: 5px;
+    background-color: #fff;
+    color: #339999;
+    font-size: 14px;
+  }
+  .np-fa:hover{
+    color: #edefed;
+  }
   p{
     padding: 15px 0;
   }
@@ -75,7 +116,7 @@ footer a:active {
 
   background-color: #fbfcfc;
   color: #b0b2ae;
-  font-size: 18px;
+  font-size: 15px;
   p{
     text-align: center;
     padding-top: 15px;
