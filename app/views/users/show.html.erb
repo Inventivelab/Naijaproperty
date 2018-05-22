@@ -54,14 +54,20 @@
               </div>
               <div class="card-body">
                 <%= link_to listing.listing_title, listing %><br>
+                <p><%= listing.location %></p>
                 <span>
                   <%= listing.listing_type %>
                   <%= link_to listing.prices, listing, style: "float: right; color: #565a5c;"   %>
                 </span>
+
               </div>
             </div>
           </div>
-        <% end %>
+        <% end %><br />
+        <div class="container">
+          <%= paginate @listings, theme: 'twitter-bootstrap-4', :pagination_class => "pagination-small pagination-centered" %>
+          <%#= will_paginate @arrListings, renderer: BootstrapPagination::Rails, class: 'pull-left paginate' %>
+        </div>
       </div>
       <div class='row'>
       <!-- REVIEWS -->

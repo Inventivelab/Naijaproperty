@@ -1,89 +1,40 @@
-<div class="row" id="edit-profile">
-  <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
-    <ul class="sidebar-profile">
-      <li class="sidebar-item">
-        <%= link_to (dashboard_path) do %>
-          <i class="fa fa-dashboard" aria-hidden="true"></i>
-          <span>Dashboard</span>
-        <% end %>
-      </li>
-      <li class="sidebar-item">
-        <%= link_to (edit_user_registration_path) do %>
-          <i class="fa fa-database" aria-hidden="true"></i>
-          <span>Update Profile</span>
-        <% end %>
-      </li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body">
 
-      <li class="sidebar-item">
-        <%= link_to (listings_path) do %>
-          <i class="fa fa-building" aria-hidden="true"></i>
-          <span class="profile-text">My Listings</span>
-        <% end %>
-      </li>
-
-      <li class="sidebar-item">
-        <%= link_to (current_user) do %>
-          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-          <span>View Profile</span>
-        <% end %>
-      </li>
-  </div>
-
-  <div class=" col-md-9 col-sm-7 col-9" id="profile-content">
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-5">
-          <div class="center">
-            <% if current_user.pictures.count > 0 %>
-              <%= image_tag current_user.pictures[0].avatar.url(), class: 'avatar_full' %>
-            <% else %>
-              <%= image_tag avatar_url(current_user), class: 'avatar_full' %>
-            <% end %>
-            <%#= image_tag avatar_url(current_user), class: 'avatar_full' %>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <%= current_user.full_name %>
-            </div>
-            <div class="card-body">
-              <div class="sidebar-list">
-                <% if current_user.confirmation_token%>
-                  <div><%= fa_stacked_icon "envelope", base: "square-o", text: "Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
-                <% end %>
-                <% if current_user.provider %>
-                  <div><%= fa_stacked_icon "facebook ", base: "square-o", text: " Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
-                <% end %>
-                <% if current_user.phone_verified %>
-                  <div><%= fa_stacked_icon "phone ", base: "square-o", text: "Verified", left: true %><span class="pull-right icon-flister"><i class="fa fa-check-circle-o"></i></span></div>
-                <% end %>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="col-md-9 col-sm-7">
-          <div class="card">
-            <div class="card-header">
-              Notification
-            </div>
-            <div class="card-body">
-              <%= link_to notifications_path do %>
-                  You have <span id="number_of_unread"><%= current_user.unread %></span> notification(s).
-              <% end %>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              Your Listings (<%= @listings.length %>)
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <%= render partial: "listings/listings_list", locals: {listings: @listings} %>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-12">
+      <div class="card">
+        <div class="card-body"></div>
       </div>
     </div>
   </div>
