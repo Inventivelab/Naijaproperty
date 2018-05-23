@@ -31,6 +31,10 @@ class Listing < ApplicationRecord
      self.location.includes?("lagos")
    end
 
+   def self.recent
+    order("created_at DESC")
+   end
+
    def prices
       if self.price
         self.price

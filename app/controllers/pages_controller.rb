@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout "application_search", only: :search
 
   def home
-    @listings_all = Listing.all
+    @listings_all = Listing.all.recent
     @listing_one = Listing.where(featured: 1).limit(1)
     # @listing_one = Listing.where(active: true).limit(1).near(session[:loc_search], 50000, order: 'distance')
   end
@@ -36,7 +36,7 @@ class PagesController < ApplicationController
       #&& Listing.where(active: true).near(session[:loc_search], 50000, order: 'distance')
       # includes(:location).where(:location => { active: true } ).all
     else
-      @listings_address = Listing.where(active: true).all
+      @listings_address = Listing.where(active: true).all.recent
     end
 
     @sales = @listings_address.ransack(params[:q])
@@ -56,7 +56,7 @@ class PagesController < ApplicationController
     if session[:loc_search] && session[:loc_search] != ""
       @listings_address = Listing.all.where(listing_type: "For Rent" ).near(session[:loc_search], 500, order: 'distance')
     else
-      @listings_address = Listing.where(active: true).all
+      @listings_address = Listing.where(active: true).all.recent
     end
 
     @rent = @listings_address.ransack(params[:q])
@@ -77,7 +77,7 @@ class PagesController < ApplicationController
     if session[:loc_search] && session[:loc_search] != ""
       @listings_address = Listing.all.where(listing_type: "Short Stay").near(session[:loc_search], 500, order: 'distance')
     else
-      @listings_address = Listing.where(active: true).all
+      @listings_address = Listing.where(active: true).all.page(params[:page] || 1).per(6).recent
     end
 
     @short_stay = @listings_address.ransack(params[:q])
@@ -99,7 +99,7 @@ private
     if session[:loc_search] && session[:loc_search] != ""
       @listings_address = Listing.where(active: true).near(session[:loc_search], 50000, order: 'distance')
     else
-      @listings_address = Listing.where(active: true).all
+      @listings_address = Listing.where(active: true).all.recent
     end
 
     @search = @listings_address.ransack(params[:q])

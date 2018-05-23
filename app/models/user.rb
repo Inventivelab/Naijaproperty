@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+         :confirmable, :omniauthable
          #:confirmable,
 
   attr_accessor :login
@@ -74,7 +74,7 @@ end
 
         # If you are using confirmable and the provider(s) you use validate emails,
         # uncomment the line below to skip the confirmation emails.
-        # user.skip_confirmation!
+        user.skip_confirmation!
       end
     end
   end

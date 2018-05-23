@@ -79,7 +79,7 @@ class UsersController < ApplicationController
 
 
     def user_listing
-      @listings = @user.listings.page(params[:page] || 1).per(6)
+      @listings = @user.listings.page(params[:page] || 1).per(6).recent
     end
 
     def user_params

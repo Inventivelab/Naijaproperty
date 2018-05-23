@@ -87,6 +87,11 @@
             </div><br />
 
           <% end %>
+          <br />
+          <div class="container">
+            <%= paginate @listings, theme: 'twitter-bootstrap-4', :pagination_class => "pagination-small pagination-centered" %>
+            <%#= will_paginate @arrListings, renderer: BootstrapPagination::Rails, class: 'pull-left paginate' %>
+          </div>
         </div>
       </div>
     </div>
