@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :blogs
   ActiveAdmin.routes(self)
   root 'pages#home'
   devise_for :users,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518032142) do
+ActiveRecord::Schema.define(version: 20180526041623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20180518032142) do
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_availabilities_on_listing_id"
     t.index ["user_id"], name: "index_availabilities_on_user_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -313,6 +322,16 @@ ActiveRecord::Schema.define(version: 20180518032142) do
     t.boolean "banned", default: false
     t.integer "status", default: 1
     t.boolean "superadmin", default: false, null: false
+    t.integer "user_type", default: 1
+    t.string "facebook"
+    t.string "twitter"
+    t.string "linkedin"
+    t.string "pinterest"
+    t.string "instagram"
+    t.string "googleplus"
+    t.string "youtube"
+    t.string "whatsapp"
+    t.string "blackberry"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -321,6 +340,7 @@ ActiveRecord::Schema.define(version: 20180518032142) do
 
   add_foreign_key "availabilities", "listings"
   add_foreign_key "availabilities", "users"
+  add_foreign_key "blogs", "users"
   add_foreign_key "comments", "listings"
   add_foreign_key "comments", "users"
   add_foreign_key "contacts", "users"
