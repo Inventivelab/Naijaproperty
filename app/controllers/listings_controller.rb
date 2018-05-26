@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   before_action :is_authorized, only: [:listing, :pricing, :description, :features, :photo_upload, :location, :update, :destroy]
 
   def index
-    @listings = current_user.listings.recent
+    @listings = current_user.listings.recent.page(params[:page] || 1).per(6)
   end
 
   def new

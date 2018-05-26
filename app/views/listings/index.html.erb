@@ -56,15 +56,15 @@
                           <%= fa_icon "map-marker", text: listing.location, left: true, class: "fa_icon_card"  %><br />
                           <%= fa_icon "bed", text: pluralize(listing.bedroom, "Bed"), left: true, class: "fa_icon_card" %><br />
                           <%= fa_icon "bath", text: pluralize(listing.bathroom, "Bath"), left: true, class: "fa_icon_card"  %><br />
-                          <%= fa_icon "calendar", text: "Listed on #{listing.created_at}", left: true, class: "fa_icon_card"  %><br />
-                          <%= fa_icon "calendar", text: "Updated on #{listing.updated_at}", left: true, class: "fa_icon_card"  %><br />
+                          <%= fa_icon "calendar", text: "Listed on #{listing.created_at.strftime("%b %d, %Y")}", left: true, class: "fa_icon_card"  %><br />
+                          <%= fa_icon "calendar", text: "Updated on #{listing.updated_at.strftime("%A, %b %d %Y")}", left: true, class: "fa_icon_card"  %><br />
                           <span class="user-listing-prices">₦&nbsp;<%= listing.prices %></span>
                           </p>
 
                       </div>
                       <% if listing.listing_status == 'draft'%>
                         <div class="draft-status">
-                          <p>Your listing is in draft mode, site visitors can not see it. <span>Publish to make it visible</span></p>
+                          <p>Your listing is in draft mode and it's not visible to site visitors. <span>Publish to make it visible</span></p>
                         </div>
                       <% end %>
                     </div>

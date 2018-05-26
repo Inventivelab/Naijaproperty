@@ -77,7 +77,7 @@ class PagesController < ApplicationController
     if session[:loc_search] && session[:loc_search] != ""
       @listings_address = Listing.all.where(listing_type: "Short Stay").near(session[:loc_search], 500, order: 'distance')
     else
-      @listings_address = Listing.where(active: true).all.page(params[:page] || 1).per(6).recent
+      @listings_address = Listing.where(active: true).all.recent
     end
 
     @short_stay = @listings_address.ransack(params[:q])

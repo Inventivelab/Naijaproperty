@@ -44,7 +44,7 @@
       <div class="about row-space-3">
         <%= @user.bio %>
       </div>
-      <h4>Listings (<%= @listings.length %>)</h4><br>
+      <!-- <h4>Listings (<%#= @listings.length %>)</h4><br> -->
       <div class="row ">
         <% @listings.each do |listing| %>
           <div class="col-lg-4 col-md-6 col-sm-6 user-profile-listing">
@@ -57,7 +57,7 @@
                 <p><%= listing.location %></p>
                 <span>
                   <%= listing.listing_type %>
-                  <%= link_to listing.prices, listing, style: "float: right; color: #565a5c;"   %>
+                  <%= link_to ActionController::Base.helpers.number_to_currency(listing.prices), listing, style: "float: right; color: #565a5c;"   %>
                 </span>
 
               </div>

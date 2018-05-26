@@ -14,6 +14,7 @@
  // orange: #ec7e31
  // toastr-green: #77b800
  // background #fbfcfc #fbfcfc
+ // light-black #616161; #565A5C;
 
  body {
   color: #565a5c;
@@ -112,7 +113,7 @@ footer a:active {
   margin-top: 20px;
 
   background-color: #fff;
-  color: #b0b2ae;
+  color: #565A5C;
   font-size: 15px;
   p{
     text-align: center;
@@ -128,6 +129,18 @@ footer a:active {
 // Components & Utilities
 .small_ele{
   font-size: 10px;
+}
+.ele-12{
+  font-size: 12px
+}
+.ele-14{
+  font-size: 14px
+}
+.ele-15{
+  font-size: 15px
+}
+.ele-16{
+  font-size: 16px
 }
 a {
  color: #339999;
@@ -1070,6 +1083,10 @@ button {
 }
 
 // User PAGE
+.user-profile-img{
+  max-width: 100%;
+  height: auto;
+}
 .user-profile-listing{
   margin-bottom: 20px;
   span{
@@ -1104,15 +1121,18 @@ button {
 .sidebar-item {
   padding-left: 1rem;
   text-align: left;
+
 }
 .sidebar-item .fa{
   padding-right: 15px;
   font-size: 20.2px;
-  color: #484848;
+  color: #565A5C;
 }
 
 .sidebar-item a{
-  color: black;
+  color: #565A5C;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 .sidebar-item a.active{
@@ -1120,7 +1140,7 @@ button {
   background-color: snow;
 }
 .sidebar-item a:hover{
-  color: red;
+  color: #90bdbe;
   width: 100%;
   text-decoration: none;
 }
@@ -1129,6 +1149,53 @@ button {
 #update_profile_header{
   background-color: #e6efee;
   color: #90bdbe;
+}
+
+#edit-dashboard {
+ height: 400px;
+ overflow: hidden;
+
+}
+#dashboard-menu{
+  height: 400px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+#dashboard-content{
+  height: 400px;
+  overflow: auto;
+}
+
+.dashboard-right a:hover{
+  background-color: #90bdbe;
+  .fa, p, span{
+    color: #fff;
+  }
+
+}
+
+.dashboard-right{
+  text-align: center;
+  margin-top: 30px;
+  color: black;
+  p{
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 10px;
+    color: black;
+
+  }
+
+  span {
+    font-size: 13px;
+    color: #565A5C;
+  }
+  .fa{
+    font-size: 3.5rem;
+    color: #90bdbe;
+  }
 }
 
 // User Page

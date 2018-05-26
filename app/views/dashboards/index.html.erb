@@ -1,40 +1,95 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body">
+<div class="row" id="edit-dashboard">
+  <div class="col-md-3 col-sm-5 col-3 text-center" id="dashboard-menu">
+    <ul class="sidebar-profile">
+      <li class="sidebar-item">
+        <%= link_to (dashboard_path) do %>
+          <i class="fa fa-dashboard" aria-hidden="true"></i>
+          <span>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="sidebar-item">
+        <%= link_to (edit_user_registration_path) do %>
+          <i class="fa fa-database" aria-hidden="true"></i>
+          <span>Update Profile</span>
+        <% end %>
+      </li>
 
+      <li class="sidebar-item">
+        <%= link_to (listings_path) do %>
+          <i class="fa fa-building" aria-hidden="true"></i>
+          <span class="profile-text">My Listings</span>
+        <% end %>
+      </li>
+
+      <li class="sidebar-item">
+        <%= link_to (current_user) do %>
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <span>View Profile</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class=" col-md-9 col-sm-7 col-9" id="dashboard-content">
+    <div class="container">
+      <div class="row justify-content-md-center">
+
+        <div class="col-md-5 col-sm-6 col-12 dashboard-right">
+          <div class="card">
+            <%= link_to edit_user_registration_path do %>
+              <div class="card-body">
+                <div class="notification text-center">
+                  <i class="fa fa-user"></i>
+                  <p>Account Setting</p>
+                </div>
+                <span>Update your profile page</span>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-6 col-12">
-      <div class="card">
-        <div class="card-body"></div>
+
+        <div class="col-md-5 col-sm-6 col-12 dashboard-right">
+          <div class="card">
+            <%= link_to notifications_path do %>
+              <div class="card-body">
+                <div class="notification text-center">
+                  <i class="fa fa-bell"></i>
+                  <p>Notification</p>
+                </div>
+                  <span>You have <span id="number_of_unread"><%= current_user.unread %></span> notification(s).</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-sm-6 col-12 dashboard-right">
+          <div class="card">
+            <%= link_to (current_user) do %>
+              <div class="card-body">
+                <div class="notification text-center">
+                  <i class="fa fa-file"></i>
+                  <p>Profile Page</p>
+                </div>
+                <span>View your profile page as others see it</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-sm-6 col-12 dashboard-right">
+          <div class="card">
+            <%= link_to listings_path do %>
+              <div class="card-body">
+                <div class="notification text-center">
+                  <i class="fa fa-building"></i>
+                  <p>My Listings (<%= @listings.length %>)</p>
+                </div>
+                <span>Manage your listings, edit and delete</span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
