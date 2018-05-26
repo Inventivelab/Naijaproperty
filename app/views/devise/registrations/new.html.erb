@@ -35,6 +35,24 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <span >
+                  <%= f.radio_button :user_type, 'Agent' %>
+                  <%= f.label :user_type, 'Real Estate Agent' %>
+                  </span>&nbsp;&nbsp;
+                  <span>
+                    <%= f.radio_button :user_type, 'Owner' %>
+                    <%= f.label :user_type, 'Property Owner' %>
+                  </span>&nbsp;&nbsp;
+                  <span >
+                  <%= f.radio_button :user_type, 'Builder' %>
+                  <%= f.label :user_type, 'Developer' %>
+                </span>&nbsp;&nbsp;
+                  <span>
+                    <%= f.radio_button :user_type, 'User' %>
+                    <%= f.label :user_type, 'User' %>
+                  </span>
+                </div>
+                <div class="form-group">
                   <%= f.submit "Sign up", class: "btn btn-normal btn-block" %>
                 </div>
               <% end %>

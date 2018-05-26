@@ -26,6 +26,24 @@
                       <% end -%>
                     </div>
                     <div class="form-group row">
+                      <span >
+                      <%= f.radio_button :user_type, 'Agent' %>
+                      <%= f.label :user_type, 'Real Estate Agent' %>
+                      </span>&nbsp;&nbsp;
+                      <span>
+                        <%= f.radio_button :user_type, 'Owner' %>
+                        <%= f.label :user_type, 'Property Owner' %>
+                      </span>&nbsp;&nbsp;
+                      <span >
+                      <%= f.radio_button :user_type, 'Builder' %>
+                      <%= f.label :user_type, 'Developer' %>
+                      </span>&nbsp;&nbsp;
+                      <span>
+                        <%= f.radio_button :user_type, 'User' %>
+                        <%= f.label :user_type, 'User' %>
+                      </span>
+                    </div>
+                    <div class="form-group row">
                       <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
                         <%= f.label :username %>
                         <%= fa_icon "lock", right: true, class: "fa-profile"  %>

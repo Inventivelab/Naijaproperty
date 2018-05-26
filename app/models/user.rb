@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   attr_accessor :login
   enum status: { Waiting: 0, Approved: 1, Declined: 2 }
-  enum status: { Agent: 1, Owner: 2, Builder: 3, User: 4 }
+  enum user_type: { Agent: 1, Owner: 2, Builder: 3, User: 4 }
   has_many :listings, dependent: :destroy
   has_many :availabilities, dependent: :nullify
   has_many :notifications, dependent: :destroy
