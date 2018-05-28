@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo, :delete]
+  before_action :set_user, only: [:show, :profile_picture, :phone_verification, :company_logo, :social_connect, :delete]
   before_action :is_authenticated, except: [:show, :index, :agents]
   before_action :user_listing, only: [:show]
   before_action :require_admin, only: [:delete]
@@ -27,7 +27,8 @@ class UsersController < ApplicationController
     #@hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
-
+  def social_connect
+  end
 
   def profile_picture
     @pictures = @user.pictures

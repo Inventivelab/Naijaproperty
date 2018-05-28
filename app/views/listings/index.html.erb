@@ -69,16 +69,19 @@
                       <% end %>
                     </div>
                   </div>
-                  <div class="card-footer bg-footer right card-footer-style" style="text-align: right; color: white;">
-                    <% if listing.listing_status == 'draft'%>
-                      <%= link_to fa_icon('toggle-off', text: "Publish"), listing_status_listing_path(listing) %> &nbsp;
-                    <% end %>
-                      <% if listing.listing_status == 'published'%>
-                      <%= link_to fa_icon('toggle-on', text: "Unpublish"), listing_status_listing_path(listing) %> &nbsp;
-                    <% end %>
-                    <%= link_to fa_icon('eye', text: "View"), listing %> &nbsp;
-                    <%= link_to fa_icon('pencil-square-o', text: "Edit Listing"), listing_listing_path(listing) %> &nbsp;
-                    <%= link_to fa_icon('trash', text: "Delete"), listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <div class="card-footer bg-footer right card-footer-style " style="color: white;">
+                    <div class="row justify-content-md-center">
+                      <% if listing.listing_status == 'draft'%>
+                        <%= link_to fa_icon('toggle-off', text: "Publish"), listing_status_listing_path(listing) %> &nbsp;&nbsp;
+                      <% end %>
+                        <% if listing.listing_status == 'published'%>
+                        <%= link_to fa_icon('toggle-on', text: "Unpublish"), listing_status_listing_path(listing) %> &nbsp;&nbsp;
+                      <% end %>
+                      <%= link_to fa_icon('eye', text: "View"), listing %> &nbsp;&nbsp;
+                      <%= link_to fa_icon('pencil-square-o', text: "Edit Listing"), listing_listing_path(listing) %> &nbsp;&nbsp;
+                      <%= link_to fa_icon('trash', text: "Delete"), listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                    </div>
 
                   </div>
                 </div>

@@ -1,0 +1,119 @@
+<div class="row" id="edit-profile">
+  <!-- <div > -->
+
+    <div class="col-md-3 col-sm-5 col-3 text-center" id="profile-menu">
+      <%= render 'shared/profile_nav' %>
+    </div>
+
+    <div class=" col-md-9 col-sm-7 col-9 text-center" id="profile-content">
+      <div class="container">
+        <div class="card">
+          <div class="card-header">Profile Pictures</div>
+            <div class="card-body">
+              <div class="container-flow">
+                <%= form_for @user do |f| %>
+
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :whatsapp %>
+                      <%= fa_icon "whatsapp", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :whatsapp, autofocus: true, class: "form-control ", placeholder: "WhatsApp"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :blackberry %>
+                      <%= fa_icon "th", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8 ">
+                      <%= f.text_field :blackberry, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :facebook %>
+                      <%= fa_icon "facebook", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :facebook, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :twitter %>
+                      <%= fa_icon "twitter", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :twitter, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :linkedin %>
+                      <%= fa_icon "linkedin", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :linkedin, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :pinterest %>
+                      <%= fa_icon "pinterest", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :pinterest, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :instagram %>
+                      <%= fa_icon "instagram", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :instagram, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :googleplus %>
+                      <%= fa_icon "google-plus-square", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :googleplus, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="d-none d-md-block col-lg-3 col-md-4 col-form-label text-left">
+                      <%= f.label :youtube %>
+                      <%= fa_icon "youtube", right: true, class: "fa-profile"  %>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                      <%= f.text_field :youtube, class: "form-control ", placeholder: "Blackberry Pin"%>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit "Update", class: "btn btn-normal btn-block" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

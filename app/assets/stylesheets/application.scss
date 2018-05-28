@@ -21,6 +21,7 @@
   min-height: 100vh;
   background-color: #fff;
   font-family: 'Roboto Slab', serif;
+  font-weight: 300;
   // font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
@@ -801,6 +802,8 @@ a:hover {
 // Listing Show PAGE
 .container-show{
   width: 95%;
+  max-width: 1200px;
+  //max-width: inherit;
   margin: auto;
 }
 

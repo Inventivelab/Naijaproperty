@@ -35,7 +35,12 @@
       <span class="profile-text">My Listings</span>
     <% end %>
   </li>
-
+  <li class="sidebar-item">
+    <%= link_to (social_connect_user_path(@user)) do %>
+      <i class="fa fa-share-square" aria-hidden="true"></i>
+      <span class="profile-text">Social </span>
+    <% end %>
+  </li>
   <li class="sidebar-item">
     <%= link_to (current_user) do %>
       <i class="fa fa-user-circle-o" aria-hidden="true"></i>

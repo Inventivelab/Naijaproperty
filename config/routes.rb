@@ -15,8 +15,10 @@ Rails.application.routes.draw do
       get 'profile_picture' => 'users#profile_picture'
       get 'company_logo' => 'users#company_logo'
       get 'phone_verification' => 'users#phone_verification'
+      get 'social_connect' => 'users#social_connect'
       post '/verify_phone_number' => 'users#verify_phone_number'
       patch '/update_phone_number' => 'users#update_phone_number'
+
     end
     resources :contacts, only: [:create]
     resources :pictures, only: [:create, :destroy]
