@@ -119,4 +119,9 @@ module FriendlyId
     #   slug.blank? || self.slug_listings
     # end
   end
+  module SluggedBlog
+    def should_generate_new_friendly_id?
+      slug.blank? || self.slug_blogs
+    end
+  end
 end

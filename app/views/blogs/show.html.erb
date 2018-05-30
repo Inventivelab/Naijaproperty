@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+
+    <div class="col-md-10">
+      <h1 class="blog-detail-title">
+        <%= image_tag @blog.image, width:'100%' %>
+        <%= @blog.title %>
+      </h1>
+      <div class="glyphicon glyphicon-calendar" id="blog-date">
+        <%= @blog.created_at.strftime("%b %d %Y") %> by <%= @blog.user.full_name %>
+        <%#= time_ago_in_words(comment.created_at) %>
+      </div>
+      <div class="blog-content">
+        <%= @blog.content %>
+      </div>
+      <% if user_signed_in? && (current_user == @blog.user || current_user_admin?) %>
+        <div class="edit-delete">
+          <%= link_to "Edit Article", edit_blog_path(@blog), class: "btn btn-success" %>
+          <%= link_to "Delete Article", blog_path(@blog), method: :delete, data: { confirm: "Are you sure you want to delete blog?" }, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+      <hr>
+      <%= render 'disqus' %>
+      <script id="dsq-count-scr" src="//naijaproperty-com.disqus.com/count.js" async></script>
+    </div>
+
+  </div>
+
+</div>

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   layout "application_search", only: :search
 
   def home
+    @blogs = Blog.recent.limit(3)
     @listings_all = Listing.all.recent
     @listing_one = Listing.where(featured: 1).limit(1)
     # @listing_one = Listing.where(active: true).limit(1).near(session[:loc_search], 50000, order: 'distance')

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :blogs
   ActiveAdmin.routes(self)
   root 'pages#home'
   devise_for :users,
@@ -26,6 +25,10 @@ Rails.application.routes.draw do
 
   end
   resources :reviews, only: [:create, :destroy]
+
+  get 'blogs/add_new_post' => 'blogs#new', as: "blogs/add_new_post"
+  resources :blogs
+
 
   resources :listings, except: [:edit] do
     member do

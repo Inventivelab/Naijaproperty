@@ -403,24 +403,25 @@ a:hover {
 }
 
 .form-group input {
- height: 45px;
- border: 1px solid #339999;
+   height: 45px;
+   border: 1px solid #339999;
 }
 
 .form-group textarea {
- border: 1px solid #339999;
+   border: 1px solid #339999;
+   height: 200px;
 }
 
 .form-group select {
- width: 100%;
- color: #565a5c;
- background-color: white;
- border: 1px solid #339999;
- border-radius: 2px;
- padding: 10px;
- appearance: none;
- -moz-appearance: none; /* Firefox */
- -webkit-appearance: none; /* Safari & Chrome */
+   width: 100%;
+   color: #565a5c;
+   background-color: white;
+   border: 1px solid #339999;
+   border-radius: 2px;
+   padding: 10px;
+   appearance: none;
+   -moz-appearance: none; /* Firefox */
+   -webkit-appearance: none; /* Safari & Chrome */
 }
 
 .select:before {

@@ -39,6 +39,9 @@
               <%= link_to "Manage Listing", listings_path, class: "dropdown-item" %>
               <%= link_to "List Your Property", new_listing_path, class: "dropdown-item" %>
               <%= link_to "Messages", chats_path, class: "dropdown-item" %>
+              <% if current_user.superadmin? || current_user_admin? || current_user_moderator? %>
+                <%= link_to "Add a Post", blogs_add_new_post_path, class: "dropdown-item" %>
+              <% end %>
 
               <div class="dropdown-divider"></div>
               <% if current_user.superadmin? %>
