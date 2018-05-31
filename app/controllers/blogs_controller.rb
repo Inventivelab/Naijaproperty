@@ -5,8 +5,8 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all.recent
-    @blogs_featured = Blog.where(blog_feature: 1).limit(2)
-    @blogs_pro = Blog.where(blog_pro: 1).limit(3)
+    @blogs_featured = Blog.where(feature: 1).recent_updated.limit(3)
+    @blogs_pro = Blog.where(blog_pro: 1).recent_updated.limit(3)
   end
 
   def new
@@ -53,7 +53,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image, :user_id)
+    params.require(:blog).permit(:title, :content, :image, :user_id, :blog_pro, :blog_feature, :feature)
   end
 
   def set_blog

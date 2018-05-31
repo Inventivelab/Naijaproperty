@@ -1,0 +1,16 @@
+<% @blogs_featured.each do |blog| %>
+  <div class="col-md-4 col-12">
+    <div class="card bg-dark text-white">
+      <%= link_to(blog) do %>
+        <%= image_tag blog.image, class: "card-img", width: "100%", height: "300px" %>
+        <div class="card-img-overlay blog-overlay" >
+          <div class="blog-featured " >
+            <h5 class="card-title"><%= blog.title %></h5>
+            <p class="card-text"><%= sanitize blog.content.truncate(100, separator: ' ').html_safe%></p>
+            <!-- <p class="card-text">Last updated 3 mins ago</p> -->
+          </div>
+        </div>
+      <% end %>
+    </div><br />
+  </div>
+<% end %>

@@ -11,7 +11,7 @@
         <%#= time_ago_in_words(comment.created_at) %>
       </div>
       <div class="blog-content">
-        <%= @blog.content %>
+        <%= sanitize (@blog.content).html_safe %>
       </div>
       <% if user_signed_in? && (current_user == @blog.user || current_user_admin?) %>
         <div class="edit-delete">

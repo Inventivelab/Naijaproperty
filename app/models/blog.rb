@@ -1,7 +1,8 @@
 class Blog < ApplicationRecord
   belongs_to :user
-  enum blog_feature: { Non_Featured: 0, Featured: 1 }
-  enum blog_pro: { basic: 0, pro: 1 }
+  enum blog_feature: { Plain: 0, Removed: 1 }
+  enum blog_pro: { Basic: 0, Pro: 1 }
+  enum feature: { Non_Featured: 0, Featured: 1 }
   validates :title, presence: true
   validates :content, presence: true, length: { minimum: 100}
 
@@ -20,6 +21,10 @@ class Blog < ApplicationRecord
 
    def self.recent
     order("created_at DESC")
+   end
+
+   def self.recent_updated
+    order("updated_at DESC")
    end
 
 end

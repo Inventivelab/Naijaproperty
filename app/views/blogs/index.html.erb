@@ -1,27 +1,25 @@
-<div class="container">
+<div class="container-show">
   <div class="row">
-    <div class="col-md-12">
-      <% if user_signed_in? && (current_user_admin? || current_user_moderator?) %>
-        <%= link_to "New Blog", blogs_add_new_post_path, class: "btn btn-normal", id: "new-blog-path" %>
-      <% end %>
-      <% if @blogs.empty? %>
-        <h1 id="no-blogs">No Blogs Created</h1>
-      <% else %>
-        <% @blogs.each do |blog| %>
-          <div class="card card-body">
-            <div class="blog-title">
-              <%= link_to blog.title, blog_path(blog) %>
-              <%= image_tag blog.image, width:'100%' %>
-            </div>
-            <div class="blog-body">
-              <%= truncate(blog.content, length: 500) %>
-            </div>
-            <div class="author">
-              <small>Created by: <%= blog.user.full_name %></small>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+    <%= render "featured" %>
+      <%#= render partial: "featured", locals: {blogs: @blogs_featured.limit(2)} %>
+  </div><br />
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <div class="row">
+        <%= render partial: "list", locals: {blogs: @blogs} %>
+      </div>
+    </div>
+    <div class="d-none d-md-block col-md-4 ">
+      <div class="card">
+        <div class="card-header">Featured Listings</div>
+        <div class="card-body">
+          <p>Long-established companies and well-funded startups seem equally likely to make those kinds of outsized offers, according to David Schwartz, chief cryptographer at blockchain firm Ripple, who told the newspaper that he saw two seven-figure offers dangled before a promising blockchain developer.
+
+            (Just in case your blockchain knowledge is a little rusty, here’s a simplistic definition of the technology: a blockchain is a distributed database that maintains a chain of “blocks,” or records with a timestamp and a link to the previous block. It’s extremely difficult for a user to retroactively alter the data within a block without someone noticing, making it effective for things such as cryptocurrency and online contracting.)
+
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

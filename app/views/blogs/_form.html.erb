@@ -1,23 +1,31 @@
 
-<%= form_for(@blog, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+<%= form_for @blog do |f| %>
   <div class="form-group">
     <div class="row justify-content-md-center">
       <% if current_user_admin? || current_user.superadmin? %>
         <div class="col-md-10">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group ">
-                <%= f.label :blog_feature, "Featured:", class: "col-12 col-form-label text-left"%>
+                <%= f.label :blog_feature, "Blog Display:", class: "col-12 col-form-label text-left"%>
                 <div class="col-12">
-                  <%= f.select :blog_feature, Blog.blog_features.map { |key, value| [key.humanize, key]}, selected: "Non_Featured", prompt: "Select...", class: "form-control" %>
+                  <%= f.select :blog_feature, Blog.blog_features.map { |key, value| [key.humanize, key]}, prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
+              <div class="form-group ">
+                <%= f.label :feature, "Featured:", class: "col-12 col-form-label text-left"%>
+                <div class="col-12">
+                  <%= f.select :feature, Blog.features.map { |key, value| [key.humanize, key]}, prompt: "Select...", class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
               <div class="form-group ">
                 <%= f.label :blog_pro, "Pro:", class: "col-12 col-form-label text-left"%>
                 <div class="col-12">
-                  <%= f.select :blog_pro, Blog.blog_pros.map { |key, value| [key.humanize, key]}, selected: "Basic", prompt: "Select...", class: "form-control" %>
+                  <%= f.select :blog_pro, Blog.blog_pros.map { |key, value| [key.humanize, key]}, prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
             </div>

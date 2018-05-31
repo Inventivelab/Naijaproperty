@@ -1204,6 +1204,33 @@ button {
     color: #90bdbe;
   }
 }
+//blogs
+.blog-overlay{
+  bottom: 0;
+  top: 40%;
+  background-color: black;
+  padding: 10px;
+  z-index: 0;
+  opacity: 0.6;
+}
+.blog-featured{
+  h5, p, a{
+    color: white;
+
+  }
+}
+
+
+//blog media
+// @media screen and (max-width: 650px) {
+//   .blog_content{
+//     .card{
+//       .card-text{
+//         display: none;
+//       }
+//     }
+//   }
+// }
 
 // User Page
 @media screen and (max-width: 580px) {
