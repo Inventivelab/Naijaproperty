@@ -4,9 +4,10 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all.recent
+    @blogs = Blog.all.recent.page(params[:page] || 1).per(6)
     @blogs_featured = Blog.where(feature: 1).recent_updated.limit(3)
     @blogs_pro = Blog.where(blog_pro: 1).recent_updated.limit(3)
+    @listings = Listing.where(featured: 1).limit(3)
   end
 
   def new

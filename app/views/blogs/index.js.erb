@@ -1,0 +1,7 @@
+$('#blogs').append('<%= j render partial: "list", locals: { blogs: @blogs } %>');
+<% if @blogs.next_page %>
+  $('.pagination').replaceWith('<%= j paginate(@blogs) %>')
+<% else %>
+  $('.pagination').remove;
+<% end %>
+<% sleep 1 %>

@@ -1,0 +1,37 @@
+<% listings.each do |listing| %>
+  <!-- <div class="col-md-3 col-sm-6"> -->
+    <div class="card ">
+      <div class="card-header preview">
+        <%= link_to(listing) do %>
+          <%= image_tag listing.backgroud_image(:medium)%>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <h5><%= link_to listing.listing_title, listing %></h5>
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= listing.listing_type %>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+              ₦&nbsp;<%= listing.prices %>
+          </div><br>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= fa_icon "bed", text: pluralize(listing.bedroom, "Bed"), left: true  %>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <%= fa_icon "bath", text: pluralize(listing.bathroom, "Bath"), left: true  %>
+          </div>
+
+        </div>
+
+      </div>
+
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item"><%= listing.location %></li>
+      </ul>
+        <!-- <div id="star_<%#= listing.id%>"></div><%#= pluralize(listing.average_rating, "Review")%> -->
+      <!-- </div> -->
+    </div><br>
+  <!-- </div> -->
+<% end %>

@@ -1,23 +1,27 @@
 <div class="container-show">
   <div class="row">
     <%= render "featured" %>
-      <%#= render partial: "featured", locals: {blogs: @blogs_featured.limit(2)} %>
   </div><br />
   <div class="row">
     <div class="col-md-8 col-sm-12">
       <div class="row">
-        <%= render partial: "list", locals: {blogs: @blogs} %>
+        <%#= render @blogs %>
+        <div id="blogs">
+          <%= render partial: "list", locals: {blogs: @blogs} %>
+        </div>
+
+      </div>
+      <div class="container">
+        <%= paginate @blogs %>
       </div>
     </div>
     <div class="d-none d-md-block col-md-4 ">
-      <div class="card">
+      <div class="card border-light">
         <div class="card-header">Featured Listings</div>
         <div class="card-body">
-          <p>Long-established companies and well-funded startups seem equally likely to make those kinds of outsized offers, according to David Schwartz, chief cryptographer at blockchain firm Ripple, who told the newspaper that he saw two seven-figure offers dangled before a promising blockchain developer.
-
-            (Just in case your blockchain knowledge is a little rusty, here’s a simplistic definition of the technology: a blockchain is a distributed database that maintains a chain of “blocks,” or records with a timestamp and a link to the previous block. It’s extremely difficult for a user to retroactively alter the data within a block without someone noticing, making it effective for things such as cryptocurrency and online contracting.)
-
-          </p>
+          <div class="row">
+            <%= render partial: "listings/listings_for_blogs", locals: {listings: @listings} %>
+          </div>
         </div>
       </div>
     </div>
