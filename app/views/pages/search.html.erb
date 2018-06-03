@@ -5,7 +5,6 @@
         <div class="d-none d-sm-block col-lg-1 col-md-2 col-sm-2 fa-icon-main">
           <%= link_to "", search_path, class: "fa fa-map-marker fa-icon-text"%>
           <%= link_to "", search_list_path, class: "fa fa-align-justify fa-icon-text"%>
-
         </div>
         <div class="col-lg-11 col-md-10 col-sm-10">
           <%= search_form_for @search, url: search_path, remote: true do |f| %>
@@ -43,8 +42,8 @@
   </div>
 
   <div class="col-md-6 col-sm-6 col-12" id="right_search_page" >
-
     <div class="row">
+
       <div class="container-search " >
         <div id="listings_list">
           <%= render partial: "listings/listings_sales", locals: { listings: @arrListings }%>
@@ -53,8 +52,31 @@
           <%= paginate @listings, theme: 'twitter-bootstrap-4', :pagination_class => "pagination-small pagination-centered", remote: true %>
           <%#= will_paginate @arrListings, renderer: BootstrapPagination::Rails, class: 'pull-left paginate' %>
         </div>
+        <br>
+        <hr><br>
 
-        <br><br><br><br>
+        <div class='col-md-12 justify-content-center'>
+          <span><%= link_to " About Us", about_path %></span>
+          <span><%= link_to "Blogs", blogs_path %></span>
+          <span><%= link_to " Privacy Policy", privacy_path %></span>
+           <span><%= link_to " Terms of Service", terms_of_service_path %></span>
+
+          <span><%= link_to ' Contact Us', support_path %></span><br>
+        </div>
+        <hr>
+        <div class='col-md-12'>
+
+          <a href = "https://www.linkedin.com/company/naijaproperty" target="_blank"><i class="fa fa-linkedin np-fa"></i></a>
+          <a href = "https://www.facebook.com/naijaproperty" target="_blank"><i class="fa fa-facebook np-fa"></i></a>
+          <a href = "https://twitter.com/naijaproperty2" target="_blank"><i class="fa fa-twitter np-fa"></i></a>
+          <a href = "https://youtube.com/saidmaadan" target="_blank"><i class="fa fa-youtube np-fa"></i></a>
+          <a href = "https://pinterest.com/naijaproperty" target="_blank"><i class="fa fa-pinterest np-fa"></i></a>
+          <a href = "https://google.com/saidmaadan" target="_blank"><i class="fa fa-google-plus-square np-fa"></i></a>
+          <a href = "https://instagram.com/naijapropertydotcom" target="_blank"><i class="fa fa-instagram np-fa"></i></a>
+          <div class='copy center-text ele-12'>
+      			<p ><span>&copy; 2010 - 2018 NaijaProperty.Com.</span> All rights reserved. <br> Made with <i class='fa fa-heart '></i> at <a href = "http://inventivelabs.co" target="_blank">Inventive Labs</a></p>
+      		</div>
+        </div>
       </div>
     </div>
   </div>

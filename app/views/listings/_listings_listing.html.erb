@@ -30,7 +30,7 @@
               <%= listing.listing_type %>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              N<%= listing.price || listing.rent_price || listing.short_stay_price %>
+                <%= price_to_currency(@listing.prices)%>
             </div><br>
             <div class="col-lg-6 col-md-12 col-sm-6 col-6">
               <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>

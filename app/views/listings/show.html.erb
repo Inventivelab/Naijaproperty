@@ -18,7 +18,12 @@
         <span><%= @listing.location %></span>
       </div>
       <div class="d-none d-sm-block col-sm-4 col-md-3 ">
-        <span class="pull-right"><%= pluralize(@listing.bedroom, "") %><i class="fa fa-bed"></i> &nbsp;&nbsp;&nbsp;&nbsp; <%= pluralize(@listing.bathroom, "") %><i class="fa fa-bath"></i><br>₦ <%= @listing.price || @listing.rent_price || @listing.short_stay_price %></span>
+        <span class="pull-right"><%= pluralize(@listing.bedroom, "") %><i class="fa fa-bed"></i> &nbsp;&nbsp;&nbsp;&nbsp; <%= pluralize(@listing.bathroom, "") %><i class="fa fa-bath"></i><br>
+          <!-- ₦ <%= @listing.price || @listing.rent_price || @listing.short_stay_price %> -->
+          <%#= number_to_currency(@listing.prices, :unit => "₦", :separator => ".", :delimiter => ",") %>
+
+          <%= price_to_currency(@listing.prices)%>
+        </span>
       </div>
     </div>
   </div>

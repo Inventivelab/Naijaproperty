@@ -7,7 +7,7 @@
         <% end %>
       </div>
       <div class="card-info">
-        <p class="card-title">N<%= listing.price || listing.rent_price || listing.short_stay_price %></p>
+        <p class="card-title"> <%= price_to_currency(listing.prices)%></p>
       </div>
       <ul class="list-group list-group-flush">
         <%= link_to(listing) do %>

@@ -131,7 +131,7 @@ footer a:active {
 
 
 // Components & Utilities
-.small_ele{
+.small_ele, .ele-10{
   font-size: 10px;
 }
 .ele-12{
@@ -843,6 +843,15 @@ a:hover {
 
 
 // listing
+.listings_sales{
+  .card-title a{
+    color: white;
+  }
+  .card-footer{
+    background-color: #519798;
+    color: white;
+  }
+}
 .draft-status{
   width: 100%;
   margin-top: 20px;

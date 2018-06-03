@@ -50,6 +50,7 @@
                 <h5 class="card-title listing_one_title"><%= link_to listing.listing_title, listing %></h5>
                 <p class="card-text"><%= listing.location %></p>
                 <p class="listing_one_desc"><%= sanitize listing.description.truncate(300, separator: ' ').html_safe %></p>
+                <p class="card-text"><%= price_to_currency(listing.prices)%></p>
               </div>
 
             </div>

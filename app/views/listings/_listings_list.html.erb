@@ -7,13 +7,13 @@
         <% end %>
       </div>
       <div class="card-body">
-        <h5><%= link_to listing.listing_title, listing %></h5>
+        <h5><%= link_to listing.listing_title, listing, class: "ele-14" %></h5>
         <div class="row">
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
             <%= listing.listing_type %>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              ₦&nbsp;<%= listing.prices %>
+                <%= price_to_currency(listing.prices)%>
           </div><br>
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
             <%= fa_icon "bed", text: pluralize(listing.bedroom, "Bed"), left: true  %>
@@ -21,7 +21,7 @@
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
             <%= fa_icon "bath", text: pluralize(listing.bathroom, "Bath"), left: true  %>
           </div>
-          
+
         </div>
 
       </div>

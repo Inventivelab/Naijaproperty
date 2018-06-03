@@ -18,7 +18,7 @@ class PagesController < ApplicationController
   end
 
   def search
-
+    #@listings = current_user.listings.build
   end
 
   def search_list
@@ -104,7 +104,7 @@ private
     end
 
     @search = @listings_address.ransack(params[:q])
-    @listings = @search.result.page(params[:page] || 1).per(3)
+    @listings = @search.result.page(params[:page] || 1).per(15)
 
     @arrListings = @listings.to_a
 

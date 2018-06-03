@@ -10,7 +10,8 @@
         <% end %>
       </div>
       <div class="card-body">
-        <h5 class="card-title">N<%= listing.price || listing.rent_price || listing.short_stay_price %></h5>
+        <h5 class="card-title">  <%= price_to_currency(listing.prices)%></h5>
+          <!-- N<%= listing.price || listing.rent_price || listing.short_stay_price %></h5> -->
 
       </div>
       <ul class="list-group list-group-flush">

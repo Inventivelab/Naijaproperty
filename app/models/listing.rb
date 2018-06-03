@@ -45,6 +45,10 @@ class Listing < ApplicationRecord
       end
     end
 
+    def price_to_currency(prices)
+      number_to_currency(@prices, :unit => "₦", :separator => ".", :delimiter => ",")
+    end
+
    def backgroud_image(size)
     if self.photos.length > 0
       self.photos[0].image.url(size)

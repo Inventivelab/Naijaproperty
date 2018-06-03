@@ -1,59 +1,36 @@
 <% listings.each do |listing| %>
-  <div class="col-md-12 col-sm-12">
-    <div class="card-box">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-          <div class="card-box-header">
+  <div class="col-md-12 col-sm-12 listings_sales">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title"><%= link_to listing.listing_title, listing %></h5>
+        <span><%= listing.location%></span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-7 col-md-12 col-sm-12 col-12">
             <div class="single-item">
               <% listing.photos.each do |photo| %>
                 <%= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "280px" %>
               <% end %>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-md-6 col-sm-12 col-12">
-          <div class="card-box-body container">
-            <h5 class="card-title"><%= link_to listing.listing_title, listing %></h5>
 
           </div>
-
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                  <i class="fa fa-home"></i>&nbsp;&nbsp;<%= listing.listing_type %>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                  <i class="fa fa-money"></i>&nbsp;&nbsp;₦ <%= listing.price || listing.rent_price || listing.short_stay_price %>
-                  <!-- <i class="fa fa-home">&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Home") %> -->
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-6">
-                  <i class="fa fa-bed"></i>&nbsp;&nbsp;<%= pluralize(listing.bedroom, "Bed") %>
-                </div>
-                <div class="col-md-6 col-sm-6 col-6">
-                  <i class="fa fa-bath"></i>&nbsp;&nbsp;<%= pluralize(listing.bathroom, "Bath") %>
-                </div>
-
-              </div>
-
-            </li>
-            <li class="list-group-item"><%= listing.location%><br>
-              <%= button_tag fa_icon "phone", text: listing.user.phone if listing.user.phone  %>
-              <%#= render 'availabilities/availability_listing' %>
-            </li>
-
-          </ul>
+          <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+            <h3></i><%= price_to_currency(listing.prices)%></h3>
+            <p>
+              <i class="fa fa-home"></i>&nbsp;&nbsp;<%= listing.listing_type %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= pluralize(listing.bedroom, '') %>&nbsp;&nbsp;<i class="fa fa-bed"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= pluralize(listing.bathroom, '') %>&nbsp;<i class="fa fa-bath"></i>
+            </p>
+            <p class="listing_one_desc"><%= sanitize listing.description.truncate(100, separator: ' ').html_safe %></p>
+            <%= button_tag fa_icon "phone", text: listing.user.phone if listing.user.phone  %>
+            <%#= render 'contacts/availability' %>
+          </div>
         </div>
       </div>
-    </div>
+    </div><br />
   </div>
 <% end %>
-
-
 
 <script>
   $(document).ready(function(){

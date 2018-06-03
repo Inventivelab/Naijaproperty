@@ -13,7 +13,7 @@
             <%= listing.listing_type %>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-              ₦&nbsp;<%= listing.prices %>
+              <%= price_to_currency(listing.prices)%>
           </div><br>
           <div class="col-lg-6 col-md-12 col-sm-6 col-6">
             <%= fa_icon "bed", text: pluralize(listing.bedroom, "Bed"), left: true  %>

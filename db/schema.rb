@@ -192,9 +192,8 @@ ActiveRecord::Schema.define(version: 20180530155507) do
     t.boolean "garage"
     t.boolean "other_parking"
     t.string "swimming_pool"
-    t.integer "status", default: 0
-    t.string "listing_photos"
     t.integer "featured", default: 0
+    t.integer "status", default: 1
     t.integer "listing_status", default: 1
     t.index ["slug"], name: "index_listings_on_slug", unique: true
     t.index ["user_id"], name: "index_listings_on_user_id"
@@ -237,7 +236,6 @@ ActiveRecord::Schema.define(version: 20180530155507) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.string "listing_images"
     t.index ["listing_id"], name: "index_photos_on_listing_id"
   end
 
