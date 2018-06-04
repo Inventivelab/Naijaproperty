@@ -858,23 +858,25 @@ a:hover {
   padding: 20px 20px;
   margin: 20px auto;
   .social-footer-search-fa{
-    margin: 20px auto;
+
     .np-fa{
+      margin-top: 20px;
       border: 2px solid #999;
       border-radius: 100px;
       padding: 5px;
       background-color: #999;
       color: #fff;
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
   .social-footer-sitelink a{
-    color: black;
+    color: #999;
     padding: 0 15px;
   }
   .social-footer-sitelink a:hover{
     text-decoration: underline;
+    color: #339999;
   }
 
 }
