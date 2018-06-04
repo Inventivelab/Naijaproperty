@@ -1137,14 +1137,15 @@ button {
 }
 
 #list_right_search_page{
-  height: 650px;
-  overflow: hidden;
+  height: auto;
+
 }
 #list_search_page{
-  height: 650px;
-  overflow: scroll;
-  width: 90%;
+  height: auto;
+  // overflow: scroll;
+  width: 100%;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .search-top{

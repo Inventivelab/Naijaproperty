@@ -44,7 +44,7 @@ class PagesController < ApplicationController
     @listings = @sales.result.page(params[:page] || 1).per(3)
 
     @arrListings = @listings.to_a
-    @listings_sales = Listing.all.where(listing_type: "For Sale").limit(15)
+    @listings_sales = Listing.all.where(listing_type: "For Sale").limit(14)
     @arrListings = @listings.to_a
 
   end
@@ -64,7 +64,7 @@ class PagesController < ApplicationController
     @listings = @rent.result.page(params[:page] || 1).per(3)
 
     @arrListings = @listings.to_a
-    @listings_rent = Listing.all.where(listing_type: "For Rent").limit(15)
+    @listings_rent = Listing.all.where(listing_type: "For Rent").limit(14)
     @arrListings = @listings.to_a
 
   end
@@ -85,7 +85,7 @@ class PagesController < ApplicationController
     @listings = @short_stay.result.page(params[:page] || 1).per(3)
 
     @arrListings = @listings.to_a
-    @listings_short_stay = Listing.all.where(listing_type: "Short Stay").limit(15)
+    @listings_short_stay = Listing.all.where(listing_type: "Short Stay").limit(14)
     @arrListings = @listings.to_a
 
   end
@@ -104,7 +104,7 @@ private
     end
 
     @search = @listings_address.ransack(params[:q])
-    @listings = @search.result.page(params[:page] || 1).per(15)
+    @listings = @search.result.page(params[:page] || 1).per(14)
 
     @arrListings = @listings.to_a
 

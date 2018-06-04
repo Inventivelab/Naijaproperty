@@ -1,22 +1,23 @@
 <% listings.each do |listing| %>
-  <div class="col-md-12 col-sm-12 listings_sales">
+  <div class="col-md-6 col-sm-6 listings_sales">
     <div class="card">
       <div class="card-header">
-        <span class="card-title"><%= link_to listing.listing_title, listing %></span><br>
-        <span class='card-span' ><%= listing.location%></span>
+        <span class="card-title"><%= link_to listing.listing_title, listing %></span>
+
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-7 col-md-12 col-sm-12 col-12">
+          <div class="col-lg-6 col-md-12 col-sm-12 col-12">
             <div class="single-item">
               <% listing.photos.each do |photo| %>
-                <%= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "280px" %>
+                <%= image_tag photo.image.url(), class: "card-img-top", width: '100%', height: "240px" %>
               <% end %>
             </div>
 
           </div>
-          <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+          <div class="col-lg-6 col-md-12 col-sm-12 col-12">
             <h3 class="listing_sales_price"></i><%= price_to_currency(listing.prices)%></h3>
+            <span class='card-span' ><i class="fa fa-map-marker"></i>&nbsp;<%= listing.location%></span><br><br>
             <p>
               <i class="fa fa-home"></i>&nbsp;<%= listing.listing_type %>&nbsp;&nbsp;&nbsp;&nbsp;
               <% if listing.property_type == "Land" %>
@@ -27,7 +28,6 @@
                 <i class="fa fa-building"></i>&nbsp;<%= listing.property_type %>
               <% end %>
             </p>
-            <p class="listing_one_desc"><%= sanitize listing.description.truncate(100, separator: ' ').html_safe %></p>
             <%= button_tag fa_icon "phone", text: listing.user.phone if listing.user.phone  %>
             <%#= render 'contacts/availability' %>
           </div>

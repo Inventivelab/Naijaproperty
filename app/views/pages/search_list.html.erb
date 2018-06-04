@@ -14,7 +14,7 @@
               <!-- <div > -->
                 <%= f.select :bedroom_gteq, [["1 Bedroom", 1], ["2 Bedrooms", 2], ["3 Bedrooms", 3], ["4 Bedrooms", 4], ["5 Bedrooms", 5], ["6+ Bedrooms", 6]], id: "bedroom", prompt: "Bedroom...", class: "form-control d-none d-sm-block" %>
                 <%= f.select :bathroom_gteq, [["1 Bathroom", 1], ["2 Bathrooms", 2], ["3 Bathrooms", 3], ["4 Bathrooms", 4], ["5 Bathrooms", 5], ["6+ Bathrooms", 6]], id: "bathroom", prompt: "Bathroom...", class: "form-control"  %>
-                <%= f.select :listing_type_eq_any, [["Short Stay", "Short Stay"],["For Sale", "For Sale"], ["For Rent", "For Rent"]], id: "listing_type", prompt: "Property-Type", class: "form-control " %>
+                <%= f.select :listing_type_eq_any, [["Short Stay", "Short Stay"],["For Sale", "For Sale"], ["For Rent", "For Rent"]], id: "listing_type", prompt: "Type", class: "form-control " %>
                 <%= f.select :property_type_eq_any, [["Apartments/Flats", "Apartments/Flats"], ["Blocks Of Flats", "Blocks Of Flats"], ["Luxury Serviced Apartments", "Luxury Serviced Apartments"],
                               ["Bungalow", "Bungalow"], ["Duplexes", "Duplexes"], ["Self Contained/Studio", "Self Contained/Studio"],["Townhouses", "Townhouses"],
                               ["Penthouse", "Penthouse"], ["Terraces", "Terraces"], ["Commercial Property", "Commercial Property"], ["Industrial/Warehouse", "Industrial/Warehouse"],
@@ -38,21 +38,14 @@
 
 <div class="container-show"><br>
   <div class="row">
-    <div class="col-md-4 d-none d-md-block" id="list_right_search_page" >
-      <div class="card">
-        <div class="card-header">
-          <h3>This is Awesome</h3>
-        </div>
-        <div class="card-body">
-          Unfortunately these new bootstrap 4 classes do not work like the old ones on a div using collapse as they set the visible div to block which starts out visible rather than hidden and if you add an extra div around the collapse functionality no longer works.
-        </div>
-      </div>
-    </div>
-    <div class="col-md-8 col-sm-12 col-12" id="list_search_page" >
+
+    <div class="col-md-12 col-sm-12 col-12" id="list_search_page" >
       <div class="row">
         <div class="col-12 container-search" >
           <div id="listings_list">
-            <%= render partial: "listings/listings_sales", locals: { listings: @arrListings }%>
+            <div class="row">
+              <%= render partial: "listings/listings_sales_list", locals: { listings: @arrListings }%>
+            </div>
           </div>
           <div id="paginator">
             <%= paginate @listings, theme: 'twitter-bootstrap-4', :pagination_class => "pagination-small pagination-centered", remote: true %>
@@ -61,7 +54,16 @@
       </div>
     </div>
 
-
+    <!-- <div class="col-md-4 d-none d-md-block" id="list_right_search_page" >
+      <div class="card">
+        <div class="card-header">
+          <h3>This is Awesome</h3>
+        </div>
+        <div class="card-body">
+          Unfortunately these new bootstrap 4 classes do not work like the old ones on a div using collapse as they set the visible div to block which starts out visible rather than hidden and if you add an extra div around the collapse functionality no longer works.
+        </div>
+      </div>
+    </div> -->
   </div>
 </div>
 <!-- </div> -->

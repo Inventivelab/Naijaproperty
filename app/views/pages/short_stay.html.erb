@@ -14,7 +14,7 @@
 
                 <%= text_field_tag :short_stay, params[:short_stay], placeholder: "Where are you going?",' aria-label':"Where are you going?", 'aria-describedby':"basic-addon2", class: "form-control", id: "autolocation" %>
                 <!-- <div class="input-group-append"> -->
-                <%= hidden_field_tag "q[listing_type_eq_any][]", "Short Stay", id: "listing_type", prompt: "Property-Type", class: "form-control select-field" %>
+                <%= hidden_field_tag "q[listing_type_eq_any][]", "Short Stay", id: "listing_type", prompt: "Type", class: "form-control select-field" %>
                   <%= f.select :bedroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4+", 4], ["5", 5], ["6+", 6]], id: "bedroom", prompt: "  Bedroom...  ", class: "form-control select-field" %>
                   <%= f.select :bathroom_gteq, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["6+", 6]], id: "bathroom", prompt: "  Bathroom...", class: "form-control select-field"  %>
 
