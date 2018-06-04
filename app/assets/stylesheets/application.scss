@@ -15,6 +15,7 @@
  // toastr-green: #77b800
  // background #fbfcfc #fbfcfc
  // light-black #616161; #565A5C;
+ // red #ec6564
 
  body {
   color: #565a5c;
@@ -857,22 +858,27 @@ a:hover {
   height: auto;
   padding: 20px 20px;
   margin: 20px auto;
+  color: #999;
   .social-footer-search-fa{
 
     .np-fa{
       margin-top: 20px;
-      border: 2px solid #999;
+      border: 2px solid #cacaca;
       border-radius: 100px;
       padding: 5px;
-      background-color: #999;
+      background-color: #cacaca;
       color: #fff;
       font-size: 18px;
+    }
+    .np-fa:hover{
+      background-color: #999;
+      border: 2px solid #999
     }
   }
 
   .social-footer-sitelink a{
     color: #999;
-    padding: 0 15px;
+    padding: 0 10px;
   }
   .social-footer-sitelink a:hover{
     text-decoration: underline;
@@ -884,10 +890,21 @@ a:hover {
 .listings_sales{
   .card-title a{
     color: white;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .card-span{
+    font-size: 16px;
+    font-weight: 300;
   }
   .card-footer{
     background-color: #519798;
     color: white;
+  }
+  .listing_sales_price{
+    font-size: 24px;
+    font-weight: 700;
+    color: #339999;
   }
 }
 .draft-status{
