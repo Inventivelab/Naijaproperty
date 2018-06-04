@@ -42,10 +42,8 @@
     <div class="col-md-12 col-sm-12 col-12" id="list_search_page" >
       <div class="row">
         <div class="col-12 container-search" >
-          <div id="listings_list">
-            <div class="row">
-              <%= render partial: "listings/listings_sales_list", locals: { listings: @arrListings }%>
-            </div>
+          <div class="row" id= "listings_list">
+            <%= render partial: "listings/listings_sales_list", locals: { listings: @arrListings } %>
           </div>
           <div id="paginator">
             <%= paginate @listings, theme: 'twitter-bootstrap-4', :pagination_class => "pagination-small pagination-centered", remote: true %>
