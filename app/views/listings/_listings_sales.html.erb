@@ -2,7 +2,7 @@
   <div class="col-md-12 col-sm-12 listings_sales">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title"><%= link_to listing.listing_title, listing %></h5>
+        <p class="card-title ele-16" style: "font-weight: bold;"><%= link_to listing.listing_title, listing %></p>
         <span><%= listing.location%></span>
       </div>
       <div class="card-body">
@@ -18,9 +18,9 @@
           <div class="col-lg-5 col-md-12 col-sm-12 col-12">
             <h3></i><%= price_to_currency(listing.prices)%></h3>
             <p>
-              <i class="fa fa-home"></i>&nbsp;&nbsp;<%= listing.listing_type %>&nbsp;&nbsp;&nbsp;&nbsp;
-              <%= pluralize(listing.bedroom, '') %>&nbsp;&nbsp;<i class="fa fa-bed"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-              <%= pluralize(listing.bathroom, '') %>&nbsp;<i class="fa fa-bath"></i>
+              <i class="fa fa-home"></i>&nbsp;<%= listing.listing_type %>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= pluralize(listing.bedroom, '') %><i class="fa fa-bed"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= pluralize(listing.bathroom, '') %><i class=" fa fa-bath"></i>
             </p>
             <p class="listing_one_desc"><%= sanitize listing.description.truncate(100, separator: ' ').html_safe %></p>
             <%= button_tag fa_icon "phone", text: listing.user.phone if listing.user.phone  %>

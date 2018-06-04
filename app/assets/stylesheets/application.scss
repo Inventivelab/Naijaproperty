@@ -146,6 +146,18 @@ footer a:active {
 .ele-16{
   font-size: 16px
 }
+.ele-18{
+  font-size: 18px
+}
+.ele-20{
+  font-size: 20px
+}
+.ele-22{
+  font-size: 22px
+}
+.ele-24{
+  font-size: 24px
+}
 a {
  color: #339999;
 }
@@ -840,8 +852,32 @@ a:hover {
     -moz-appearance: none;
     -webkit-appearance: none;
 }
+.social-footer-search{
+  text-align: center;
+  height: auto;
+  padding: 20px 20px;
+  margin: 20px auto;
+  .social-footer-search-fa{
+    margin: 20px auto;
+    .np-fa{
+      border: 2px solid #999;
+      border-radius: 100px;
+      padding: 5px;
+      background-color: #999;
+      color: #fff;
+      font-size: 20px;
+    }
+  }
 
+  .social-footer-sitelink a{
+    color: black;
+    padding: 0 15px;
+  }
+  .social-footer-sitelink a:hover{
+    text-decoration: underline;
+  }
 
+}
 // listing
 .listings_sales{
   .card-title a{
