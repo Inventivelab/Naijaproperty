@@ -1,5 +1,0 @@
-$("#listings_list").html('<%= escape_javascript render partial: "listings_sales", locals: { listings: @arrListings } %>')
-$("#paginator").html("<%= escape_javascript(paginate(@listings, remote: true)) %>")
-
-$("#listings_list").html('<%= j render partial: "listings_sales", locals: { listings: @arrListings }%>')
-initialize(<%= raw @arrListings.to_json %>)
