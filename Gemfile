@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.6.4'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -9,6 +9,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
+#gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -82,5 +83,6 @@ gem 'bootstrap4-kaminari-views', '~> 1.0'
 gem 'social-share-button'
 gem 'ckeditor_rails'
 gem 'activeadmin'
+gem "webpacker"
 # gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 # gem 'will_paginate-bootstrap'

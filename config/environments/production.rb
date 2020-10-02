@@ -18,7 +18,6 @@ Rails.application.configure do
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
   # `config/secrets.yml.key`.
   config.read_encrypted_secrets = true
-  config.assets.precompile += ['ckeditor/*']
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -60,7 +59,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "Naijaproperty_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "naijaproperty_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -87,36 +86,6 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # config.active_record.dump_schema_after_migration = false
-  config.action_cable.allowed_request_origins = ['https://naijaproperty.herokuapp.com','http://naijaproperty.herokuapp.com']
-  config.action_cable.url = "WSS://naijaproperty.herokuapp.com/cable"
-
-  Rails.application.config.action_cable.disable_request_forgery_protection = true
-
-  # config.action_cable.url = "ws://naijaproperty.herokuapp.com/cable"
-
-  config.action_mailer.default_url_options = { host: 'naijaproperty.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    post: 587,
-    domain: 'naijaproperty.herokuapp.com',
-    user_name: ENV["sendgrid_username"],
-    password: ENV["sendgrid_password"],
-    authentication: 'plain'
-
-  }
-
-  config.paperclip_defaults = {
-    storage: :s3,
-    path: ':class/:attachment/:id/:style/:filename',
-    s3_host_name: ENV["aws_host_name"],
-    s3_credentials: {
-      bucket: ENV["s3_bucket_name"],
-      access_key_id: ENV["aws_access_key_id"],
-      secret_access_key: ENV["aws_secret_access_key"],
-      s3_region:ENV["aws_region"]
-    }
-  }
-
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end

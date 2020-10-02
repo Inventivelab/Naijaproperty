@@ -23,7 +23,7 @@
       <ul class="navbar-nav mr-auto ">
         <% if user_signed_in? %>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" data-toggle="dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.pictures.count > 0 %>
                 <%= image_tag current_user.pictures[0].avatar.url(), class: 'rounded-circle avatar_small' %>
