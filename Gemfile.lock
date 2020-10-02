@@ -246,7 +246,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (3.12.6)
     rack (2.0.5)
     rack-proxy (0.6.5)
       rack
@@ -403,7 +403,7 @@ DEPENDENCIES
   omniauth-facebook (~> 4.0)
   paperclip (~> 5.1)
   pg (~> 0.18)
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.4)
   ransack (~> 1.8, >= 1.8.4)
   redis (~> 4.0, >= 4.0.1)
