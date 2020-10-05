@@ -69,6 +69,6 @@ Rails.application.routes.draw do
   get '/support' => 'supports#new'
 
 
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
 
 end
