@@ -68,7 +68,4 @@ Rails.application.routes.draw do
   resources :supports, only: [:new, :create]
   get '/support' => 'supports#new'
 
-
-  # mount ActionCable.server => '/cable'
-
 end
